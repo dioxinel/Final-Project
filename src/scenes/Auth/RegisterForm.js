@@ -1,43 +1,43 @@
 import React from 'react';
+import { Input } from '../components/Input';
 
 
 export function RegisterForm({fields, changeFieldValue, handleSubmit}) {
-  
   return (
       <form 
         onSubmit={(evt) => handleSubmit(evt)} 
         className="RegisterForm">
-        <input 
+        <Input
           type="text" 
           name="fullName" 
-          value={fields.fullName} 
-          onChange={changeFieldValue}
+          value={fields.fullName}
+          validationPattern={/^[a-zA-Z\s]+$/}
+          changeFieldValue={changeFieldValue}
           placeholder={'Full Name'}
-          className={'textInput'}
         />
-        <input 
+        <Input 
           type="email" 
           name="email" 
-          value={fields.email} 
-          onChange={changeFieldValue}
+          value={fields.email}
+          validationPattern={/\S+@\S+/}
+          changeFieldValue={changeFieldValue}
           placeholder={'Email'}
-          className={'textInput'}
         />
-        <input 
+        <Input 
           type="text" 
           name="phone" 
           value={fields.phone} 
-          onChange={changeFieldValue}
+          validationPattern={/^(\+)?([0-9]){10,14}$/}
+          changeFieldValue={changeFieldValue}
           placeholder={'Phone number'}
-          className={'textInput'}
         />
-        <input 
+        <Input 
           type="password" 
           name="password" 
           value={fields.password} 
-          onChange={changeFieldValue}
+          validationPattern={/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,35}$/}
+          changeFieldValue={changeFieldValue}
           placeholder={'Password'}
-          className={'textInput'}
         />
         <button type={'submit'}>Register</button>
       </form>

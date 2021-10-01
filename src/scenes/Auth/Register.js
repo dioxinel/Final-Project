@@ -5,7 +5,7 @@ import { RegisterForm } from './RegisterForm';
 
 export function Register() {
   const { fields, changeFieldValue, reset } = useFormFields({
-    fullName: '', 
+    fullName: '',
     email: '',
     password: '',
     phone: ''
@@ -15,7 +15,6 @@ export function Register() {
     evt.preventDefault()
     const res = await api.register(fields)
     console.log(res)
-    console.log(fields)
     reset()
   }
 
