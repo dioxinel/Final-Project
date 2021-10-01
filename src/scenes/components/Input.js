@@ -6,7 +6,9 @@ export function Input({changeFieldValue, validationPattern, className, ...props}
 
   const handleChange = (evt) => {
     changeFieldValue(evt)
-    setErr(!validationPattern.test(evt.target.value))
+    if(validationPattern) {
+      setErr(!validationPattern.test(evt.target.value))
+    }
   }
   return (
     <input 

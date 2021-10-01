@@ -1,4 +1,5 @@
 import { BrowserRouter, Switch, Route} from "react-router-dom";
+import { Login } from "../scenes/Auth/Login";
 import { Register } from "../scenes/Auth/Register";
 
 export const MainLayout = () => (
@@ -9,6 +10,9 @@ export const MainLayout = () => (
       </Route>
       <Route exact path={'/auth/register'}>
         <Register />
+      </Route>
+      <Route exact path={'/auth/login'}>
+        <Login />
       </Route>
     </Switch>
   </BrowserRouter>
