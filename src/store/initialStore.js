@@ -1,3 +1,3 @@
 export const initialStore = {
-	viewer: null,
+	viewer: {},
 };

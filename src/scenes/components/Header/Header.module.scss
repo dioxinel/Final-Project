@@ -1,0 +1,25 @@
+.header {
+	width: calc(100% - 320px);
+	height: 76px;
+
+	padding: 0 160px;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	background-color: #110f21;
+}
+
+.rightPartHeader {
+	display: flex;
+	align-items: center;
+}
+
+.savedIcon {
+	margin-right: 25px;
+}
+
+.basketIcon {
+	margin-right: 32px;
+}
