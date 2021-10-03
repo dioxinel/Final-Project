@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import api from '../../api';
 import { setViewer } from '../../store/actions';
 import { useFormFields } from '../../useFormFields';
@@ -11,7 +11,7 @@ export function Login() {
 		password: '',
 	});
 	const dispatch = useDispatch();
-	const viewer = useSelector((store) => store.viewer);
+
 	const handleSubmit = async (evt) => {
 		evt.preventDefault();
 
@@ -25,7 +25,6 @@ export function Login() {
 
 	return (
 		<div className="Register">
-			{viewer ? <h1>{viewer.viewer.id}</h1> : '123'}
 			<LoginForm
 				fields={fields}
 				changeFieldValue={changeFieldValue}
