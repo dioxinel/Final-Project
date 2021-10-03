@@ -1,1 +1,1 @@
-export const itemsSelector = store => store.items;
+export const viewerSelector = (store) => store.viewer;

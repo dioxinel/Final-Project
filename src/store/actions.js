@@ -1,3 +1,3 @@
-import { createAction } from "@reduxjs/toolkit";
+import { createAction } from '@reduxjs/toolkit';
 
-export const addItem = createAction('item/add')
+export const setViewer = createAction('viewer/set');

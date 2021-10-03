@@ -1,8 +1,8 @@
-import { configureStore } from '@reduxjs/toolkit'
-import { itemsReducer } from './reducer'
-import { initialStore } from './initialStore'
+import { configureStore } from '@reduxjs/toolkit';
+import { initialStore } from './initialStore';
+import { viewerReducer } from './reducer';
 
 export const store = configureStore({
-  reducer: itemsReducer,
-  preloadedState: initialStore
-})
+	reducer: { viewer: viewerReducer },
+	preloadedState: initialStore,
+});
