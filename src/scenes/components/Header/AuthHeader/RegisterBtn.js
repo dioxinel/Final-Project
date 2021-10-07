@@ -1,12 +1,10 @@
 import React from 'react';
-import { useHistory } from 'react-router';
 import s from './AuthHeader.module.scss';
 
-export function RegisterBtn() {
-	const history = useHistory();
-
+export function RegisterBtn({ setIsOpen, setModalCondition }) {
 	const handleClick = () => {
-		history.push('/auth/register');
+		setIsOpen(true);
+		setModalCondition(false);
 	};
 
 	return (

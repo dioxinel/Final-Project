@@ -1,6 +1,4 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { Login } from '../scenes/Auth/Login';
-import { Register } from '../scenes/Auth/Register';
 import { Header } from '../scenes/components/Header/Header';
 
 export const MainLayout = () => (
@@ -11,10 +9,10 @@ export const MainLayout = () => (
 				<div>Home page</div>
 			</Route>
 			<Route exact path={'/auth/register'}>
-				<Register />
+				Reg
 			</Route>
 			<Route exact path={'/auth/login'}>
-				<Login />
+				Log
 			</Route>
 		</Switch>
 	</BrowserRouter>

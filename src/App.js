@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import Modal from 'react-modal';
 import './App.css';
 import { rotesConfig } from './router/rotesConfig.js';
 import { RotesGenerator } from './router/RotesGenerator.js';
@@ -16,5 +17,7 @@ function App() {
 		</div>
 	);
 }
+
+Modal.setAppElement('#modalRoot');
 
 export default App;

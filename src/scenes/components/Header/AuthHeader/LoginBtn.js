@@ -1,12 +1,10 @@
 import React from 'react';
-import { useHistory } from 'react-router';
 import s from './AuthHeader.module.scss';
 
-export function LoginBtn() {
-	const history = useHistory();
-
+export function LoginBtn({ setIsOpen, setModalCondition }) {
 	const handleClick = () => {
-		history.push('/auth/login');
+		setIsOpen(true);
+		setModalCondition(true);
 	};
 
 	return (
