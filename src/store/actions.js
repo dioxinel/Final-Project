@@ -2,6 +2,7 @@ import { createAction } from '@reduxjs/toolkit';
 import api from '../api';
 
 export const setViewer = createAction('viewer/set');
+export const removeViewer = createAction('viewer/remove');
 
 export const startLoading = createAction('loading/start');
 export const endLoading = createAction('loading/end');

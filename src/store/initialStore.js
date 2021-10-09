@@ -1,4 +1,4 @@
 export const initialStore = {
-	viewer: {},
+	viewer: { isLoggedIn: false, viewer: {} },
 	loading: { isLoading: false, error: '' },
 };

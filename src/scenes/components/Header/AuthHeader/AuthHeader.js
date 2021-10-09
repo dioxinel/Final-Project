@@ -7,7 +7,7 @@ import { Viewer } from './Viewer';
 export function AuthHeader() {
 	const viewer = useSelector(viewerSelector);
 
-	if (Object.keys(viewer).length !== 0) {
+	if (viewer.isLoggedIn) {
 		return <Viewer viewer={viewer.viewer} />;
 	}
 	return <AuthUnLogged />;
