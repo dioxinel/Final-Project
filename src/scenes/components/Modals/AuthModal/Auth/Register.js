@@ -5,8 +5,10 @@ import { AuthTitle } from './AuthTitle';
 import { RegisterForm } from './RegisterForm';
 import s from './Auth.module.scss';
 import { ChangeModalCondition } from './ChangeModalCondition';
+import { useDispatch } from 'react-redux';
+import { asyncRequest, setViewer } from '../../../../../store/actions';
 
-export function Register({ condition, setModalCondition }) {
+export function Register({ condition, setModalCondition, setIsOpen }) {
 	const { fields, changeFieldValue, reset } = useFormFields({
 		fullName: '',
 		email: '',
@@ -14,10 +16,14 @@ export function Register({ condition, setModalCondition }) {
 		phone: '',
 	});
 
+	const dispatch = useDispatch();
+
 	const handleSubmit = async (evt) => {
 		evt.preventDefault();
-		const res = await api.register(fields);
-		console.log(res);
+		dispatch(
+			asyncRequest({ params: fields, action: setViewer, request: api.register }),
+		);
+		setIsOpen(false);
 		reset();
 	};
 

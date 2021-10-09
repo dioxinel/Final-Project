@@ -1,0 +1,28 @@
+.modal {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	position: fixed;
+	width: 400px;
+	height: 400px;
+	left: 50%;
+	right: 50%;
+	top: 300px;
+	z-index: 3;
+	position: relative;
+	transform: translate(-50%, -50%);
+}
+
+.modalOverlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.7);
+}
+
+.loading {
+	color: #fff;
+}

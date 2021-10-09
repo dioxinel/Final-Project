@@ -1,14 +1,14 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import api from '../../../../../api.js';
-import { setViewer } from '../../../../../store/actions';
+import { asyncRequest, setViewer } from '../../../../../store/actions';
 import { useFormFields } from '../../../../../useFormFields';
 import { AuthTitle } from './AuthTitle';
 import { LoginForm } from './LoginForm';
 import s from './Auth.module.scss';
 import { ChangeModalCondition } from './ChangeModalCondition.js';
 
-export function Login({ condition, setModalCondition }) {
+export function Login({ condition, setModalCondition, setIsOpen }) {
 	const { fields, changeFieldValue, reset } = useFormFields({
 		email: '',
 		password: '',
@@ -17,10 +17,12 @@ export function Login({ condition, setModalCondition }) {
 
 	const handleSubmit = async (evt) => {
 		evt.preventDefault();
-		const res = await api.login(fields);
-		api.setToken(res.data.token);
-		dispatch(setViewer(res.data.account));
 
+		dispatch(
+			asyncRequest({ params: fields, action: setViewer, request: api.login }),
+		);
+
+		setIsOpen(false);
 		reset();
 	};
 

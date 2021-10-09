@@ -13,7 +13,7 @@ export function ChangeModalCondition({ text, condition, setModalCondition }) {
 	return (
 		<div className={s.changeModalCondition}>
 			{text}
-			<div onClick={handleClick}>{condition ? ' Register now' : ' Log in'}</div>
+			<div onClick={handleClick}>{condition ? ' Register now' : ' Log In'}</div>
 		</div>
 	);
 }

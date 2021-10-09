@@ -5,6 +5,7 @@ import './App.css';
 import { rotesConfig } from './router/rotesConfig.js';
 import { RotesGenerator } from './router/RotesGenerator.js';
 import { bootstrap } from './store/actions';
+import { Loading } from './scenes/components/Loading/Loading';
 
 function App() {
 	const dispatch = useDispatch();
@@ -14,6 +15,7 @@ function App() {
 	return (
 		<div className="App">
 			<RotesGenerator config={rotesConfig} />
+			<Loading />
 		</div>
 	);
 }

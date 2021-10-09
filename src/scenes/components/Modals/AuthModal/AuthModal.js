@@ -19,9 +19,17 @@ export function AuthModal({ condition, setModalCondition, isOpen, setIsOpen }) {
 		>
 			<Icon name={'auth-cross'} onClick={handleClose} className={s.cross} />
 			{condition ? (
-				<Login condition={condition} setModalCondition={setModalCondition} />
+				<Login
+					condition={condition}
+					setModalCondition={setModalCondition}
+					setIsOpen={setIsOpen}
+				/>
 			) : (
-				<Register condition={condition} setModalCondition={setModalCondition} />
+				<Register
+					condition={condition}
+					setModalCondition={setModalCondition}
+					setIsOpen={setIsOpen}
+				/>
 			)}
 		</Modal>
 	);
