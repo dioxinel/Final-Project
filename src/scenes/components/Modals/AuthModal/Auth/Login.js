@@ -1,14 +1,19 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+
+import { AuthTitle } from './AuthTitle';
+import { LoginForm } from './LoginForm';
+import { ChangeModalCondition } from './ChangeModalCondition.js';
+
+import s from './Auth.module.scss';
+
 import api from '../../../../../api.js';
 import { asyncRequest, setViewer } from '../../../../../store/actions';
 import { useFormFields } from '../../../../../useFormFields';
-import { AuthTitle } from './AuthTitle';
-import { LoginForm } from './LoginForm';
-import s from './Auth.module.scss';
-import { ChangeModalCondition } from './ChangeModalCondition.js';
 
 export function Login({ condition, setModalCondition, setIsOpen }) {
+	const history = useHistory();
 	const { fields, changeFieldValue, reset } = useFormFields({
 		email: '',
 		password: '',
@@ -24,6 +29,7 @@ export function Login({ condition, setModalCondition, setIsOpen }) {
 
 		setIsOpen(false);
 		reset();
+		history.push('/');
 	};
 
 	return (

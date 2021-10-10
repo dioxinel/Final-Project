@@ -1,14 +1,19 @@
 import React from 'react';
-import api from '../../../../../api';
-import { useFormFields } from '../../../../../useFormFields';
+import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
 import { AuthTitle } from './AuthTitle';
 import { RegisterForm } from './RegisterForm';
-import s from './Auth.module.scss';
 import { ChangeModalCondition } from './ChangeModalCondition';
-import { useDispatch } from 'react-redux';
+
+import s from './Auth.module.scss';
+
+import api from '../../../../../api';
+import { useFormFields } from '../../../../../useFormFields';
 import { asyncRequest, setViewer } from '../../../../../store/actions';
 
 export function Register({ condition, setModalCondition, setIsOpen }) {
+	const history = useHistory();
 	const { fields, changeFieldValue, reset } = useFormFields({
 		fullName: '',
 		email: '',
@@ -25,6 +30,7 @@ export function Register({ condition, setModalCondition, setIsOpen }) {
 		);
 		setIsOpen(false);
 		reset();
+		history.push('/');
 	};
 
 	return (
