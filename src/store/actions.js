@@ -1,6 +1,8 @@
 import { createAction } from '@reduxjs/toolkit';
 import api from '../api';
 
+export const addProducts = createAction('products/add');
+
 export const setViewer = createAction('viewer/set');
 export const removeViewer = createAction('viewer/remove');
 

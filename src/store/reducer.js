@@ -1,5 +1,6 @@
 import { createReducer } from '@reduxjs/toolkit';
 import {
+	addProducts,
 	endLoading,
 	errorLoading,
 	removeViewer,
@@ -37,5 +38,12 @@ export const loadingReducer = createReducer(initialStore, {
 
 	[errorLoading]: (state, action) => {
 		state.error = action.payload;
+	},
+});
+
+export const productsReducer = createReducer(initialStore, {
+	[addProducts]: (state, action) => {
+		console.log(action.payload);
+		state.products = action.payload;
 	},
 });

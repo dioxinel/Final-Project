@@ -39,6 +39,10 @@ class Api {
 	getViewer() {
 		return axios.get('/api/api/account');
 	}
+
+	getProducts() {
+		return axios.get('/api/api/products');
+	}
 }
 
 export default new Api();
