@@ -4,3 +4,19 @@
 	flex-direction: column;
 	align-items: center;
 }
+
+.loadMoreBtn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #148dfd;
+	color: #fff;
+	font-size: 14px;
+	font-weight: 500;
+	letter-spacing: 0.4px;
+	border-radius: 4px;
+	width: 150px;
+	height: 36px;
+	margin-top: 47px;
+	margin-bottom: 83px;
+}

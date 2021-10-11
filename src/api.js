@@ -40,8 +40,8 @@ class Api {
 		return axios.get('/api/api/account');
 	}
 
-	getProducts() {
-		return axios.get('/api/api/products');
+	getProducts(fetchFrom = 0) {
+		return axios.get(`/api/api/products?offset=${fetchFrom}`);
 	}
 }
 

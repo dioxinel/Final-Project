@@ -1,4 +1,4 @@
-import { createReducer } from '@reduxjs/toolkit';
+import { createReducer, current } from '@reduxjs/toolkit';
 import {
 	addProducts,
 	endLoading,
@@ -43,6 +43,10 @@ export const loadingReducer = createReducer(initialStore, {
 
 export const productsReducer = createReducer(initialStore, {
 	[addProducts]: (state, action) => {
-		state.products = action.payload;
+		if (action.payload.length < 20 || action.payload[19].id <= 1) {
+			state.isMoreProducts = false;
+		}
+		state.fetchFrom = current(state).fetchFrom + 20;
+		state.products = [...current(state.products), ...action.payload];
 	},
 });

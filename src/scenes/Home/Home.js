@@ -1,9 +1,13 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import api from '../../api';
+
 import { addProducts, asyncRequest } from '../../store/actions';
 import { ProductList } from '../components/Product/ProductList';
+import { LoadMoreBtn } from './components/LoadMoreBtn';
+
 import s from './Home.module.scss';
+
+import api from '../../api';
 
 export function Home() {
 	const dispatch = useDispatch();
@@ -17,6 +21,7 @@ export function Home() {
 	return (
 		<div className={s.home}>
 			{store.products.length ? <ProductList items={store.products} /> : 'home'}
+			{store.isMoreProducts ? <LoadMoreBtn /> : ''}
 		</div>
 	);
 }
