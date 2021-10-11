@@ -2,7 +2,6 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	height: 509px;
 	background-color: #ffffff;
 	box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
 	border-radius: 4px;
@@ -13,7 +12,6 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	height: 365px;
 	background-color: #ffffff;
 	box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
 	border-radius: 4px;
@@ -24,7 +22,7 @@
 	text-transform: capitalize;
 	font-size: 22px;
 	margin-top: 45px;
-	margin-bottom: 20px;
+	margin-bottom: 40px;
 	cursor: default;
 }
 
@@ -34,36 +32,12 @@
 	align-items: center;
 }
 
-.input {
-	width: 362px;
-	height: 40px;
-	font-size: 16px;
-	padding-left: 12px;
-	color: #707070;
-	border: 1px solid #e0e0e0;
-	border-radius: 4px;
-	margin-top: 20px;
+.inputContainer {
+	padding-bottom: 20px;
 }
 
-.input::-ms-reveal,
-.input::-ms-clear {
-	display: none;
-}
-
-.passwordField::-ms-reveal,
-.passwordField::-ms-clear {
-	display: none;
-}
-
-.error {
-	border: 3px solid #cf0404;
-	outline: none;
-}
-
-.passwordFieldContainer {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+.passwordContainer {
+	height: 83px;
 }
 
 .showPassIcon {
@@ -71,24 +45,10 @@
 	cursor: pointer;
 }
 
-.passwordField {
-	width: 280px;
-	height: 38px;
-	font-size: 16px;
-	color: #707070;
-	border: 0;
-	outline: none;
-}
-
-.passwordLabel {
-	font-size: 12px;
-	line-height: 20px;
-	color: #707070;
-	width: 280px;
-	align-self: flex-start;
-}
-
 .submitBtn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	width: 362px;
 	height: 36px;
 	font-weight: 500;
@@ -97,6 +57,7 @@
 	background-color: #fd7114;
 	box-shadow: 0;
 	margin-top: 40px;
+	margin-bottom: 40px;
 }
 
 .changeModalCondition {
@@ -122,4 +83,16 @@
 	div:hover {
 		text-decoration: underline;
 	}
+}
+
+.emailLabel {
+	background-color: #ffffff;
+	font-size: 12px;
+	display: block;
+	width: 47px;
+	color: #707070;
+	display: block;
+	z-index: 2;
+	margin-left: 13px;
+	margin-top: -50px;
 }

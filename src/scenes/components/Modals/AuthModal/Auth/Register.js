@@ -10,24 +10,29 @@ import s from './Auth.module.scss';
 
 import api from '../../../../../api';
 import { useFormFields } from '../../../../../useFormFields';
-import { asyncRequest, setViewer } from '../../../../../store/actions';
+import { useAsyncRequest } from '../../../../../useAsyncRequest';
+import { setViewer } from '../../../../../store/actions';
 
 export function Register({ condition, setModalCondition, setIsOpen }) {
-	const history = useHistory();
+	const { asyncRequest, error, isLoading } = useAsyncRequest();
 	const { fields, changeFieldValue, reset } = useFormFields({
 		fullName: '',
 		email: '',
 		password: '',
 		phone: '',
 	});
-
+	const history = useHistory();
 	const dispatch = useDispatch();
 
 	const handleSubmit = async (evt) => {
 		evt.preventDefault();
-		dispatch(
-			asyncRequest({ params: fields, action: setViewer, request: api.register }),
-		);
+		const res = await asyncRequest(api.register, fields);
+
+		if (typeof res === 'string') {
+			return;
+		}
+
+		dispatch(setViewer(res));
 		setIsOpen(false);
 		reset();
 		history.push('/');
@@ -41,6 +46,8 @@ export function Register({ condition, setModalCondition, setIsOpen }) {
 					fields={fields}
 					changeFieldValue={changeFieldValue}
 					handleSubmit={handleSubmit}
+					isLoading={isLoading}
+					error={error}
 				/>
 			</div>
 			<ChangeModalCondition

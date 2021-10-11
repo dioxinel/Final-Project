@@ -12,6 +12,7 @@ export const errorLoading = createAction('loading/error');
 
 export const asyncRequest = (payload) => async (dispatch) => {
 	try {
+		dispatch(errorLoading(''));
 		dispatch(startLoading());
 		const res = await payload.request(payload.params);
 		dispatch(payload.action(res.data));

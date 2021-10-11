@@ -1,30 +1,43 @@
 import React from 'react';
-import { Input } from '../../../Input';
+import ClipLoader from 'react-spinners/ClipLoader';
+
+import { Input } from '../../../Input/Input';
+import { PasswordField } from '../../../Input/PasswordField';
+
 import s from './Auth.module.scss';
 
-export function LoginForm({ fields, changeFieldValue, handleSubmit }) {
+export function LoginForm({
+	fields,
+	changeFieldValue,
+	handleSubmit,
+	isLoading,
+	error,
+}) {
 	return (
 		<form onSubmit={(evt) => handleSubmit(evt)} className={s.registerForm}>
-			<Input
-				type="email"
-				name="email"
-				value={fields.email}
-				validationPattern={/\S+@\S+/}
-				className={s.input}
+			<div className={s.inputContainer}>
+				<Input
+					type="email"
+					name="email"
+					value={fields.email}
+					className={s.input}
+					changeFieldValue={changeFieldValue}
+					placeholder={'Email'}
+					error={error}
+				/>
+			</div>
+			<PasswordField
+				fields={fields}
 				changeFieldValue={changeFieldValue}
-				placeholder={'Email'}
-			/>
-			<Input
-				type="password"
-				name="password"
-				value={fields.password}
-				changeFieldValue={changeFieldValue}
-				className={s.input}
-				placeholder={'Password'}
+				error={error}
 			/>
 
 			<button type={'submit'} className={s.submitBtn}>
-				Login
+				{isLoading ? (
+					<ClipLoader color="#fff" loading={isLoading} size={15} />
+				) : (
+					'Login'
+				)}
 			</button>
 		</form>
 	);

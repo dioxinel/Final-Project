@@ -43,7 +43,6 @@ export const loadingReducer = createReducer(initialStore, {
 
 export const productsReducer = createReducer(initialStore, {
 	[addProducts]: (state, action) => {
-		console.log(action.payload);
 		state.products = action.payload;
 	},
 });

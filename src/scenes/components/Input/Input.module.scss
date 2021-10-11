@@ -1,0 +1,54 @@
+.input {
+	width: 362px;
+	height: 40px;
+	font-size: 16px;
+	padding-left: 12px;
+	color: #707070;
+	border: 1px solid #e0e0e0;
+	border-radius: 4px;
+}
+
+.error {
+	border: 1px solid #f44336;
+	outline: none;
+}
+
+.errorMessage {
+	margin-top: 3px;
+	color: #f44336;
+	font-size: 12px;
+	letter-spacing: 0.4 px;
+}
+
+.input::-ms-reveal,
+.input::-ms-clear {
+	display: none;
+}
+
+.passwordField::-ms-reveal,
+.passwordField::-ms-clear {
+	display: none;
+}
+
+.passwordFieldContainer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.passwordField {
+	width: 280px;
+	height: 38px;
+	font-size: 16px;
+	color: #707070;
+	border: 0;
+	outline: none;
+}
+
+.passwordLabel {
+	font-size: 12px;
+	line-height: 20px;
+	color: #707070;
+	width: 280px;
+	align-self: flex-start;
+}

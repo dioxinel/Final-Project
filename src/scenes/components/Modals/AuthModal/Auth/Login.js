@@ -9,23 +9,30 @@ import { ChangeModalCondition } from './ChangeModalCondition.js';
 import s from './Auth.module.scss';
 
 import api from '../../../../../api.js';
-import { asyncRequest, setViewer } from '../../../../../store/actions';
+import { setViewer } from '../../../../../store/actions';
 import { useFormFields } from '../../../../../useFormFields';
+import { useAsyncRequest } from '../../../../../useAsyncRequest';
 
 export function Login({ condition, setModalCondition, setIsOpen }) {
-	const history = useHistory();
+	const { asyncRequest, error, isLoading } = useAsyncRequest();
 	const { fields, changeFieldValue, reset } = useFormFields({
 		email: '',
 		password: '',
 	});
+
+	const history = useHistory();
 	const dispatch = useDispatch();
 
 	const handleSubmit = async (evt) => {
 		evt.preventDefault();
 
-		dispatch(
-			asyncRequest({ params: fields, action: setViewer, request: api.login }),
-		);
+		const res = await asyncRequest(api.login, fields);
+
+		if (typeof res === 'string') {
+			return;
+		}
+
+		dispatch(setViewer(res));
 
 		setIsOpen(false);
 		reset();
@@ -40,6 +47,8 @@ export function Login({ condition, setModalCondition, setIsOpen }) {
 					fields={fields}
 					changeFieldValue={changeFieldValue}
 					handleSubmit={handleSubmit}
+					isLoading={isLoading}
+					error={error}
 				/>
 			</div>
 			<ChangeModalCondition

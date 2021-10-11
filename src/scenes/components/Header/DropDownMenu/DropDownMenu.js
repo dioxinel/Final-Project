@@ -29,7 +29,7 @@ export function DropDownMenu() {
 
 	return (
 		<div id="dropDownMenu">
-			<Icon name={'header-tick'} onClick={openMenu} />
+			<Icon name={'header-tick'} onClick={openMenu} className={s.dropDownTick} />
 			{open && (
 				<div className={s.dropDownMenu}>
 					<ViewerInfo />
