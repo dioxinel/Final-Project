@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+
+import { AuthModalContext } from '../../../../App';
+
 import s from './AuthHeader.module.scss';
 
-export function RegisterBtn({ setIsOpen, setModalCondition }) {
+export function RegisterBtn() {
+	const { setIsOpen, setModalCondition } = useContext(AuthModalContext);
 	const handleClick = () => {
 		setIsOpen(true);
 		setModalCondition(false);

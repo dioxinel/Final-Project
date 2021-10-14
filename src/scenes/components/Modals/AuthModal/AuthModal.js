@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Login } from './Auth/Login';
 import { Register } from './Auth/Register';
 import s from './AuthModal.module.scss';
 import Modal from 'react-modal';
 import Icon from '../../Icon';
+import { AuthModalContext } from '../../../../App';
 
-export function AuthModal({ condition, setModalCondition, isOpen, setIsOpen }) {
+export function AuthModal() {
+	const { isOpen, setIsOpen, modalCondition } = useContext(AuthModalContext);
+
 	const handleClose = () => {
 		setIsOpen(false);
 	};
@@ -14,7 +17,7 @@ export function AuthModal({ condition, setModalCondition, isOpen, setIsOpen }) {
 		<Modal
 			isOpen={isOpen}
 			onRequestClose={handleClose}
-			className={`${s.modal} ${condition ? s.modalLogin : s.modalRegister}`}
+			className={`${s.modal} ${modalCondition ? s.modalLogin : s.modalRegister}`}
 			overlayClassName={s.modalOverlay}
 		>
 			<Icon
@@ -24,19 +27,7 @@ export function AuthModal({ condition, setModalCondition, isOpen, setIsOpen }) {
 				width={'18'}
 				height={'18'}
 			/>
-			{condition ? (
-				<Login
-					condition={condition}
-					setModalCondition={setModalCondition}
-					setIsOpen={setIsOpen}
-				/>
-			) : (
-				<Register
-					condition={condition}
-					setModalCondition={setModalCondition}
-					setIsOpen={setIsOpen}
-				/>
-			)}
+			{modalCondition ? <Login /> : <Register />}
 		</Modal>
 	);
 }

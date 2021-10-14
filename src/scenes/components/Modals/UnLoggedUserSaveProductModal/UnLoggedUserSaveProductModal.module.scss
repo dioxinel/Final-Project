@@ -1,0 +1,52 @@
+.saveProductModal {
+	display: block;
+	position: fixed;
+	width: 425px;
+	height: 397px;
+	background-color: #fff;
+	left: 50%;
+	right: 50%;
+	top: 300px;
+	z-index: 3;
+	position: relative;
+	transform: translate(-50%, -50%);
+}
+
+.modalOverlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.7);
+}
+
+.cross {
+	position: absolute;
+	top: 32px;
+	right: 32px;
+	cursor: pointer;
+}
+
+.modalContent {
+	position: absolute;
+	top: 83px;
+	left: 106px;
+}
+
+.title {
+	height: 70px;
+	width: 216px;
+	font-size: 25px;
+	line-height: 35px;
+	letter-spacing: 0.4px;
+	color: #373738;
+	margin-bottom: 32px;
+}
+
+.buttonsGroup {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 158px;
+}

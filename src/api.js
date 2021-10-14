@@ -43,6 +43,14 @@ class Api {
 	getProducts(fetchFrom = 0) {
 		return axios.get(`/api/api/products?offset=${fetchFrom}`);
 	}
+
+	addToFavorites(id) {
+		return axios.post(`/api/api/products/${id}/favorite`);
+	}
+
+	removeFromFavorites(id) {
+		return axios.delete(`/api/api/products/${id}/favorite`);
+	}
 }
 
 export default new Api();

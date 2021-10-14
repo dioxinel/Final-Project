@@ -1,14 +1,17 @@
 import { createReducer, current } from '@reduxjs/toolkit';
 import {
 	addProducts,
+	addProductToFavorites,
 	endLoading,
 	errorLoading,
+	removeProductFromFavorites,
 	removeViewer,
 	setViewer,
 	startLoading,
 } from './actions';
 import { initialStore } from './initialStore';
 import api from '../api';
+import { getItemById } from '../utils';
 
 export const viewerReducer = createReducer(initialStore, {
 	[setViewer]: (state, action) => {
@@ -48,5 +51,17 @@ export const productsReducer = createReducer(initialStore, {
 		}
 		state.fetchFrom = current(state).fetchFrom + 20;
 		state.products = [...current(state.products), ...action.payload];
+	},
+
+	[addProductToFavorites]: (state, action) => {
+		const product = getItemById(current(state).products, Number(action.payload));
+		const idx = current(state).products.indexOf(product);
+		state.products[idx].favorite = true;
+	},
+
+	[removeProductFromFavorites]: (state, action) => {
+		const product = getItemById(current(state).products, Number(action.payload));
+		const idx = current(state).products.indexOf(product);
+		state.products[idx].favorite = false;
 	},
 });

@@ -2,6 +2,10 @@ import { createAction } from '@reduxjs/toolkit';
 import api from '../api';
 
 export const addProducts = createAction('products/add');
+export const addProductToFavorites = createAction('products/addToFavorites');
+export const removeProductFromFavorites = createAction(
+	'products/removeFromFavorites',
+);
 
 export const setViewer = createAction('viewer/set');
 export const removeViewer = createAction('viewer/remove');

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
@@ -12,8 +12,11 @@ import api from '../../../../../api';
 import { useFormFields } from '../../../../../useFormFields';
 import { useAsyncRequest } from '../../../../../useAsyncRequest';
 import { setViewer } from '../../../../../store/actions';
+import { AuthModalContext } from '../../../../../App';
 
-export function Register({ condition, setModalCondition, setIsOpen }) {
+export function Register() {
+	const { setIsOpen } = useContext(AuthModalContext);
+
 	const { asyncRequest, error, isLoading } = useAsyncRequest();
 	const { fields, changeFieldValue, reset } = useFormFields({
 		fullName: '',
@@ -50,11 +53,7 @@ export function Register({ condition, setModalCondition, setIsOpen }) {
 					error={error}
 				/>
 			</div>
-			<ChangeModalCondition
-				text={'I already have an account, '}
-				condition={condition}
-				setModalCondition={setModalCondition}
-			/>
+			<ChangeModalCondition text={'I already have an account, '} />
 		</>
 	);
 }

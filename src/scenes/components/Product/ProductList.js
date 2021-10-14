@@ -1,20 +1,47 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import {
+	addProductToFavorites,
+	removeProductFromFavorites,
+} from '../../../store/actions';
 import { ProductModal } from '../Modals/ProductModal/ProductModal';
-import s from './Product.module.scss';
 import { ProductListItem } from './ProductListItem';
 
-export function ProductList({ items }) {
-	const [clickedProductId, setClickedProductId] = useState('');
+import s from './Product.module.scss';
+import api from '../../../api';
+import { getItemById } from '../../../utils';
+import { UnLoggedUserSaveProductModal } from '../Modals/UnLoggedUserSaveProductModal/UnLoggedUserSaveProductModal';
 
-	const handleClickOnProduct = (evt) => {
-		const node = evt.target.closest('svg');
-		if (node) return;
-		if (!evt.target.getAttribute('product-id')) {
-			setClickedProductId(evt.target.parentNode.getAttribute('product-id'));
+export function ProductList({ items }) {
+	const store = useSelector((store) => store.viewer);
+
+	const dispatch = useDispatch();
+
+	const [clickedProductId, setClickedProductId] = useState('');
+	const [isOpen, setIsOpen] = useState(false);
+
+	const handleClickOnProduct = async (evt) => {
+		const product = evt.target.closest('div[product-id]');
+		if (!product) return;
+		const productId = product.getAttribute('product-id');
+
+		const svg = evt.target.closest('svg');
+		if (svg || evt.target.tagName === 'P') {
+			if (store.isLoggedIn) {
+				if (getItemById(items, productId).favorite) {
+					dispatch(removeProductFromFavorites(productId));
+					await api.removeFromFavorites(productId);
+					return;
+				}
+				dispatch(addProductToFavorites(productId));
+				await api.addToFavorites(productId);
+				return;
+			}
+			setIsOpen(true);
 			return;
-		} else if (evt.target.getAttribute('product-id')) {
-			setClickedProductId(evt.target.getAttribute('product-id'));
 		}
+		setClickedProductId(productId);
 	};
 
 	return (
@@ -28,6 +55,7 @@ export function ProductList({ items }) {
 				clickedProductId={clickedProductId}
 				setClickedProductId={setClickedProductId}
 			/>
+			<UnLoggedUserSaveProductModal isOpen={isOpen} setIsOpen={setIsOpen} />
 		</>
 	);
 }

@@ -1,13 +1,13 @@
 import React from 'react';
+import { AuthHeader } from './AuthHeader/AuthHeader';
 import s from './Header.module.scss';
 import { Logo } from './Logo';
-import { RightPartHeader } from './RightPartHeader';
 
 export function Header() {
 	return (
 		<div className={s.header}>
 			<Logo />
-			<RightPartHeader />
+			<AuthHeader />
 		</div>
 	);
 }

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { addProducts, asyncRequest } from '../../store/actions';
+import { addProducts, asyncRequest, bootstrap } from '../../store/actions';
 import { ProductList } from '../components/Product/ProductList';
 import { LoadMoreBtn } from './components/LoadMoreBtn';
 
@@ -13,7 +13,11 @@ export function Home() {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		dispatch(asyncRequest({ action: addProducts, request: api.getProducts }));
+		async function fetch() {
+			await dispatch(bootstrap());
+			dispatch(asyncRequest({ action: addProducts, request: api.getProducts }));
+		}
+		fetch();
 	}, [dispatch]);
 
 	const store = useSelector((store) => store.products);

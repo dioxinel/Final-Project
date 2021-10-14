@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
+
+import { AuthModalContext } from '../../../../../App';
+
 import s from './Auth.module.scss';
 
-export function ChangeModalCondition({ text, condition, setModalCondition }) {
+export function ChangeModalCondition({ text }) {
+	const { modalCondition, setModalCondition } = useContext(AuthModalContext);
 	const handleClick = () => {
-		if (condition) {
+		if (modalCondition) {
 			setModalCondition(false);
 		} else {
 			setModalCondition(true);
@@ -13,7 +17,9 @@ export function ChangeModalCondition({ text, condition, setModalCondition }) {
 	return (
 		<div className={s.changeModalCondition}>
 			{text}
-			<div onClick={handleClick}>{condition ? ' Register now' : ' Log In'}</div>
+			<div onClick={handleClick}>
+				{modalCondition ? ' Register now' : ' Log In'}
+			</div>
 		</div>
 	);
 }

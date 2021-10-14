@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
@@ -12,8 +12,10 @@ import api from '../../../../../api.js';
 import { setViewer } from '../../../../../store/actions';
 import { useFormFields } from '../../../../../useFormFields';
 import { useAsyncRequest } from '../../../../../useAsyncRequest';
+import { AuthModalContext } from '../../../../../App';
 
-export function Login({ condition, setModalCondition, setIsOpen }) {
+export function Login() {
+	const { setIsOpen } = useContext(AuthModalContext);
 	const { asyncRequest, error, isLoading } = useAsyncRequest();
 	const { fields, changeFieldValue, reset } = useFormFields({
 		email: '',
@@ -51,11 +53,7 @@ export function Login({ condition, setModalCondition, setIsOpen }) {
 					error={error}
 				/>
 			</div>
-			<ChangeModalCondition
-				text={'I have no account,'}
-				condition={condition}
-				setModalCondition={setModalCondition}
-			/>
+			<ChangeModalCondition text={'I have no account,'} />
 		</>
 	);
 }
