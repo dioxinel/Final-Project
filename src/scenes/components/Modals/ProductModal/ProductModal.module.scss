@@ -1,0 +1,177 @@
+.productModal {
+	display: block;
+	position: fixed;
+	width: 1003px;
+	height: 697px;
+	background-color: #fff;
+	left: 50%;
+	right: 50%;
+	top: 450px;
+	z-index: 3;
+	position: relative;
+	transform: translate(-50%, -50%);
+}
+
+.modalOverlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.7);
+}
+
+.productModalContent {
+	display: flex;
+	justify-content: space-between;
+	width: 810px;
+	position: absolute;
+	top: 141px;
+	left: 87px;
+}
+
+.textInfo {
+	height: 155px;
+}
+
+.cross {
+	position: absolute;
+	top: 35px;
+	right: 35px;
+	cursor: pointer;
+}
+
+.pictureContainer {
+	padding: 13px 10px;
+	width: 401px;
+	height: 296px;
+	background: #ffffff;
+	border: 1px solid #e4e4e4;
+	box-shadow: 0px 4px 14px rgba(121, 121, 121, 0.0527344);
+	border-radius: 4px;
+	.picture {
+		width: 401px;
+		height: 296px;
+		border-radius: 3px;
+	}
+}
+
+.title {
+	font-size: 18px;
+	letter-spacing: 0.5px;
+	max-width: 350px;
+	max-height: 50px;
+	overflow: hidden;
+	font-weight: bold;
+	color: #373738;
+}
+
+.description {
+	font-size: 15px;
+	color: #707070;
+	max-width: 350px;
+	max-height: 88px;
+	overflow: hidden;
+}
+
+.productOrder {
+	height: 177px;
+	display: flex;
+	flex-direction: column;
+
+	.priceContainer {
+		display: flex;
+		width: 250px;
+		justify-content: space-between;
+
+		.priceTitle {
+			text-transform: uppercase;
+			font-weight: 500;
+			font-size: 14px;
+			line-height: 26px;
+			color: #373738;
+		}
+
+		.price {
+			font-weight: bold;
+			font-size: 18px;
+			line-height: 26px;
+			letter-spacing: 0.5px;
+			color: #373738;
+		}
+	}
+}
+
+.numOfProduct {
+	display: flex;
+	margin: 24px 0 48px 0;
+	.changeNumBtn {
+		font-size: 20px;
+		color: #707070;
+		font-weight: 300;
+		line-height: 26px;
+		width: 26px;
+		height: 26px;
+		border-radius: 50%;
+		background-color: #e0e0e0;
+	}
+
+	.numOfItems {
+		margin: 0px 10px;
+		color: #000;
+		font-size: 15px;
+	}
+}
+
+.totalPrice {
+	.totalPriceContainer {
+		display: flex;
+		margin-bottom: 1px;
+	}
+
+	.title {
+		font-size: 15px;
+		font-weight: normal;
+		color: #707070;
+		width: 42px;
+		margin-right: 32px;
+	}
+
+	.totalPriceValue {
+		color: #373738;
+		font-size: 18px;
+		font-weight: bold;
+		line-height: 26px;
+	}
+}
+
+.productBtns {
+	position: absolute;
+	top: 534px;
+	left: 86px;
+
+	.addProductBtn {
+		width: 220px;
+		height: 36px;
+		text-transform: uppercase;
+		border-radius: 4px;
+		font-size: 12px;
+	}
+
+	.buyNow {
+		background-color: #fd7114;
+		color: #fff;
+		font-weight: 400;
+	}
+
+	.addToCart {
+		font-weight: 500;
+		color: #fd7114;
+		background-color: #fff;
+		border: 2px solid #fd7114;
+	}
+
+	.addToFavorites {
+		margin: 0 87px 0 35px;
+	}
+}

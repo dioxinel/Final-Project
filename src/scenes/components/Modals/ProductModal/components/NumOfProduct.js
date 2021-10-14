@@ -1,0 +1,26 @@
+import React from 'react';
+
+import s from '../ProductModal.module.scss';
+
+export function NumOfProduct({ num, setNum }) {
+	const handleDecrement = () => {
+		if (num <= 1) return;
+		setNum(num - 1);
+	};
+
+	const handleIncrement = () => {
+		setNum(num + 1);
+	};
+
+	return (
+		<div className={s.numOfProduct}>
+			<button onClick={handleDecrement} className={s.changeNumBtn}>
+				-
+			</button>
+			<div className={s.numOfItems}>{num}</div>
+			<button onClick={handleIncrement} className={s.changeNumBtn}>
+				+
+			</button>
+		</div>
+	);
+}

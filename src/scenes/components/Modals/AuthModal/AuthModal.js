@@ -17,7 +17,13 @@ export function AuthModal({ condition, setModalCondition, isOpen, setIsOpen }) {
 			className={`${s.modal} ${condition ? s.modalLogin : s.modalRegister}`}
 			overlayClassName={s.modalOverlay}
 		>
-			<Icon name={'auth-cross'} onClick={handleClose} className={s.cross} />
+			<Icon
+				name={'cross'}
+				onClick={handleClose}
+				className={s.cross}
+				width={'18'}
+				height={'18'}
+			/>
 			{condition ? (
 				<Login
 					condition={condition}
