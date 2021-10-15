@@ -1,7 +1,8 @@
 import React from 'react';
 
-import s from '../UnLoggedUserSaveProductModal.module.scss';
 import { ButtonsGroup } from './ButtonsGroup';
+
+import s from '../UnLoggedUserSaveProductModal.module.scss';
 
 export function ModalContent({ handleClose }) {
 	return (

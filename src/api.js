@@ -51,6 +51,10 @@ class Api {
 	removeFromFavorites(id) {
 		return axios.delete(`/api/api/products/${id}/favorite`);
 	}
+
+	getFavorites() {
+		return axios.get(`/api/api/products/favorites`);
+	}
 }
 
 export default new Api();

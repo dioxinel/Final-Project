@@ -15,18 +15,23 @@ const AuthModalContextProvider = AuthModalContext.Provider;
 function App() {
 	const [modalCondition, setModalCondition] = useState(false); // If true login modal is open, else register
 	const [isOpen, setIsOpen] = useState(false);
+	const [isLoading, setIsLoading] = useState(true);
 
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(bootstrap());
+		setIsLoading(false);
 	}, [dispatch]);
+
+	if (isLoading) {
+		return <Loading isLoading={isLoading} />;
+	}
 	return (
 		<AuthModalContextProvider
 			value={{ isOpen, setIsOpen, modalCondition, setModalCondition }}
 		>
 			<div className='App'>
 				<RotesGenerator config={rotesConfig} />
-				<Loading />
 			</div>
 		</AuthModalContextProvider>
 	);

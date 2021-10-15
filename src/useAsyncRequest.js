@@ -7,7 +7,7 @@ export const useAsyncRequest = () => {
 	const asyncRequest = async (request, params) => {
 		try {
 			setError('');
-			setIsLoading(true);
+			await setIsLoading(true);
 			const res = await request(params);
 			return res.data;
 		} catch (err) {

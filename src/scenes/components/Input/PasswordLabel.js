@@ -1,4 +1,5 @@
 import React from 'react';
+
 import s from './Input.module.scss';
 
 export function PasswordLabel() {

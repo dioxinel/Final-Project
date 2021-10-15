@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
+
 import { AuthModalContext } from '../../../../App';
+
 import s from './AuthHeader.module.scss';
 
 export function LoginBtn() {

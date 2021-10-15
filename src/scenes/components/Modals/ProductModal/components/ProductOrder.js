@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 
-import s from '../ProductModal.module.scss';
 import { NumOfProduct } from './NumOfProduct';
 import { TotalPrice } from './TotalPrice';
+
+import s from '../ProductModal.module.scss';
 
 export function ProductOrder({ item }) {
 	const [num, setNum] = useState(1);

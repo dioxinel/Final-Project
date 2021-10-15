@@ -1,9 +1,12 @@
 import React, { useContext } from 'react';
+import Modal from 'react-modal';
+
 import { Login } from './Auth/Login';
 import { Register } from './Auth/Register';
-import s from './AuthModal.module.scss';
-import Modal from 'react-modal';
 import Icon from '../../Icon';
+
+import s from './AuthModal.module.scss';
+
 import { AuthModalContext } from '../../../../App';
 
 export function AuthModal() {

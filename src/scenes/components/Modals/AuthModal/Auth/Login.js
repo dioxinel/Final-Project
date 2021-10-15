@@ -9,7 +9,7 @@ import { ChangeModalCondition } from './ChangeModalCondition.js';
 import s from './Auth.module.scss';
 
 import api from '../../../../../api.js';
-import { setViewer } from '../../../../../store/actions';
+import { clearProductsStore, setViewer } from '../../../../../store/actions';
 import { useFormFields } from '../../../../../useFormFields';
 import { useAsyncRequest } from '../../../../../useAsyncRequest';
 import { AuthModalContext } from '../../../../../App';
@@ -35,6 +35,7 @@ export function Login() {
 		}
 
 		dispatch(setViewer(res));
+		dispatch(clearProductsStore());
 
 		setIsOpen(false);
 		reset();

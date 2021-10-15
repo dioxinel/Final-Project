@@ -1,4 +1,5 @@
 import React from 'react';
+
 import s from './Auth.module.scss';
 
 export function EmailLabel() {

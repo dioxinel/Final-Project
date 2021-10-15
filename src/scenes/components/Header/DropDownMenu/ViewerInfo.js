@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+
 import s from './DropDownMenu.module.scss';
 
 export function ViewerInfo() {

@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import s from './Input.module.scss';
+
 import { PasswordLabel } from './PasswordLabel';
 import { ShowPassIcon } from '../Modals/AuthModal/Auth/ShowPassIcon';
+
+import s from './Input.module.scss';
 
 export function PasswordField({
 	fields,
@@ -48,7 +50,7 @@ export function PasswordField({
 			>
 				<input
 					type={showPass ? 'text' : 'password'}
-					name="password"
+					name='password'
 					value={fields.password}
 					className={s.passwordField}
 					onChange={handleChange}

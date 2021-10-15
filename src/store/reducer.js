@@ -1,7 +1,9 @@
 import { createReducer, current } from '@reduxjs/toolkit';
 import {
+	addFavorites,
 	addProducts,
 	addProductToFavorites,
+	clearProductsStore,
 	endLoading,
 	errorLoading,
 	removeProductFromFavorites,
@@ -53,15 +55,43 @@ export const productsReducer = createReducer(initialStore, {
 		state.products = [...current(state.products), ...action.payload];
 	},
 
+	[addFavorites]: (state, action) => {
+		state.favorites = action.payload;
+	},
+
 	[addProductToFavorites]: (state, action) => {
-		const product = getItemById(current(state).products, Number(action.payload));
+		const product = getItemById(current(state).products, action.payload);
 		const idx = current(state).products.indexOf(product);
+		console.log(product);
+
+		if (current(state).favorites.length) {
+			state.favorites = [
+				{ ...product, favorite: true },
+				...current(state).favorites,
+			];
+		}
+
 		state.products[idx].favorite = true;
 	},
 
 	[removeProductFromFavorites]: (state, action) => {
-		const product = getItemById(current(state).products, Number(action.payload));
-		const idx = current(state).products.indexOf(product);
-		state.products[idx].favorite = false;
+		if (current(state).favorites.length) {
+			state.favorites = current(state).favorites.filter((item) => {
+				return item.id !== Number(action.payload);
+			});
+		}
+
+		if (current(state).products.length) {
+			const product = getItemById(current(state).products, action.payload);
+			const idx = current(state).products.indexOf(product);
+
+			state.products[idx].favorite = false;
+		}
+	},
+
+	[clearProductsStore]: (state, action) => {
+		state.favorites = [];
+		state.products = [];
+		state.fetchFrom = 0;
 	},
 });

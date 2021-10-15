@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import s from './DropDownMenu.module.scss';
+import { Link } from 'react-router-dom';
+
 import Icon from '../../Icon';
 import { Logout } from './Logout';
 import { ViewerInfo } from './ViewerInfo';
-import { Link } from 'react-router-dom';
+
+import s from './DropDownMenu.module.scss';
 
 export function DropDownMenu() {
 	const [open, setOpen] = useState(false);
@@ -28,7 +30,7 @@ export function DropDownMenu() {
 	}
 
 	return (
-		<div id="dropDownMenu">
+		<div id='dropDownMenu'>
 			<Icon name={'header-tick'} onClick={openMenu} className={s.dropDownTick} />
 			{open && (
 				<div className={s.dropDownMenu}>

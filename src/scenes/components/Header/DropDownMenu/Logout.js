@@ -1,14 +1,18 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import api from '../../../../api';
-import { removeViewer } from '../../../../store/actions';
+
+import { clearProductsStore, removeViewer } from '../../../../store/actions';
+
 import s from './DropDownMenu.module.scss';
+
+import api from '../../../../api';
 
 export function Logout() {
 	const dispatch = useDispatch();
 	const handleLogout = () => {
 		api.logout();
 		dispatch(removeViewer());
+		dispatch(clearProductsStore());
 	};
 
 	return (
