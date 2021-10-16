@@ -1,0 +1,65 @@
+.accountMenu {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.userInfo {
+	height: 141px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	.userAvatar {
+		display: inline-block;
+
+		background-color: #dedee0;
+		border-radius: 50%;
+
+		color: #110f21;
+		line-height: 88px;
+		height: 88px;
+		width: 88px;
+		margin-right: 11px;
+		font-size: 26px;
+		font-weight: 400;
+		text-transform: capitalize;
+		text-align: center;
+	}
+
+	.userFullName {
+		line-height: 32px;
+		color: #101010;
+		font-size: 22px;
+	}
+}
+
+.menu {
+	display: flex;
+	margin-top: 22px;
+
+	.accountBtn {
+		width: 163px;
+		height: 74px;
+		border: 1.3px solid #dedee0;
+
+		text-align: center;
+		font-size: 15px;
+		line-height: 74px;
+		cursor: pointer;
+		color: #373738;
+	}
+
+	.accountBtnActivated {
+		width: 163px;
+		height: 74px;
+		background-color: #fd7114;
+		border: 1.3px solid #fd7114;
+
+		text-align: center;
+		font-size: 15px;
+		line-height: 74px;
+		cursor: default;
+		color: #fff;
+	}
+}

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Modal from 'react-modal';
 
 import { rotesConfig } from './router/rotesConfig.js';
@@ -17,13 +17,18 @@ function App() {
 	const [isOpen, setIsOpen] = useState(false);
 	const [isLoading, setIsLoading] = useState(true);
 
+	const store = useSelector((store) => store.viewer);
+
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(bootstrap());
 		setIsLoading(false);
-	}, [dispatch]);
+	}, [dispatch, setIsLoading]);
 
-	if (isLoading) {
+	if (
+		(window.localStorage.getItem('___token') && !store.isLoggedIn) ||
+		isLoading
+	) {
 		return <Loading isLoading={isLoading} />;
 	}
 	return (
