@@ -51,15 +51,25 @@
 	}
 
 	.accountBtnActivated {
+		position: relative;
 		width: 163px;
 		height: 74px;
 		background-color: #fd7114;
-		border: 1.3px solid #fd7114;
+		border: 1.3px solid #dedee0;
 
 		text-align: center;
 		font-size: 15px;
 		line-height: 74px;
 		cursor: default;
 		color: #fff;
+
+		&::after {
+			content: '';
+			position: absolute;
+			left: 75px;
+			bottom: -20px;
+			border: 10px solid transparent;
+			border-top: 10px solid #fd7114;
+		}
 	}
 }

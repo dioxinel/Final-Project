@@ -35,7 +35,7 @@ export function DropDownMenu() {
 			{open && (
 				<div className={s.dropDownMenu}>
 					<ViewerInfo />
-					<Link to={'/settings'} className={s.linkToSettings}>
+					<Link to={'/account/settings'} className={s.linkToSettings}>
 						{'Settings'}
 					</Link>
 					<Logout />
