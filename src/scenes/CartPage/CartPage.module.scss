@@ -1,0 +1,98 @@
+.cartPageContainer {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.cartPage {
+	padding-top: 49px;
+	width: 984px;
+	height: 964px;
+	background-color: #fff;
+	align-self: center;
+	box-sizing: border-box;
+}
+
+.myCart {
+	font-size: 25px;
+	line-height: 37px;
+	letter-spacing: 0.4px;
+	color: #000000;
+	margin: 29px 0 32px 39px;
+}
+
+.cartList {
+	margin-left: 37px;
+	width: 684px;
+	border-right: 1px solid #dedee0;
+}
+
+.cartListItem {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 559px;
+	height: 160px;
+	background: #ffffff;
+	margin-bottom: 23px;
+
+	border: 1px solid #eceef0;
+	box-shadow: 0px 4px 14px rgba(121, 121, 121, 0.0527344);
+	border-radius: 4px;
+
+	.cartProductPicture {
+		width: 125px;
+		height: 123px;
+		border-radius: 3px;
+	}
+
+	.middlePart {
+		width: 298px;
+		height: 103px;
+		display: flex;
+		flex-direction: column;
+		border-right: 1px solid #eceef0;
+
+		.trashCan {
+			margin: 0 20px;
+			cursor: pointer;
+		}
+		.numOfProduct {
+			margin: 0;
+		}
+		& > div {
+			display: flex;
+			margin-top: 10px;
+		}
+	}
+
+	.productTitle {
+		font-size: 14px;
+		line-height: 26px;
+		color: #101010;
+		width: 250px;
+		height: 52px;
+		overflow: hidden;
+		margin-left: 20px;
+	}
+
+	.itemPrice {
+		margin-left: 26px;
+		width: 80px;
+		overflow: hidden;
+		font-size: 15px;
+		line-height: 22px;
+		color: #373738;
+		display: flex;
+		flex-direction: column;
+
+		div {
+			font-weight: bold;
+			font-size: 18px;
+			line-height: 26px;
+			letter-spacing: 0.5px;
+			color: #373738;
+			margin-top: 7px;
+		}
+	}
+}

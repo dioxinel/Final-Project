@@ -1,3 +1,5 @@
+import { getItemById } from './utils';
+
 class SessionStorageApi {
 	constructor() {
 		this.cart = JSON.parse(window.sessionStorage.getItem('cart'))
@@ -5,7 +7,13 @@ class SessionStorageApi {
 			: [];
 	}
 	addItem(item) {
-		this.cart.push(item);
+		const double = getItemById(this.cart, item.id);
+		if (double) {
+			double.count = double.count + 1;
+		} else {
+			const newItem = { ...item, count: 1 };
+			this.cart.push(newItem);
+		}
 		const newCart = this.cart;
 		window.sessionStorage.setItem('cart', JSON.stringify(newCart));
 	}
@@ -15,6 +23,15 @@ class SessionStorageApi {
 		});
 		window.sessionStorage.setItem('cart', JSON.stringify(newCart));
 		this.cart = newCart;
+	}
+
+	setItemCount(id, count) {
+		const item = getItemById(this.cart, id);
+		item.count = count;
+		this.cart = [item, ...this.cart.filter((item) => item.id !== id)];
+
+		const newCart = this.cart;
+		window.sessionStorage.setItem('cart', JSON.stringify(newCart));
 	}
 }
 

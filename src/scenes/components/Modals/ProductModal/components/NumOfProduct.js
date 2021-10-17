@@ -2,7 +2,7 @@ import React from 'react';
 
 import s from '../ProductModal.module.scss';
 
-export function NumOfProduct({ num, setNum }) {
+export function NumOfProduct({ num, setNum, className }) {
 	const handleDecrement = () => {
 		if (num <= 1) return;
 		setNum(num - 1);
@@ -13,7 +13,7 @@ export function NumOfProduct({ num, setNum }) {
 	};
 
 	return (
-		<div className={s.numOfProduct}>
+		<div className={`${s.numOfProduct} ${className}`}>
 			<button onClick={handleDecrement} className={s.changeNumBtn}>
 				-
 			</button>
