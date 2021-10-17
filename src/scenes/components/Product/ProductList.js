@@ -15,6 +15,9 @@ import s from './Product.module.scss';
 import api from '../../../api';
 import { getItemById } from '../../../utils';
 
+export const UnLoggedModalContext = React.createContext(false);
+const UnLoggedModalContextProvider = UnLoggedModalContext.Provider;
+
 export function ProductList({ items }) {
 	const store = useSelector((store) => store.viewer);
 
@@ -52,7 +55,7 @@ export function ProductList({ items }) {
 	};
 
 	return (
-		<>
+		<UnLoggedModalContextProvider value={{ setIsOpen, setClickedProductId }}>
 			<div className={s.productList} onClick={handleClickOnProduct}>
 				{items.map((item) => {
 					return <ProductListItem key={item.id} item={item} />;
@@ -63,6 +66,6 @@ export function ProductList({ items }) {
 				setClickedProductId={setClickedProductId}
 			/>
 			<UnLoggedUserSaveProductModal isOpen={isOpen} setIsOpen={setIsOpen} />
-		</>
+		</UnLoggedModalContextProvider>
 	);
 }

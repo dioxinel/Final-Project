@@ -1,17 +1,15 @@
 import React from 'react';
 
 import { AddProductBtn } from './AddProductBtn';
+import { SaveBtn } from './SaveBtn';
 
 import s from '../ProductModal.module.scss';
 
-export function ProductBtns() {
+export function ProductBtns({ product }) {
 	return (
 		<div className={s.productBtns}>
 			<AddProductBtn text={'Add to cart'} className={s.addToCart} />
-			<AddProductBtn
-				text={'Add to favorites'}
-				className={`${s.addToCart} ${s.addToFavorites}`}
-			/>
+			<SaveBtn product={product} />
 			<AddProductBtn text={'Buy now'} className={s.buyNow} />
 		</div>
 	);

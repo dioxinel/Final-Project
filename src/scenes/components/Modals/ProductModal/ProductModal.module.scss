@@ -172,6 +172,21 @@
 	}
 
 	.addToFavorites {
+		font-weight: 500;
+		color: #fd7114;
+		background-color: #fff;
+		border: 2px solid #fd7114;
+		margin: 0 87px 0 35px;
+	}
+
+	.tick {
+		margin-left: 14px;
+	}
+
+	.removeFromFavorites {
+		background-color: #fd7114;
+		color: #fff;
+		font-weight: 400;
 		margin: 0 87px 0 35px;
 	}
 }

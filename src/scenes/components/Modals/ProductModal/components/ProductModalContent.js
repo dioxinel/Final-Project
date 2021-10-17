@@ -15,7 +15,7 @@ export function ProductModalContent({ item }) {
 				</div>
 				<TextInfo item={item} />
 			</div>
-			<ProductBtns />
+			<ProductBtns product={item} />
 		</>
 	);
 }

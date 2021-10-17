@@ -6,7 +6,7 @@ import { Button2 } from '../../../Buttons/Button2';
 
 import s from '../UnLoggedUserSaveProductModal.module.scss';
 
-export function ButtonsGroup({ handleClose }) {
+export function ButtonsGroup({ handleClose, handleBack }) {
 	const { setIsOpen, setModalCondition } = useContext(AuthModalContext);
 	const handleSignIn = () => {
 		setIsOpen(true);
@@ -21,7 +21,7 @@ export function ButtonsGroup({ handleClose }) {
 	};
 
 	const handleContinueAsGuest = () => {
-		handleClose();
+		handleBack();
 	};
 
 	return (
