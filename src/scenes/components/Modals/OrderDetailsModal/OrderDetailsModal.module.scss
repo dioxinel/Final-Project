@@ -1,0 +1,175 @@
+.orderDetailsModal {
+	display: block;
+	position: fixed;
+	width: 904px;
+	height: 844px;
+	background-color: #fff;
+	left: 50%;
+	right: 50%;
+	top: 450px;
+	z-index: 3;
+	position: relative;
+	transform: translate(-50%, -50%);
+}
+
+.modalOverlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.7);
+}
+
+.cross {
+	position: absolute;
+	top: 56px;
+	right: 56px;
+	cursor: pointer;
+}
+
+.modalContent {
+	width: 559px;
+	display: inline-flex;
+	flex-direction: column;
+	align-items: center;
+
+	position: absolute;
+	top: 49px;
+	left: 173px;
+}
+
+.orderTitle {
+	font-weight: 500;
+	font-size: 24px;
+	line-height: 35px;
+
+	color: #101010;
+}
+
+.orderDetailsProductList {
+	margin-top: 50px;
+	height: 549px;
+	overflow: scroll;
+
+	&::-webkit-scrollbar {
+		width: 0;
+	}
+}
+
+.productItem {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 559px;
+	height: 160px;
+	background: #ffffff;
+	margin-bottom: 23px;
+
+	border: 1px solid #eceef0;
+	box-shadow: 0px 4px 14px rgba(121, 121, 121, 0.0527344);
+	border-radius: 4px;
+}
+
+.productPicture {
+	width: 125px;
+	height: 123px;
+	border-radius: 3px;
+}
+
+.middlePart {
+	width: 298px;
+	height: 103px;
+	display: flex;
+	flex-direction: column;
+	border-right: 1px solid #eceef0;
+}
+
+.container {
+	display: flex;
+	margin-left: 21px;
+	.items {
+		font-size: 15px;
+		line-height: 22px;
+
+		color: #707070;
+		margin-right: 20px;
+	}
+
+	.quantity {
+		font-weight: 600;
+		font-size: 15px;
+		line-height: 22px;
+
+		color: #373738;
+	}
+}
+
+.productTitle {
+	font-size: 14px;
+	line-height: 26px;
+	color: #101010;
+	width: 250px;
+	height: 52px;
+	overflow: hidden;
+	margin-left: 20px;
+}
+
+.itemPrice {
+	margin-left: 26px;
+	width: 80px;
+	overflow: hidden;
+	font-size: 15px;
+	line-height: 22px;
+	color: #373738;
+	display: flex;
+	flex-direction: column;
+
+	div {
+		font-weight: bold;
+		font-size: 18px;
+		line-height: 26px;
+		letter-spacing: 0.5px;
+		color: #373738;
+		margin-top: 7px;
+	}
+}
+
+.orderInfo {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.infoPart {
+	display: flex;
+	flex-direction: column;
+	margin-top: 25px;
+}
+
+.infoContainer {
+	display: flex;
+	margin-bottom: 5px;
+}
+
+.nameOfValue {
+	font-size: 15px;
+	line-height: 22px;
+	width: 79px;
+	color: #707070;
+}
+
+.nameOfValueRight {
+	font-size: 15px;
+	line-height: 22px;
+	width: 62px;
+	color: #707070;
+}
+
+.value {
+	font-weight: 600;
+	font-size: 15px;
+	line-height: 22px;
+
+	color: #373738;
+}
