@@ -66,6 +66,10 @@ class Api {
 			shipment,
 		});
 	}
+
+	getOrders() {
+		return axios.get('/api/api/orders');
+	}
 }
 
 export default new Api();

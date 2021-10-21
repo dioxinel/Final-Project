@@ -12,3 +12,72 @@
 	align-self: center;
 	box-sizing: border-box;
 }
+
+.ordersList {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 50px;
+}
+
+.orderItem {
+	width: 486px;
+	height: 89px;
+	background: #ffffff;
+	margin-bottom: 20px;
+	display: flex;
+	justify-content: space-between;
+
+	border: 1px solid #eceef0;
+	box-sizing: border-box;
+	box-shadow: 0px 4px 14px rgba(121, 121, 121, 0.0527344);
+	border-radius: 4px;
+}
+
+.leftPartOfItem {
+	display: flex;
+	flex-direction: column;
+	margin: 17.5px 0 0 0;
+}
+
+.container {
+	display: flex;
+	margin: 2.5px 0 2.5px 20px;
+	.title {
+		width: 59px;
+		height: 22px;
+		font-size: 15px;
+		line-height: 22px;
+		color: #707070;
+		margin-right: 15px;
+	}
+}
+
+.orderId {
+	font-weight: 500;
+	font-size: 15px;
+	line-height: 22px;
+
+	text-decoration-line: underline;
+
+	color: #148dfd;
+}
+
+.orderDate {
+	font-weight: 700;
+	font-size: 15px;
+	line-height: 22px;
+
+	color: #373738;
+}
+
+.rightPartOfItem {
+	margin: 17.5px 20px 0 0;
+}
+.priceTitle {
+	width: 50px;
+	height: 22px;
+	font-size: 15px;
+	line-height: 22px;
+	color: #707070;
+}
