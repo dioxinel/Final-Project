@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { ClipLoader } from 'react-spinners';
 
-import { Input } from '../../../components/Form/Input/Input';
+import { FormikInput } from '../../../components/Form/Input/FormikInput';
 import { TotalPrice } from './TotalPrice';
 import { CountryField } from './CountryField';
 
@@ -76,7 +76,7 @@ export const CartForm = ({ setIsOpen }) => {
 				{({ values, isValid, handleSubmit, dirty }) => (
 					<form className={s.form}>
 						<div className={s.group}>
-							<Input
+							<FormikInput
 								name='fullName'
 								label='Full Name'
 								className={s.input}
@@ -84,7 +84,7 @@ export const CartForm = ({ setIsOpen }) => {
 							/>
 						</div>
 						<div className={s.group}>
-							<Input
+							<FormikInput
 								name='phone'
 								label='Phone'
 								className={s.input}
@@ -100,7 +100,7 @@ export const CartForm = ({ setIsOpen }) => {
 							/>
 						</div>
 						<div className={s.group}>
-							<Input
+							<FormikInput
 								name='city'
 								label='City'
 								className={s.input}
@@ -108,7 +108,7 @@ export const CartForm = ({ setIsOpen }) => {
 							/>
 						</div>
 						<div className={s.group}>
-							<Input
+							<FormikInput
 								name='address'
 								label='Address'
 								className={s.input}

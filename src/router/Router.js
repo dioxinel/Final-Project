@@ -5,7 +5,7 @@ import { CartPage } from '../scenes/CartPage/CartPage';
 import { Header } from '../scenes/components/Header/Header';
 import { Home } from '../scenes/Home/Home';
 
-export const MainLayout = () => (
+export const Router = () => (
 	<BrowserRouter>
 		<Header />
 		<Switch>

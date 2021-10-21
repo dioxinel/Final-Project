@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { AuthHeader } from './AuthHeader/AuthHeader';
-import { Logo } from './Logo';
+import { AuthHeader } from './components/AuthHeader/AuthHeader';
+import { Logo } from './components/Logo';
 
 import s from './Header.module.scss';
 

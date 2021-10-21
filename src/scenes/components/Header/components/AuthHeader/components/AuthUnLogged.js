@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { AuthModal } from '../../Modals/AuthModal/AuthModal';
+import { AuthModal } from '../../../../Modals/AuthModal/AuthModal';
 import { Line } from './Line';
 import { LoginBtn } from './LoginBtn';
 import { RegisterBtn } from './RegisterBtn';
 
-import s from './AuthHeader.module.scss';
+import s from '../AuthHeader.module.scss';
 
 export function AuthUnLogged() {
 	return (

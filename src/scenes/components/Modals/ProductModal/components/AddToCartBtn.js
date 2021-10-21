@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { Button2 } from '../../../Buttons/Button2';
+
 import s from '../ProductModal.module.scss';
 
 import { UnLoggedModalContext } from '../../../Product/ProductList';
@@ -22,11 +24,10 @@ export function AddToCartBtn({ product }) {
 	};
 
 	return (
-		<button
-			onClick={() => handleAddToCart(product.id)}
-			className={`${s.addProductBtn} ${s.addToCart}`}
-		>
-			{'Add to cart'}
-		</button>
+		<Button2
+			text={'Add to cart'}
+			handleClick={() => handleAddToCart(product.id)}
+			className={`${s.addToCart}`}
+		/>
 	);
 }

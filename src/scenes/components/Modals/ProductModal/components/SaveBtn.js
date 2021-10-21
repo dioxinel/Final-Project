@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { Button1 } from '../../../Buttons/Button1';
+import { Button2 } from '../../../Buttons/Button2';
 import Icon from '../../../Icon';
 
 import s from '../ProductModal.module.scss';
@@ -33,20 +35,25 @@ export function SaveBtn({ product }) {
 	};
 
 	return (
-		<button
-			onClick={() => handleSaveProduct(product.id)}
-			className={`${s.addProductBtn} ${
-				product.favorite ? s.removeFromFavorites : s.addToFavorites
-			}`}
-		>
+		<>
 			{product.favorite ? (
-				<>
-					Added to favorites{' '}
-					<Icon name={'add-to-favorites-tick'} className={s.tick} />
-				</>
+				<Button1
+					text={
+						<>
+							Added to favorites{' '}
+							<Icon name={'add-to-favorites-tick'} className={s.tick} />
+						</>
+					}
+					handleClick={() => handleSaveProduct(product.id)}
+					className={s.saveBtn}
+				/>
 			) : (
-				'Add to favorites'
+				<Button2
+					text={'Add to favorites'}
+					handleClick={() => handleSaveProduct(product.id)}
+					className={s.saveBtn}
+				/>
 			)}
-		</button>
+		</>
 	);
 }

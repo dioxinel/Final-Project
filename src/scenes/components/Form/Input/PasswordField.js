@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { PasswordLabel } from './PasswordLabel';
-import { ShowPassIcon } from '../Modals/AuthModal/Auth/ShowPassIcon';
+import { ShowPassIcon } from '../../Icons/ShowPassIcon';
 
 import s from './Input.module.scss';
 

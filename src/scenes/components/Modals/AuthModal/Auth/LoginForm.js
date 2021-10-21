@@ -1,8 +1,8 @@
 import React from 'react';
 import ClipLoader from 'react-spinners/ClipLoader';
 
-import { Input } from '../../../Input/Input';
-import { PasswordField } from '../../../Input/PasswordField';
+import { Input } from '../../../Form/Input/Input';
+import { PasswordField } from '../../../Form/Input/PasswordField';
 
 import s from './Auth.module.scss';
 
@@ -17,8 +17,8 @@ export function LoginForm({
 		<form onSubmit={(evt) => handleSubmit(evt)} className={s.registerForm}>
 			<div className={s.inputContainer}>
 				<Input
-					type="email"
-					name="email"
+					type='email'
+					name='email'
 					value={fields.email}
 					className={s.input}
 					changeFieldValue={changeFieldValue}
@@ -34,7 +34,7 @@ export function LoginForm({
 
 			<button type={'submit'} className={s.submitBtn}>
 				{isLoading ? (
-					<ClipLoader color="#fff" loading={isLoading} size={15} />
+					<ClipLoader color='#fff' loading={isLoading} size={15} />
 				) : (
 					'Login'
 				)}

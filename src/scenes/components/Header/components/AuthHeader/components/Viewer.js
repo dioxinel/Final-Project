@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { UserAvatar } from '../../User/UserAvatar';
-import { DropDownMenu } from '../DropDownMenu/DropDownMenu';
-import { HeaderCartIcon } from '../HeaderCartIcon';
-import { HeaderSavedIcon } from '../HeaderSavedIcon';
+import { UserAvatar } from '../../../../User/UserAvatar';
+import { DropDownMenu } from '../../DropDownMenu/DropDownMenu';
+import { HeaderCartIcon } from '../../HeaderCartIcon';
+import { HeaderSavedIcon } from '../../HeaderSavedIcon';
 import { ViewerGreeting } from './ViewerGreeting';
 
-import s from './AuthHeader.module.scss';
+import s from '../AuthHeader.module.scss';
 
 export function Viewer({ viewer }) {
 	return (

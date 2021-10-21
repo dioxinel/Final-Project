@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
 
-import { AuthModalContext } from '../../../../App';
-
-import s from './AuthHeader.module.scss';
+import s from '../AuthHeader.module.scss';
+import { AuthModalContext } from '../../../../../../App';
 
 export function RegisterBtn() {
 	const { setIsOpen, setModalCondition } = useContext(AuthModalContext);

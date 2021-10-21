@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Modal from 'react-modal';
 
-import { rotesConfig } from './router/rotesConfig.js';
-import { RotesGenerator } from './router/RotesGenerator.js';
+import { Router } from './router/Router.js';
+
 import { bootstrap } from './store/actions';
 import { Loading } from './scenes/components/Loading/Loading';
 
@@ -36,7 +36,7 @@ function App() {
 			value={{ isOpen, setIsOpen, modalCondition, setModalCondition }}
 		>
 			<div className='App'>
-				<RotesGenerator config={rotesConfig} />
+				<Router />
 			</div>
 		</AuthModalContextProvider>
 	);

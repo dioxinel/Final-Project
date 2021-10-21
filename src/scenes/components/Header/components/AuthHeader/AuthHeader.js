@@ -1,12 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { viewerSelector } from '../../../../store/selectors';
-import { AuthUnLogged } from './AuthUnLogged';
-import { Viewer } from './Viewer';
+import { AuthUnLogged } from './components/AuthUnLogged';
+import { Viewer } from './components/Viewer';
 
 export function AuthHeader() {
-	const viewer = useSelector(viewerSelector);
+	const viewer = useSelector((store) => store.viewer);
 
 	if (viewer.isLoggedIn) {
 		return <Viewer viewer={viewer.viewer} />;

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import Icon from '../../Icon';
+import Icon from '../../../Icon';
 import { Logout } from './Logout';
 import { ViewerInfo } from './ViewerInfo';
 

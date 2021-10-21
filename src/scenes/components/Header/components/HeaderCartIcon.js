@@ -2,9 +2,9 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 
-import Icon from '../Icon';
+import Icon from '../../Icon';
 
-import s from './Header.module.scss';
+import s from '../Header.module.scss';
 
 export function HeaderCartIcon() {
 	const store = useSelector((store) => store.cart);

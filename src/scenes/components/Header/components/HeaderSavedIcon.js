@@ -1,9 +1,9 @@
 import React from 'react';
 import { useHistory } from 'react-router';
 
-import Icon from '../Icon';
+import Icon from '../../Icon';
 
-import s from './Header.module.scss';
+import s from '../Header.module.scss';
 
 export function HeaderSavedIcon() {
 	const history = useHistory();
