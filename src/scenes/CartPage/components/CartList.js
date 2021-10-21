@@ -1,23 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import SessionStorageApi from '../../../SessionStorageApi';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
-import s from '../CartPage.module.scss';
 import { CartListItem } from './CartListItem';
 
-export function CartList() {
-	const [products, setProducts] = useState([]);
-	useEffect(() => {
-		setProducts(SessionStorageApi.cart);
-	}, []);
+import s from '../CartPage.module.scss';
 
-	const updateCart = () => {
-		setProducts(SessionStorageApi.cart);
-	};
+export function CartList() {
+	const store = useSelector((store) => store.cart);
+
 	return (
 		<div className={s.cartList}>
-			{products.map((item) => {
-				return <CartListItem key={item.id} item={item} updateCart={updateCart} />;
-			})}
+			{store.totalCount ? (
+				store.items.map((item) => {
+					return <CartListItem key={item.id} item={item} />;
+				})
+			) : (
+				<div className={s.noItems}>{'There are no items in a cart'}</div>
+			)}
 		</div>
 	);
 }

@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import { useSelector } from 'react-redux';
+import { useLocation } from 'react-router';
 
-import { CloseModalIcon } from './components/CloseModalIcon';
-import { ProductModalContent } from './components/ProductModalContent';
+import { CloseModalIcon } from '../../Icons/CloseModalIcon';
 
 import s from './ProductModal.module.scss';
+
 import { getItemById } from '../../../../utils';
-import { useLocation } from 'react-router';
+import { ProductModalContent } from './components/ProductModalContent';
 
 export function ProductModal({ clickedProductId, setClickedProductId }) {
 	const store = useSelector((store) => store.products);
@@ -34,7 +35,12 @@ export function ProductModal({ clickedProductId, setClickedProductId }) {
 			className={s.productModal}
 			overlayClassName={s.modalOverlay}
 		>
-			<CloseModalIcon handleClose={handleClose} />
+			<CloseModalIcon
+				handleClose={handleClose}
+				width={'25'}
+				height={'25'}
+				className={s.cross}
+			/>
 			{product ? <ProductModalContent item={product} /> : ''}
 		</Modal>
 	);

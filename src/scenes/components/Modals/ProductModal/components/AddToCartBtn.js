@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import s from '../ProductModal.module.scss';
 
 import { UnLoggedModalContext } from '../../../Product/ProductList';
-import SessionStorageApi from '../../../../../SessionStorageApi';
+import { addItemToCart } from '../../../../../store/actions';
 
 export function AddToCartBtn({ product }) {
+	const dispatch = useDispatch();
 	const { setIsOpen, setClickedProductId } = useContext(UnLoggedModalContext);
 	const store = useSelector((store) => store.viewer);
 
@@ -16,7 +17,7 @@ export function AddToCartBtn({ product }) {
 			setIsOpen(productId);
 			return;
 		}
-		SessionStorageApi.addItem(product);
+		dispatch(addItemToCart(product));
 		setClickedProductId('');
 	};
 

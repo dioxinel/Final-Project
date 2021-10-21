@@ -1,5 +1,6 @@
 import React from 'react';
-import SessionStorageApi from '../../../SessionStorageApi';
+import { useDispatch } from 'react-redux';
+
 import { NumOfProduct } from '../../components/Modals/ProductModal/components/NumOfProduct';
 import { ProductPicture } from '../../components/Product/ProductPicture';
 import { ProductTitle } from '../../components/Product/ProductTitle';
@@ -7,11 +8,13 @@ import { ItemPrice } from './ItemPrice';
 import { TrashCanIcon } from './TrashCanIcon';
 
 import s from '../CartPage.module.scss';
+import { setCartItemCount } from '../../../store/actions';
 
-export function CartListItem({ item, updateCart }) {
+export function CartListItem({ item }) {
+	const dispatch = useDispatch();
+
 	const handleChangeItemCount = (count) => {
-		SessionStorageApi.setItemCount(item.id, count);
-		updateCart();
+		dispatch(setCartItemCount({ id: item.id, count }));
 	};
 
 	return (
@@ -20,7 +23,7 @@ export function CartListItem({ item, updateCart }) {
 			<div className={s.middlePart}>
 				<ProductTitle title={item.title} className={s.productTitle} />
 				<div>
-					<TrashCanIcon id={item.id} updateCart={updateCart} />
+					<TrashCanIcon id={item.id} />
 					<NumOfProduct
 						num={item.count}
 						setNum={handleChangeItemCount}

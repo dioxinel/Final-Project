@@ -11,6 +11,7 @@
 	background-color: #fff;
 	align-self: center;
 	box-sizing: border-box;
+	display: flex;
 }
 
 .myCart {
@@ -23,8 +24,10 @@
 
 .cartList {
 	margin-left: 37px;
-	width: 684px;
+	width: 647px;
 	border-right: 1px solid #dedee0;
+	min-height: 500px;
+	position: relative;
 }
 
 .cartListItem {
@@ -95,4 +98,13 @@
 			margin-top: 7px;
 		}
 	}
+}
+
+.noItems {
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	position: absolute;
+	top: 200px;
+	left: 200px;
 }

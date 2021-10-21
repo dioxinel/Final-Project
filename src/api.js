@@ -55,6 +55,17 @@ class Api {
 	getFavorites() {
 		return axios.get(`/api/api/products/favorites`);
 	}
+
+	getCountries() {
+		return axios.get(`/api/api/locations/countries`);
+	}
+
+	createOrder({ items, shipment }) {
+		return axios.post('/api/api/orders', {
+			items,
+			shipment,
+		});
+	}
 }
 
 export default new Api();

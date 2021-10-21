@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 
 import { Login } from './Auth/Login';
 import { Register } from './Auth/Register';
-import Icon from '../../Icon';
+import { CloseModalIcon } from '../../Icons/CloseModalIcon';
 
 import s from './AuthModal.module.scss';
 
@@ -23,9 +23,8 @@ export function AuthModal() {
 			className={`${s.modal} ${modalCondition ? s.modalLogin : s.modalRegister}`}
 			overlayClassName={s.modalOverlay}
 		>
-			<Icon
-				name={'cross'}
-				onClick={handleClose}
+			<CloseModalIcon
+				handleClose={handleClose}
 				className={s.cross}
 				width={'18'}
 				height={'18'}

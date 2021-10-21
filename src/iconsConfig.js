@@ -41,7 +41,7 @@ export const iconsConfig = {
 		</svg>
 	),
 
-	'header-tick': ({ ...props }) => (
+	arrow: ({ fill, ...props }) => (
 		<svg
 			width='13'
 			height='8'
@@ -52,7 +52,7 @@ export const iconsConfig = {
 		>
 			<path
 				d='M0 1.09091L1.04 0L6.5 5.80364L11.96 0L13 1.09091L6.5 8L0 1.09091Z'
-				fill='white'
+				fill={fill}
 			/>
 		</svg>
 	),

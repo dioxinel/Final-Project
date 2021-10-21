@@ -1,19 +1,24 @@
 import { createReducer, current } from '@reduxjs/toolkit';
 import {
 	addFavorites,
+	addItemToCart,
 	addProducts,
 	addProductToFavorites,
 	clearProductsStore,
 	endLoading,
 	errorLoading,
+	removeCartItems,
+	removeItemFromCart,
 	removeProductFromFavorites,
 	removeViewer,
+	setCartItemCount,
+	setCartItems,
 	setViewer,
 	startLoading,
 } from './actions';
 import { initialStore } from './initialStore';
 import api from '../api';
-import { getItemById } from '../utils';
+import { getFullPriceAndCount, getItemById } from '../utils';
 
 export const viewerReducer = createReducer(initialStore, {
 	[setViewer]: (state, action) => {
@@ -92,5 +97,54 @@ export const productsReducer = createReducer(initialStore, {
 		state.favorites = [];
 		state.products = [];
 		state.fetchFrom = 0;
+	},
+});
+
+export const cartReducer = createReducer(initialStore, {
+	[setCartItems]: (state, action) => {
+		state.items = JSON.parse(window.sessionStorage.getItem('cart'))
+			? JSON.parse(window.sessionStorage.getItem('cart'))
+			: [];
+		getFullPriceAndCount(current(state).items, state);
+	},
+
+	[addItemToCart]: (state, action) => {
+		const double = getItemById(current(state).items, action.payload.id);
+		if (double) {
+			state.items = [
+				{ ...double, count: double.count + 1 },
+				...current(state).items.filter((item) => item.id !== action.payload.id),
+			];
+		} else {
+			const newItem = { ...action.payload, count: 1 };
+			state.items = [...state.items, newItem];
+		}
+		window.sessionStorage.setItem('cart', JSON.stringify(current(state).items));
+		getFullPriceAndCount(current(state).items, state);
+	},
+
+	[removeItemFromCart]: (state, action) => {
+		state.items = current(state).items.filter((item) => {
+			return item.id !== action.payload;
+		});
+		window.sessionStorage.setItem('cart', JSON.stringify(current(state).items));
+		getFullPriceAndCount(current(state).items, state);
+	},
+	[setCartItemCount]: (state, action) => {
+		const item = { ...getItemById(current(state).items, action.payload.id) };
+		item.count = action.payload.count;
+		state.items = [
+			item,
+			...current(state).items.filter((item) => item.id !== action.payload.id),
+		];
+		window.sessionStorage.setItem('cart', JSON.stringify(current(state).items));
+		getFullPriceAndCount(current(state).items, state);
+	},
+
+	[removeCartItems]: (state, action) => {
+		state.items = [];
+		window.sessionStorage.removeItem('cart');
+		state.totalPrice = 0;
+		state.totalCount = 0;
 	},
 });

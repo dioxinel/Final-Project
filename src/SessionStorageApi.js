@@ -5,6 +5,8 @@ class SessionStorageApi {
 		this.cart = JSON.parse(window.sessionStorage.getItem('cart'))
 			? JSON.parse(window.sessionStorage.getItem('cart'))
 			: [];
+		this.totalCount = 0;
+		this.totalPrice = 0;
 	}
 	addItem(item) {
 		const double = getItemById(this.cart, item.id);
@@ -16,6 +18,7 @@ class SessionStorageApi {
 		}
 		const newCart = this.cart;
 		window.sessionStorage.setItem('cart', JSON.stringify(newCart));
+		this.getFullPrice();
 	}
 	removeItem(id) {
 		const newCart = this.cart.filter((item) => {
@@ -23,6 +26,7 @@ class SessionStorageApi {
 		});
 		window.sessionStorage.setItem('cart', JSON.stringify(newCart));
 		this.cart = newCart;
+		this.getFullPrice();
 	}
 
 	setItemCount(id, count) {
@@ -32,6 +36,14 @@ class SessionStorageApi {
 
 		const newCart = this.cart;
 		window.sessionStorage.setItem('cart', JSON.stringify(newCart));
+		this.getFullPrice();
+	}
+
+	getFullPrice() {
+		this.cart.forEach((item) => {
+			this.totalPrice += item.count * item.price;
+			this.totalCount += item.count;
+		});
 	}
 }
 

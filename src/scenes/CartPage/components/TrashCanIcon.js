@@ -1,13 +1,16 @@
 import React from 'react';
-import SessionStorageApi from '../../../SessionStorageApi';
+import { useDispatch } from 'react-redux';
+
 import Icon from '../../components/Icon';
 
 import s from '../CartPage.module.scss';
+import { removeItemFromCart } from '../../../store/actions';
 
-export function TrashCanIcon({ updateCart, id }) {
+export function TrashCanIcon({ id }) {
+	const dispatch = useDispatch();
+
 	const handleRemoveFromCart = () => {
-		SessionStorageApi.removeItem(id);
-		updateCart();
+		dispatch(removeItemFromCart(id));
 	};
 
 	return (

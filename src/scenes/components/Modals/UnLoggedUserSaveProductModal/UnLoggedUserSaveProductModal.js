@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import Modal from 'react-modal';
 
-import { CloseModalIcon } from './components/CloseModalIcon';
 import { ModalContent } from './components/ModalContent';
+import { CloseModalIcon } from '../../Icons/CloseModalIcon';
 
 import s from './UnLoggedUserSaveProductModal.module.scss';
 
@@ -27,7 +27,12 @@ export function UnLoggedUserSaveProductModal({ isOpen, setIsOpen }) {
 			className={s.saveProductModal}
 			overlayClassName={s.modalOverlay}
 		>
-			<CloseModalIcon handleClose={handleBack} />
+			<CloseModalIcon
+				handleClose={handleBack}
+				width={'22'}
+				height={'22'}
+				className={s.cross}
+			/>
 			<ModalContent handleClose={handleClose} handleBack={handleBack} />
 		</Modal>
 	);
