@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { AccountFavorites } from '../scenes/AccountFavorites/AccountFavorites';
 import { CartPage } from '../scenes/CartPage/CartPage';
 import { Header } from '../scenes/components/Header/Header';
+import { EditProfilePage } from '../scenes/EditProfilePage/EditProfilePage';
 import { Home } from '../scenes/Home/Home';
 import { OrdersHistoryPage } from '../scenes/OrdersHistoryPage/OrdersHistoryPage';
 
@@ -21,6 +22,9 @@ export const Router = () => (
 			</Route>
 			<Route exact path={'/account/orders-history'}>
 				<OrdersHistoryPage />
+			</Route>
+			<Route exact path={'/account/settings'}>
+				<EditProfilePage />
 			</Route>
 		</Switch>
 	</BrowserRouter>
