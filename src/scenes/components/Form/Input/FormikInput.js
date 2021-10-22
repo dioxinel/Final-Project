@@ -8,11 +8,11 @@ export const FormikInput = ({ label, className, ...props }) => {
 	return (
 		<>
 			<label>
-				<p className={meta.touched && meta.error ? s.errorLabel : ''}>{label}</p>
+				<p className={meta.error ? s.errorLabel : ''}>{label}</p>
 				<Field
 					{...field}
 					{...props}
-					className={`${className} ${meta.touched && meta.error ? s.error : ''}`}
+					className={`${className} ${meta.error ? s.error : ''}`}
 				/>
 			</label>
 			{meta.touched && meta.error && (

@@ -9,8 +9,12 @@
 }
 
 .error {
-	border: 1px solid #f44336;
+	border: 1px solid #f44336 !important;
 	outline: none;
+}
+
+.errorLabel {
+	color: #f44336 !important;
 }
 
 .errorMessage {

@@ -70,6 +70,17 @@ class Api {
 	getOrders() {
 		return axios.get('/api/api/orders');
 	}
+
+	editProfile({ fullName, email, phone, country, city, address }) {
+		return axios.put('/api/api/account', {
+			fullName,
+			email,
+			phone,
+			country,
+			city,
+			address,
+		});
+	}
 }
 
 export default new Api();
