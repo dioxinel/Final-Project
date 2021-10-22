@@ -20,6 +20,12 @@
 	margin-top: 50px;
 }
 
+.noOrdersMessage {
+	font-size: 20px;
+	font-weight: 600;
+	margin-top: 100px;
+}
+
 .orderItem {
 	width: 486px;
 	height: 89px;
@@ -57,6 +63,7 @@
 	font-weight: 500;
 	font-size: 15px;
 	line-height: 22px;
+	cursor: pointer;
 
 	text-decoration-line: underline;
 

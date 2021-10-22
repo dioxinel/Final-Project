@@ -9,7 +9,9 @@ export function LeftPartOfItem({ item }) {
 		<div className={s.leftPartOfItem}>
 			<div className={s.container}>
 				<div className={s.title}>Order ID:</div>
-				<div className={s.orderId}>{item.id}</div>
+				<div className={s.orderId} order-id={item.id}>
+					{item.id}
+				</div>
 			</div>
 			<div className={s.container}>
 				<div className={s.title}>Date: </div>

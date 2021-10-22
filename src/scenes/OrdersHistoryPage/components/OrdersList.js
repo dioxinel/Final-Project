@@ -34,6 +34,14 @@ export function OrdersList() {
 		setActiveOrder(getItemById(orders, productId));
 	};
 
+	if (!isLoading && !orders.length) {
+		return (
+			<div className={s.ordersList}>
+				<div className={s.noOrdersMessage}>{'Currently you have no orders'}</div>
+			</div>
+		);
+	}
+
 	return (
 		<>
 			<div className={s.ordersList} onClick={handleClickOnOrder}>
