@@ -15,8 +15,11 @@ export function MainInfo() {
 	const store = useSelector((store) => store.viewer);
 	const dispatch = useDispatch();
 
-	async function onSubmit({ fullName, email, phone, country, city, address }) {
-		const res = asyncRequest(api.editProfile, {
+	const onSubmit = async (
+		{ fullName, email, phone, country, city, address },
+		{ setFieldError },
+	) => {
+		const res = await asyncRequest(api.editProfile, {
 			fullName,
 			email,
 			phone,
@@ -26,13 +29,15 @@ export function MainInfo() {
 		});
 
 		if (typeof res === 'string') {
+			if (res === 'Request failed with status code 500')
+				setFieldError('email', 'Such email is already used');
 			return;
 		}
 
 		dispatch(setViewer({ fullName, email, phone, country, city, address }));
-	}
+	};
 
-	let initialValues = {
+	const initialValues = {
 		fullName: store.viewer.fullName,
 		email: store.viewer.email,
 		phone: store.viewer.phone,
