@@ -5,14 +5,15 @@ import s from './Input.module.scss';
 
 export const FormikInput = ({ label, className, ...props }) => {
 	const [field, meta] = useField(props);
+
 	return (
 		<>
 			<label>
-				<p className={meta.error ? s.errorLabel : ''}>{label}</p>
+				<p className={meta.touched && meta.error ? s.errorLabel : ''}>{label}</p>
 				<Field
+					className={`${className} ${meta.touched && meta.error ? s.error : ''}`}
 					{...field}
 					{...props}
-					className={`${className} ${meta.error ? s.error : ''}`}
 				/>
 			</label>
 			{meta.touched && meta.error && (

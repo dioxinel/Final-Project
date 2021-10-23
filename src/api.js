@@ -81,6 +81,10 @@ class Api {
 			address,
 		});
 	}
+
+	changePassword({ oldPassword, password }) {
+		return axios.put('/api/api/account/password', { oldPassword, password });
+	}
 }
 
 export default new Api();
