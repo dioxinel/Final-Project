@@ -1,5 +1,5 @@
 import { Formik } from 'formik';
-import React from 'react';
+import React, { useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { MainInfoForm } from './MainInfoForm';
@@ -7,10 +7,12 @@ import { MainInfoForm } from './MainInfoForm';
 import s from '../EditProfilePage.module.scss';
 import { validationSchemaMainInfo } from './validation';
 import { useAsyncRequest } from '../../../useAsyncRequest';
-import api from '../../../api';
 import { setViewer } from '../../../store/actions';
+import { NotificationsContext } from '../../../App';
+import api from '../../../api';
 
 export function MainInfo() {
+	const { notifications, setNotifications } = useContext(NotificationsContext);
 	const { asyncRequest, isLoading } = useAsyncRequest();
 	const store = useSelector((store) => store.viewer);
 	const dispatch = useDispatch();
@@ -33,7 +35,13 @@ export function MainInfo() {
 				setFieldError('email', 'Such email is already used');
 			return;
 		}
-
+		setNotifications([
+			...notifications,
+			{
+				text: 'Account details are updated successfully',
+				type: 'alert',
+			},
+		]);
 		dispatch(setViewer({ fullName, email, phone, country, city, address }));
 	};
 

@@ -1,5 +1,5 @@
 import { Formik } from 'formik';
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { ChangePasswordForm } from './ChangePasswordForm';
 
@@ -7,22 +7,28 @@ import s from '../EditProfilePage.module.scss';
 import { useAsyncRequest } from '../../../useAsyncRequest';
 import api from '../../../api';
 import { validationSchemaChangePassword } from './validation';
+import { NotificationsContext } from '../../../App';
 
 export function ChangePassword() {
+	const { notifications, setNotifications } = useContext(NotificationsContext);
 	const { asyncRequest, isLoading } = useAsyncRequest();
 
-	const onSubmit = async (
-		{ oldPassword, password, confirmPassword },
-		{ setFieldError },
-	) => {
+	const onSubmit = async ({ oldPassword, password }, { setFieldError }) => {
 		const res = await asyncRequest(api.changePassword, { oldPassword, password });
 
 		if (typeof res === 'string') {
-			console.log(res);
 			if (res === 'Request failed with status code 401')
 				setFieldError('oldPassword', 'Password incorrect');
 			return;
 		}
+
+		setNotifications([
+			...notifications,
+			{
+				text: 'Your password is updated successfully',
+				type: 'alert',
+			},
+		]);
 	};
 
 	const initialValues = {

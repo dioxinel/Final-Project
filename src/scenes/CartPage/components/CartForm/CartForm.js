@@ -118,7 +118,7 @@ export const CartForm = ({ setIsOpen }) => {
 						<TotalPrice price={cart.totalPrice} numOfItem={cart.totalCount} />
 						<button
 							type={'submit'}
-							disabled={!isValid || !dirty || !cart.totalCount}
+							disabled={!isValid || !cart.totalCount}
 							onClick={handleSubmit}
 							className={s.submitBtn}
 						>

@@ -7,10 +7,12 @@ import s from '../ProductModal.module.scss';
 
 import { UnLoggedModalContext } from '../../../Product/ProductList';
 import { addItemToCart } from '../../../../../store/actions';
+import { NotificationsContext } from '../../../../../App';
 
 export function AddToCartBtn({ product }) {
 	const dispatch = useDispatch();
 	const { setIsOpen, setClickedProductId } = useContext(UnLoggedModalContext);
+	const { notifications, setNotifications } = useContext(NotificationsContext);
 	const store = useSelector((store) => store.viewer);
 
 	const handleAddToCart = async (productId) => {
@@ -19,6 +21,13 @@ export function AddToCartBtn({ product }) {
 			setIsOpen(productId);
 			return;
 		}
+		setNotifications([
+			...notifications,
+			{
+				text: `The ${product.title} is successfully added to cart`,
+				type: 'alert',
+			},
+		]);
 		dispatch(addItemToCart(product));
 		setClickedProductId('');
 	};
