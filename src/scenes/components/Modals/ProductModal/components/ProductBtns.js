@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button1 } from '../../../Buttons/Button1';
+import { BuyNowBtn } from './BuyNowBtn';
 import { SaveBtn } from './SaveBtn';
 import { AddToCartBtn } from './AddToCartBtn';
 
@@ -11,13 +11,7 @@ export function ProductBtns({ product }) {
 		<div className={s.productBtns}>
 			<AddToCartBtn product={product} />
 			<SaveBtn product={product} />
-			<Button1
-				text={'Buy now'}
-				handleClick={() => {
-					console.log('In work');
-				}}
-				className={s.buyNow}
-			/>
+			<BuyNowBtn product={product} />
 		</div>
 	);
 }

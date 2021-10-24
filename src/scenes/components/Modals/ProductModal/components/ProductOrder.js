@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 
 import { NumOfProduct } from './NumOfProduct';
 import { TotalPrice } from './TotalPrice';
 
 import s from '../ProductModal.module.scss';
+import { BuyNowContext } from './ProductModalContent';
 
 export function ProductOrder({ item }) {
-	const [num, setNum] = useState(1);
+	const { num, setNum } = useContext(BuyNowContext);
 
 	return (
 		<div className={s.productOrder}>

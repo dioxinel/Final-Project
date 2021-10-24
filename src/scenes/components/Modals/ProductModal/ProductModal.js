@@ -6,7 +6,6 @@ import { useLocation } from 'react-router';
 import { CloseModalIcon } from '../../Icons/CloseModalIcon';
 
 import s from './ProductModal.module.scss';
-
 import { getItemById } from '../../../../utils';
 import { ProductModalContent } from './components/ProductModalContent';
 
