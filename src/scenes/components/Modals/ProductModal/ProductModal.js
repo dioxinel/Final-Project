@@ -16,10 +16,14 @@ export function ProductModal({ clickedProductId, setClickedProductId }) {
 	const [product, setProduct] = useState(null);
 
 	useEffect(() => {
-		const productList =
-			location.pathname === '/account/favorites'
-				? store.favorites
-				: store.products;
+		let productList;
+		if (location.pathname === '/account/favorites') {
+			productList = store.favorites;
+		} else if (store.searchProduct.length) {
+			productList = store.searchProduct;
+		} else {
+			productList = store.products;
+		}
 		setProduct(getItemById(productList, Number(clickedProductId)));
 	}, [clickedProductId, store, location]);
 

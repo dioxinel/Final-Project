@@ -28,8 +28,19 @@ export const productsReducer = createReducer(initialStore, {
 	},
 
 	[addProductToFavorites]: (state, action) => {
-		const product = getItemById(current(state).products, action.payload);
-		const idx = current(state).products.indexOf(product);
+		let product = getItemById(current(state).products, action.payload);
+
+		let idx = current(state).products.indexOf(product);
+
+		if (idx >= 0) {
+			state.products[idx].favorite = true;
+		}
+
+		if (current(state).searchProduct.length) {
+			product = getItemById(current(state).searchProduct, action.payload);
+			idx = current(state).searchProduct.indexOf(product);
+			state.searchProduct[idx].favorite = true;
+		}
 
 		if (current(state).favorites.length) {
 			state.favorites = [
@@ -37,8 +48,6 @@ export const productsReducer = createReducer(initialStore, {
 				...current(state).favorites,
 			];
 		}
-
-		state.products[idx].favorite = true;
 	},
 
 	[removeProductFromFavorites]: (state, action) => {
