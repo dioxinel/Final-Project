@@ -1,14 +1,16 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { addProducts, asyncRequest } from '../../store/actions';
 import { ProductList } from '../components/Product/ProductList';
 import { LoadMoreBtn } from './components/LoadMoreBtn';
 import { Loading } from '../components/Loading/Loading';
+import { SearchSortCategoriesTab } from './components/SearchSortCategoriesTab/SearchSortCategoriesTab';
 
 import s from './Home.module.scss';
 
 import api from '../../api';
+import { addProducts, asyncRequest } from '../../store/actions';
+import { NotFound } from './components/NotFount';
 
 export function Home() {
 	const dispatch = useDispatch();
@@ -24,14 +26,23 @@ export function Home() {
 
 	const loading = useSelector((store) => store.loading);
 
-	if (loading.isLoading) {
-		return <Loading isLoading={loading.isLoading} />;
-	}
-
 	return (
 		<div className={s.home}>
-			{store.products.length ? <ProductList items={store.products} /> : 'home'}
-			{store.isMoreProducts ? <LoadMoreBtn /> : ''}
+			<Loading
+				isLoading={loading.isLoading}
+				text={store.products.length ? 'Searching...' : 'Loading...'}
+			/>
+			<SearchSortCategoriesTab />
+			{typeof store.searchProduct[0] === 'string' ? (
+				<NotFound />
+			) : (
+				<>
+					<ProductList
+						items={store.searchProduct.length ? store.searchProduct : store.products}
+					/>
+					{store.isMoreProducts ? <LoadMoreBtn /> : ''}
+				</>
+			)}
 		</div>
 	);
 }

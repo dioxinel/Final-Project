@@ -4,6 +4,7 @@ import {
 	addItemToCart,
 	addProducts,
 	addProductToFavorites,
+	setSearchProduct,
 	clearProductsStore,
 	endLoading,
 	errorLoading,
@@ -97,6 +98,9 @@ export const productsReducer = createReducer(initialStore, {
 		state.favorites = [];
 		state.products = [];
 		state.fetchFrom = 0;
+	},
+	[setSearchProduct]: (state, action) => {
+		state.searchProduct = action.payload;
 	},
 });
 

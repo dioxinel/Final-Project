@@ -8,6 +8,14 @@ import { EditProfilePage } from '../scenes/EditProfilePage/EditProfilePage';
 import { Home } from '../scenes/Home/Home';
 import { OrdersHistoryPage } from '../scenes/OrdersHistoryPage/OrdersHistoryPage';
 
+export const routes = {
+	home: '/',
+	favorites: '/account/favorites',
+	cart: '/account/cart',
+	orders: '/account/orders-history',
+	settings: '/account/settings',
+};
+
 export const Router = () => (
 	<BrowserRouter>
 		<Header />

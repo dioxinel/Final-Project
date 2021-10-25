@@ -4,7 +4,7 @@ import Modal from 'react-modal';
 
 import s from './Loading.module.scss';
 
-export function Loading({ isLoading }) {
+export function Loading({ isLoading, text = 'Loading...' }) {
 	return (
 		<Modal
 			isOpen={isLoading}
@@ -12,7 +12,7 @@ export function Loading({ isLoading }) {
 			overlayClassName={s.modalOverlay}
 		>
 			<ClipLoader color='#349A89' loading={isLoading} size={50} />
-			<h1 className={s.loading}>{'Loading...'}</h1>
+			<h1 className={s.loading}>{text}</h1>
 		</Modal>
 	);
 }

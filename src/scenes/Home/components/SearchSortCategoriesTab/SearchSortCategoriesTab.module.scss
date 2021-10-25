@@ -1,0 +1,40 @@
+.searchSortCategoriesTab {
+	position: relative;
+	width: 860px;
+	height: 61px;
+	background: #ffffff;
+	box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+	border-radius: 4px;
+
+	margin: 20px 30px 17.5px 0;
+}
+
+.searchProduct {
+	position: absolute;
+	top: 12px;
+	left: 27px;
+	width: 290px;
+	height: 37px;
+	background: #f9fafb;
+	border: 1px solid #dedee0;
+	box-sizing: border-box;
+	border-radius: 5px;
+
+	display: flex;
+	align-items: center;
+
+	svg {
+		margin: 0 10px 0 12px;
+	}
+}
+
+.searchInput {
+	display: block;
+	width: 220px;
+	background-color: #f9fafb;
+	font-size: 12px;
+	overflow: hidden;
+	line-height: 26px;
+	color: #707070;
+	outline: none;
+}

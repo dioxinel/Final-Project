@@ -8,6 +8,7 @@ export const removeProductFromFavorites = createAction(
 	'products/removeFromFavorites',
 );
 export const clearProductsStore = createAction('products/clearStore');
+export const setSearchProduct = createAction('searchProduct/set');
 
 export const setViewer = createAction('viewer/set');
 export const removeViewer = createAction('viewer/remove');
@@ -28,6 +29,25 @@ export const asyncRequest = (payload) => async (dispatch) => {
 		dispatch(startLoading());
 		const res = await payload.request(payload.params);
 		dispatch(payload.action(res.data));
+	} catch (err) {
+		console.log(err);
+		dispatch(errorLoading(err.message));
+	} finally {
+		dispatch(endLoading());
+	}
+};
+
+export const searchProduct = (payload) => async (dispatch) => {
+	try {
+		dispatch(errorLoading(''));
+		dispatch(startLoading());
+		const res = await api.searchProduct(payload);
+
+		if (res.data.length === 0) {
+			dispatch(setSearchProduct(['not found']));
+			return;
+		}
+		dispatch(setSearchProduct(res.data));
 	} catch (err) {
 		console.log(err);
 		dispatch(errorLoading(err.message));

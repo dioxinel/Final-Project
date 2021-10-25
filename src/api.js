@@ -44,6 +44,10 @@ class Api {
 		return axios.get(`/api/api/products?offset=${fetchFrom}`);
 	}
 
+	searchProduct(keywords) {
+		return axios.get(`/api/api/products/search?keywords=${keywords}`);
+	}
+
 	addToFavorites(id) {
 		return axios.post(`/api/api/products/${id}/favorite`);
 	}
