@@ -3,10 +3,10 @@ export const initialStore = {
 	loading: { isLoading: false, error: '' },
 	products: {
 		products: [],
-		fetchFrom: 0,
-		isMoreProducts: true,
+		productsPage: { isMoreProducts: true, fetchFrom: 0 },
 		favorites: [],
 		searchProduct: [],
+		searchProductPage: { isMoreProducts: true, fetchFrom: 0, keywords: '' },
 	},
 	cart: { items: [], totalCount: 0, totalPrice: 0 },
 };

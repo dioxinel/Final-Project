@@ -1,11 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { initialStore } from './initialStore';
-import {
-	cartReducer,
-	loadingReducer,
-	productsReducer,
-	viewerReducer,
-} from './reducer';
+import { viewerReducer } from './reducers/viewerReducer';
+import { cartReducer } from './reducers/cartReducer';
+import { loadingReducer } from './reducers/loadingReducer';
+import { productsReducer } from './reducers/productReducer';
 
 export const store = configureStore({
 	reducer: {

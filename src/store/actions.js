@@ -9,6 +9,9 @@ export const removeProductFromFavorites = createAction(
 );
 export const clearProductsStore = createAction('products/clearStore');
 export const setSearchProduct = createAction('searchProduct/set');
+export const clearSearchProductPage = createAction('searchProductPage/clear');
+export const setKeywords = createAction('keywords/set');
+export const addSearchProduct = createAction('searchProduct/add');
 
 export const setViewer = createAction('viewer/set');
 export const removeViewer = createAction('viewer/remove');
@@ -41,13 +44,15 @@ export const searchProduct = (payload) => async (dispatch) => {
 	try {
 		dispatch(errorLoading(''));
 		dispatch(startLoading());
-		const res = await api.searchProduct(payload);
+		dispatch(clearSearchProductPage());
+		const res = await api.searchProduct({ keywords: payload });
 
 		if (res.data.length === 0) {
 			dispatch(setSearchProduct(['not found']));
 			return;
 		}
 		dispatch(setSearchProduct(res.data));
+		dispatch(setKeywords(payload));
 	} catch (err) {
 		console.log(err);
 		dispatch(errorLoading(err.message));

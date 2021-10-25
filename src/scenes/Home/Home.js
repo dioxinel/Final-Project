@@ -37,10 +37,17 @@ export function Home() {
 				<NotFound />
 			) : (
 				<>
-					<ProductList
-						items={store.searchProduct.length ? store.searchProduct : store.products}
-					/>
-					{store.isMoreProducts ? <LoadMoreBtn /> : ''}
+					{store.searchProduct.length ? (
+						<>
+							<ProductList items={store.searchProduct} />
+							{store.searchProductPage.isMoreProducts ? <LoadMoreBtn /> : ''}
+						</>
+					) : (
+						<>
+							<ProductList items={store.products} />
+							{store.productsPage.isMoreProducts ? <LoadMoreBtn /> : ''}
+						</>
+					)}
 				</>
 			)}
 		</div>

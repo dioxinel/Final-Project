@@ -44,8 +44,11 @@ class Api {
 		return axios.get(`/api/api/products?offset=${fetchFrom}`);
 	}
 
-	searchProduct(keywords) {
-		return axios.get(`/api/api/products/search?keywords=${keywords}`);
+	searchProduct({ keywords, fetchFrom = 0 }) {
+		if (typeof keywords !== 'string') return;
+		return axios.get(
+			`/api/api/products/search?keywords=${keywords}&offset=${fetchFrom}`,
+		);
 	}
 
 	addToFavorites(id) {
