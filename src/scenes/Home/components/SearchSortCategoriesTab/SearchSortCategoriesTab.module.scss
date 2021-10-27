@@ -38,3 +38,72 @@
 	color: #707070;
 	outline: none;
 }
+
+.categories {
+	position: absolute;
+	top: 12px;
+	left: 339px;
+
+	display: flex;
+	align-items: center;
+
+	width: 290px;
+	height: 37px;
+	background: #f9fafb;
+
+	border: 1px solid #dedee0;
+	box-sizing: border-box;
+	border-radius: 5px;
+
+	div {
+		font-weight: 500;
+		font-size: 14px;
+		line-height: 26px;
+
+		color: #373738;
+		width: 250px;
+		overflow: hidden;
+	}
+
+	svg {
+		cursor: pointer;
+	}
+}
+
+.categoriesIcon {
+	margin: 0 10px 0 12px;
+}
+
+.clearCategoryIcon {
+	margin-right: 12px;
+}
+
+.active {
+	background: #ffffff;
+}
+
+.categoriesContainer {
+	position: relative;
+}
+
+.dropDownList {
+	position: absolute;
+	top: 45px;
+	left: 339px;
+	padding: 9.5px 0 19.5px 0;
+
+	width: 290px;
+	background: #ffffff;
+	border-top: 2px solid #dedee0;
+	box-sizing: border-box;
+	border-radius: 0 0 5px 5px;
+	z-index: 1;
+}
+
+.category {
+	margin: 2.5px 20px 2.5px 37px;
+	font-size: 14px;
+	line-height: 26px;
+	color: #373738;
+	cursor: pointer;
+}

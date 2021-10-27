@@ -7,6 +7,7 @@ export const initialStore = {
 		favorites: [],
 		searchProduct: [],
 		searchProductPage: { isMoreProducts: true, fetchFrom: 0, keywords: '' },
+		activeCategory: '',
 	},
 	cart: { items: [], totalCount: 0, totalPrice: 0 },
 };

@@ -9,12 +9,22 @@ import {
 	setKeywords,
 	addSearchProduct,
 	clearSearchProductPage,
+	setActiveCategory,
+	setProducts,
 } from '../actions';
 import { initialStore } from '../initialStore';
 
 import { getItemById } from '../../utils';
 
 export const productsReducer = createReducer(initialStore, {
+	[setProducts]: (state, action) => {
+		if (action.payload.length < 20 && action.payload.length !== 0) {
+			state.productsPage.isMoreProducts = false;
+		}
+		state.productsPage.fetchFrom = 20;
+		state.products = action.payload;
+	},
+
 	[addProducts]: (state, action) => {
 		if (action.payload.length < 20 || action.payload[19].id <= 1) {
 			state.productsPage.isMoreProducts = false;
@@ -96,5 +106,9 @@ export const productsReducer = createReducer(initialStore, {
 		state.searchProductPage.keywords = '';
 		state.searchProductPage.fetchFrom = 0;
 		state.searchProductPage.isMoreProducts = true;
+	},
+
+	[setActiveCategory]: (state, action) => {
+		state.activeCategory = action.payload;
 	},
 });

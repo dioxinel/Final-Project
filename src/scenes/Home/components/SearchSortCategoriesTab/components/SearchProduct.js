@@ -16,7 +16,7 @@ export function SearchProduct() {
 
 	useEffect(() => {
 		if (debouncedSearchTerm.length > 3 && debouncedSearchTerm.length < 50) {
-			dispatch(searchProduct(debouncedSearchTerm));
+			dispatch(searchProduct(debouncedSearchTerm.toLowerCase()));
 		} else {
 			dispatch(setSearchProduct([]));
 		}
