@@ -6,12 +6,13 @@ import s from './DropDownMenu.module.scss';
 import { clearProductsStore, removeViewer } from '../../../../../store/actions';
 import api from '../../../../../api';
 
-export function Logout() {
+export function Logout({ closeMenu }) {
 	const dispatch = useDispatch();
 	const handleLogout = () => {
 		api.logout();
 		dispatch(removeViewer());
 		dispatch(clearProductsStore());
+		closeMenu();
 	};
 
 	return (

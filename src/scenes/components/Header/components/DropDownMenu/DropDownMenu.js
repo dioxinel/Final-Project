@@ -43,7 +43,7 @@ export function DropDownMenu() {
 					<Link to={'/account/settings'} className={s.linkToSettings}>
 						{'Settings'}
 					</Link>
-					<Logout />
+					<Logout closeMenu={closeMenu} />
 				</div>
 			)}
 		</div>
