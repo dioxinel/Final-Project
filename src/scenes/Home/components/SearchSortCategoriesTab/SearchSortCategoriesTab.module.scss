@@ -101,9 +101,76 @@
 }
 
 .category {
-	margin: 2.5px 20px 2.5px 37px;
+	padding: 2.5px 20px 2.5px 37px;
 	font-size: 14px;
 	line-height: 26px;
 	color: #373738;
 	cursor: pointer;
+
+	&:hover {
+		background-color: #f0f0f0;
+	}
+}
+
+.sortingContainer {
+	position: relative;
+}
+
+.sorting {
+	position: absolute;
+	top: 12px;
+	right: 27px;
+
+	display: flex;
+	align-items: center;
+
+	width: 182px;
+	height: 37px;
+	background: #f9fafb;
+
+	border: 1px solid #dedee0;
+	box-sizing: border-box;
+	border-radius: 5px;
+
+	div {
+		font-weight: 500;
+		font-size: 14px;
+		line-height: 26px;
+
+		color: #373738;
+		width: 140px;
+		overflow: hidden;
+		text-transform: capitalize;
+	}
+
+	svg {
+		cursor: pointer;
+	}
+}
+
+.dropDownSorting {
+	position: absolute;
+	top: 45px;
+	right: 27px;
+	padding: 9.5px 0 19.5px 0;
+
+	width: 182px;
+	background: #fff;
+	border-top: 2px solid #dedee0;
+	box-sizing: border-box;
+	border-radius: 0 0 5px 5px;
+	z-index: 1;
+	p {
+		display: block;
+		padding: 2.5px 20px 2.5px 37px;
+		margin: 0;
+		font-size: 14px;
+		line-height: 26px;
+		color: #373738;
+		cursor: pointer;
+
+		&:hover {
+			background-color: #f0f0f0;
+		}
+	}
 }

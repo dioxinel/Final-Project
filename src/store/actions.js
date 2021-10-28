@@ -14,6 +14,7 @@ export const setKeywords = createAction('keywords/set');
 export const addSearchProduct = createAction('searchProduct/add');
 export const setActiveCategory = createAction('activeCategory/set');
 export const setProducts = createAction('products/set');
+export const setSort = createAction('sort/set');
 
 export const setViewer = createAction('viewer/set');
 export const removeViewer = createAction('viewer/remove');

@@ -5,13 +5,10 @@ export function DropDownList({
 	className,
 	itemClassName,
 	handleClickOnDropDownItem,
+	id = 'dropDownList',
 }) {
 	return (
-		<div
-			id={'dropDownList'}
-			className={className}
-			onClick={handleClickOnDropDownItem}
-		>
+		<div id={id} className={className} onClick={handleClickOnDropDownItem}>
 			{items.map((item) => {
 				return (
 					<div key={item.id} className={itemClassName} item-id={item.id}>

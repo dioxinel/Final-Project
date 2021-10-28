@@ -20,11 +20,17 @@ export function Home() {
 				asyncRequest({
 					action: setProducts,
 					request: api.getProductsByCategory,
-					params: { id: store.activeCategory.id },
+					params: { id: store.activeCategory.id, sort: '' },
 				}),
 			);
 		} else {
-			dispatch(asyncRequest({ action: setProducts, request: api.getProducts }));
+			dispatch(
+				asyncRequest({
+					action: setProducts,
+					request: api.getProducts,
+					params: { sort: '' },
+				}),
+			);
 		}
 	}, [dispatch, store.activeCategory]);
 

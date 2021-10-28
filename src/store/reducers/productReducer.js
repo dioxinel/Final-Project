@@ -11,6 +11,7 @@ import {
 	clearSearchProductPage,
 	setActiveCategory,
 	setProducts,
+	setSort,
 } from '../actions';
 import { initialStore } from '../initialStore';
 
@@ -110,5 +111,9 @@ export const productsReducer = createReducer(initialStore, {
 
 	[setActiveCategory]: (state, action) => {
 		state.activeCategory = action.payload;
+	},
+
+	[setSort]: (state, action) => {
+		state.sort = action.payload;
 	},
 });

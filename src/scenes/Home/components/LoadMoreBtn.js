@@ -30,6 +30,7 @@ export function LoadMoreBtn() {
 		const res = await asyncRequest(api.getProductsByCategory, {
 			id: store.activeCategory.id,
 			fetchFrom: store.productsPage.fetchFrom,
+			sort: store.sort,
 		});
 
 		if (typeof res === 'string') {
@@ -41,7 +42,10 @@ export function LoadMoreBtn() {
 	};
 
 	const fetchProducts = async () => {
-		const res = await asyncRequest(api.getProducts, store.productsPage.fetchFrom);
+		const res = await asyncRequest(api.getProducts, {
+			fetchFrom: store.productsPage.fetchFrom,
+			sort: store.sort,
+		});
 
 		if (typeof res === 'string') {
 			return;

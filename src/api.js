@@ -40,8 +40,14 @@ class Api {
 		return axios.get('/api/api/account');
 	}
 
-	getProducts(fetchFrom = 0) {
-		return axios.get(`/api/api/products?offset=${fetchFrom}`);
+	getProducts({ sort, fetchFrom = 0 }) {
+		let sorting = '';
+
+		if (sort) {
+			sorting = `&sortBy=${sort}`;
+		}
+
+		return axios.get(`/api/api/products?offset=${fetchFrom}${sorting}`);
 	}
 
 	searchProduct({ keywords, fetchFrom = 0 }) {
@@ -54,8 +60,16 @@ class Api {
 		return axios.get(`/api/api/categories`);
 	}
 
-	getProductsByCategory({ id, fetchFrom = 0 }) {
-		return axios.get(`/api/api/categories/${id}/products?offset=${fetchFrom}`);
+	getProductsByCategory({ id, fetchFrom = 0, sort }) {
+		let sorting = '';
+
+		if (sort) {
+			sorting = `&sortBy=${sort}`;
+		}
+
+		return axios.get(
+			`/api/api/categories/${id}/products?offset=${fetchFrom}${sorting}`,
+		);
 	}
 
 	addToFavorites(id) {
