@@ -2,6 +2,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import { AccountFavorites } from '../scenes/AccountFavorites/AccountFavorites';
 import { CartPage } from '../scenes/CartPage/CartPage';
+import { Footer } from '../scenes/components/Footer/Footer';
 import { Header } from '../scenes/components/Header/Header';
 import { NotificationsModal } from '../scenes/components/Modals/NotificationsModal/NotificationsModal';
 import { EditProfilePage } from '../scenes/EditProfilePage/EditProfilePage';
@@ -37,5 +38,6 @@ export const Router = () => (
 				<EditProfilePage />
 			</Route>
 		</Switch>
+		<Footer />
 	</BrowserRouter>
 );
