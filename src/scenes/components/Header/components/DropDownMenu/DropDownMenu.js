@@ -12,8 +12,12 @@ export function DropDownMenu() {
 
 	function outerClickListener(e) {
 		const node = e.target.closest('#dropDownMenu');
-
 		if (!node) {
+			closeMenu();
+		}
+
+		const link = e.target.closest('a');
+		if (link) {
 			closeMenu();
 		}
 	}

@@ -5,13 +5,17 @@ import s from './DropDownMenu.module.scss';
 
 import { clearProductsStore, removeViewer } from '../../../../../store/actions';
 import api from '../../../../../api';
+import { useHistory } from 'react-router';
 
 export function Logout({ closeMenu }) {
+	const history = useHistory();
+
 	const dispatch = useDispatch();
 	const handleLogout = () => {
 		api.logout();
 		dispatch(removeViewer());
 		dispatch(clearProductsStore());
+		history.push('/');
 		closeMenu();
 	};
 
