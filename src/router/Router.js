@@ -9,6 +9,8 @@ import { EditProfilePage } from '../scenes/EditProfilePage/EditProfilePage';
 import { Home } from '../scenes/Home/Home';
 import { OrdersHistoryPage } from '../scenes/OrdersHistoryPage/OrdersHistoryPage';
 
+import s from './Router.module.scss';
+
 export const routes = {
 	home: '/',
 	favorites: '/account/favorites',
@@ -21,23 +23,25 @@ export const Router = () => (
 	<BrowserRouter>
 		<Header />
 		<NotificationsModal />
-		<Switch>
-			<Route exact path={'/'}>
-				<Home />
-			</Route>
-			<Route exact path={'/account/favorites'}>
-				<AccountFavorites />
-			</Route>
-			<Route exact path={'/account/cart'}>
-				<CartPage />
-			</Route>
-			<Route exact path={'/account/orders-history'}>
-				<OrdersHistoryPage />
-			</Route>
-			<Route exact path={'/account/settings'}>
-				<EditProfilePage />
-			</Route>
-		</Switch>
+		<div className={s.page}>
+			<Switch>
+				<Route exact path={'/'}>
+					<Home />
+				</Route>
+				<Route exact path={'/account/favorites'}>
+					<AccountFavorites />
+				</Route>
+				<Route exact path={'/account/cart'}>
+					<CartPage />
+				</Route>
+				<Route exact path={'/account/orders-history'}>
+					<OrdersHistoryPage />
+				</Route>
+				<Route exact path={'/account/settings'}>
+					<EditProfilePage />
+				</Route>
+			</Switch>
+		</div>
 		<Footer />
 	</BrowserRouter>
 );
