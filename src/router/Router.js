@@ -1,13 +1,11 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Account } from '../scenes/Account/Account';
 
-import { AccountFavorites } from '../scenes/AccountFavorites/AccountFavorites';
 import { CartPage } from '../scenes/CartPage/CartPage';
 import { Footer } from '../scenes/components/Footer/Footer';
 import { Header } from '../scenes/components/Header/Header';
 import { NotificationsModal } from '../scenes/components/Modals/NotificationsModal/NotificationsModal';
-import { EditProfilePage } from '../scenes/EditProfilePage/EditProfilePage';
 import { Home } from '../scenes/Home/Home';
-import { OrdersHistoryPage } from '../scenes/OrdersHistoryPage/OrdersHistoryPage';
 
 import s from './Router.module.scss';
 
@@ -15,6 +13,7 @@ export const routes = {
 	home: '/',
 	favorites: '/account/favorites',
 	cart: '/account/cart',
+	account: '/account',
 	orders: '/account/orders-history',
 	settings: '/account/settings',
 };
@@ -25,20 +24,14 @@ export const Router = () => (
 		<NotificationsModal />
 		<div className={s.page}>
 			<Switch>
-				<Route exact path={'/'}>
+				<Route exact path={routes.home}>
 					<Home />
 				</Route>
-				<Route exact path={'/account/favorites'}>
-					<AccountFavorites />
-				</Route>
-				<Route exact path={'/account/cart'}>
+				<Route exact path={routes.cart}>
 					<CartPage />
 				</Route>
-				<Route exact path={'/account/orders-history'}>
-					<OrdersHistoryPage />
-				</Route>
-				<Route exact path={'/account/settings'}>
-					<EditProfilePage />
+				<Route path={routes.account}>
+					<Account />
 				</Route>
 			</Switch>
 		</div>

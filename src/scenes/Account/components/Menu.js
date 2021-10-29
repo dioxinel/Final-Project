@@ -3,7 +3,7 @@ import { useHistory, useLocation } from 'react-router';
 
 import { AccountBtn } from './AccountButton';
 
-import s from '../AccountMenu.module.scss';
+import s from '../Account.module.scss';
 
 export function Menu() {
 	const location = useLocation();

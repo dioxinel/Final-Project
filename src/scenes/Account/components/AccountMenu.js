@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { UserInfo } from './components/UserInfo';
-import { Menu } from './components/Menu';
+import { UserInfo } from './UserInfo';
+import { Menu } from './Menu';
 
-import s from './AccountMenu.module.scss';
+import s from '../Account.module.scss';
 
 export function AccountMenu() {
 	return (

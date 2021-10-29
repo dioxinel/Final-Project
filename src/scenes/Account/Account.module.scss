@@ -1,3 +1,18 @@
+.accountPageContainer {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.accountPage {
+	padding-top: 49px;
+	width: 904px;
+	min-height: 900px;
+	background-color: #fff;
+	align-self: center;
+	box-sizing: border-box;
+}
+
 .accountMenu {
 	display: flex;
 	flex-direction: column;

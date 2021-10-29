@@ -8,7 +8,6 @@ import { Loading } from '../components/Loading/Loading';
 import s from './AccountFavorites.module.scss';
 
 import api from '../../api';
-import { AccountMenu } from '../components/AccountMenu/AccountMenu';
 
 export function AccountFavorites() {
 	const dispatch = useDispatch();
@@ -29,13 +28,8 @@ export function AccountFavorites() {
 	}
 
 	return (
-		<div className={s.favoritesPageContainer}>
-			<div className={s.favoritesPage}>
-				<AccountMenu />
-				<div className={s.accountFavorites}>
-					<ProductList items={store.favorites} />
-				</div>
-			</div>
+		<div className={s.accountFavorites}>
+			<ProductList items={store.favorites} />
 		</div>
 	);
 }

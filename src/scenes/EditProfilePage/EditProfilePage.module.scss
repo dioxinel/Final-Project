@@ -1,18 +1,3 @@
-.editProfilePageContainer {
-	width: 100%;
-	display: flex;
-	justify-content: center;
-}
-
-.editProfilePage {
-	padding-top: 49px;
-	width: 904px;
-	min-height: 1244px;
-	background-color: #fff;
-	align-self: center;
-	box-sizing: border-box;
-}
-
 .editProfile {
 	width: 100%;
 	display: flex;
@@ -73,4 +58,8 @@
 		opacity: 0.5;
 		cursor: default;
 	}
+}
+
+.changePassword {
+	margin-bottom: 42px;
 }
