@@ -20,7 +20,7 @@ export function Home() {
 				asyncRequest({
 					action: setProducts,
 					request: api.getProductsByCategory,
-					params: { id: store.activeCategory.id, sort: '' },
+					params: { id: store.activeCategory.id, sort: store.sort },
 				}),
 			);
 		} else {
@@ -28,7 +28,7 @@ export function Home() {
 				asyncRequest({
 					action: setProducts,
 					request: api.getProducts,
-					params: { sort: '' },
+					params: { sort: store.sort },
 				}),
 			);
 		}
