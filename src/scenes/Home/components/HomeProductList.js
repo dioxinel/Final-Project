@@ -19,10 +19,10 @@ export function HomeProductList() {
 	}
 
 	return (
-		<>
+		<div className={s.productListContainer}>
 			<Loading isLoading={loading.isLoading} text={'Loading...'} />
 			<ProductList items={store.products} />
 			{store.productsPage.isMoreProducts ? <LoadMoreBtn /> : ''}
-		</>
+		</div>
 	);
 }
