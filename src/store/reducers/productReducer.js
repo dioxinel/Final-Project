@@ -70,6 +70,7 @@ export const productsReducer = createReducer(initialStore, {
 
 		if (current(state).products.length) {
 			const product = getItemById(current(state).products, action.payload);
+			if (!product) return;
 			const idx = current(state).products.indexOf(product);
 
 			state.products[idx].favorite = false;
