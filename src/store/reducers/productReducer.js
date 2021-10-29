@@ -79,7 +79,15 @@ export const productsReducer = createReducer(initialStore, {
 	[clearProductsStore]: (state, action) => {
 		state.favorites = [];
 		state.productsPage.products = [];
-		state.productsPage.fetchFrom = 0;
+		state.productsPage = { isMoreProducts: true, fetchFrom: 0 };
+		state.searchProduct = [];
+		state.searchProductPage = {
+			isMoreProducts: true,
+			fetchFrom: 0,
+			keywords: '',
+		};
+		state.activeCategory = '';
+		state.sort = '';
 	},
 
 	[setSearchProduct]: (state, action) => {

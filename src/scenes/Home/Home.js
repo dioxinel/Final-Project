@@ -32,7 +32,7 @@ export function Home() {
 				}),
 			);
 		}
-	}, [dispatch, store.activeCategory]);
+	}, [dispatch, store.activeCategory, store.sort]);
 
 	return (
 		<div className={s.home}>
