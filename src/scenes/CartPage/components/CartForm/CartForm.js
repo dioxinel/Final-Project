@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -6,7 +6,7 @@ import { ClipLoader } from 'react-spinners';
 
 import { FormikInput } from '../../../components/Form/Input/FormikInput';
 import { TotalPrice } from './TotalPrice';
-import { CountryField } from './CountryField';
+import { CountryInput } from '../../../components/Form/Input/CountryInput';
 
 import s from './CartForm.module.scss';
 
@@ -19,10 +19,11 @@ export const CartForm = ({ setIsOpen }) => {
 	const store = useSelector((store) => store.viewer);
 	const cart = useSelector((store) => store.cart);
 	const dispatch = useDispatch();
+	const [selected, setSelected] = useState('');
 
 	const { asyncRequest, isLoading } = useAsyncRequest();
 
-	async function onSubmit({ fullName, phone, country, city, address }) {
+	async function onSubmit({ fullName, phone, city, address }) {
 		const items = cart.items.map((item) => {
 			return { productId: item.id, quantity: item.count };
 		});
@@ -32,7 +33,7 @@ export const CartForm = ({ setIsOpen }) => {
 			shipment: {
 				fullName,
 				phone,
-				country,
+				country: selected,
 				city,
 				address,
 			},
@@ -49,7 +50,6 @@ export const CartForm = ({ setIsOpen }) => {
 	let initialValues = {
 		fullName: '',
 		phone: '',
-		country: '',
 		city: '',
 		address: '',
 	};
@@ -58,7 +58,6 @@ export const CartForm = ({ setIsOpen }) => {
 		initialValues = {
 			fullName: store.viewer.fullName,
 			phone: store.viewer.phone,
-			country: store.viewer.country ? store.viewer.country : '',
 			city: store.viewer.city ? store.viewer.city : '',
 			address: store.viewer.address ? store.viewer.address : '',
 		};
@@ -92,11 +91,11 @@ export const CartForm = ({ setIsOpen }) => {
 							/>
 						</div>
 						<div className={s.group}>
-							<CountryField
-								name='country'
-								label='Country'
-								className={s.input}
+							<CountryInput
+								setSelected={setSelected}
+								selected={selected}
 								disabled={!cart.totalCount}
+								className={s.countryInput}
 							/>
 						</div>
 						<div className={s.group}>
@@ -118,7 +117,7 @@ export const CartForm = ({ setIsOpen }) => {
 						<TotalPrice price={cart.totalPrice} numOfItem={cart.totalCount} />
 						<button
 							type={'submit'}
-							disabled={!isValid || !cart.totalCount}
+							disabled={!isValid || !cart.totalCount || !selected}
 							onClick={handleSubmit}
 							className={s.submitBtn}
 						>

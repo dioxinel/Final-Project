@@ -1,11 +1,18 @@
 import React from 'react';
 import { ClipLoader } from 'react-spinners';
 
+import { CountryInput } from '../../components/Form/Input/CountryInput';
 import { FormikInput } from '../../components/Form/Input/FormikInput';
 
 import s from '../EditProfilePage.module.scss';
 
-export const MainInfoForm = ({ handleSubmit, isValid, isLoading }) => {
+export const MainInfoForm = ({
+	handleSubmit,
+	isValid,
+	isLoading,
+	selected,
+	setSelected,
+}) => {
 	return (
 		<form className={s.form}>
 			<div className={s.group}>
@@ -33,11 +40,10 @@ export const MainInfoForm = ({ handleSubmit, isValid, isLoading }) => {
 				/>
 			</div>
 			<div className={s.group}>
-				<FormikInput
-					name='country'
-					label='Country'
-					className={s.input}
-					placeholder={'Country'}
+				<CountryInput
+					className={s.countryInput}
+					setSelected={setSelected}
+					selected={selected}
 				/>
 			</div>
 			<div className={s.group}>

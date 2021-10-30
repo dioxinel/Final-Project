@@ -1,5 +1,5 @@
 import { Formik } from 'formik';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { MainInfoForm } from './MainInfoForm';
@@ -12,20 +12,21 @@ import { NotificationsContext } from '../../../App';
 import api from '../../../api';
 
 export function MainInfo() {
+	const [selected, setSelected] = useState('');
 	const { notifications, setNotifications } = useContext(NotificationsContext);
 	const { asyncRequest, isLoading } = useAsyncRequest();
 	const store = useSelector((store) => store.viewer);
 	const dispatch = useDispatch();
 
 	const onSubmit = async (
-		{ fullName, email, phone, country, city, address },
+		{ fullName, email, phone, city, address },
 		{ setFieldError },
 	) => {
 		const res = await asyncRequest(api.editProfile, {
 			fullName,
 			email,
 			phone,
-			country,
+			country: selected,
 			city,
 			address,
 		});
@@ -42,14 +43,15 @@ export function MainInfo() {
 				type: 'alert',
 			},
 		]);
-		dispatch(setViewer({ fullName, email, phone, country, city, address }));
+		dispatch(
+			setViewer({ fullName, email, phone, country: selected, city, address }),
+		);
 	};
 
 	const initialValues = {
 		fullName: store.viewer.fullName,
 		email: store.viewer.email,
 		phone: store.viewer.phone,
-		country: store.viewer.country || '',
 		city: store.viewer.city || '',
 		address: store.viewer.address || '',
 	};
@@ -70,6 +72,8 @@ export function MainInfo() {
 							handleSubmit={handleSubmit}
 							isValid={isValid}
 							isLoading={isLoading}
+							selected={selected}
+							setSelected={setSelected}
 						/>
 					)}
 				</Formik>
