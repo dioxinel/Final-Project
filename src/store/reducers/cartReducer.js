@@ -40,11 +40,16 @@ export const cartReducer = createReducer(initialStore, {
 		getFullPriceAndCount(current(state).items, state);
 	},
 	[setCartItemCount]: (state, action) => {
-		const item = { ...getItemById(current(state).items, action.payload.id) };
-		item.count = action.payload.count;
+		const newItem = { ...getItemById(current(state).items, action.payload.id) };
+		newItem.count = action.payload.count;
 		state.items = [
-			item,
-			...current(state).items.filter((item) => item.id !== action.payload.id),
+			...current(state).items.map((item) => {
+				if (item.id === newItem.id) {
+					return newItem;
+				} else {
+					return item;
+				}
+			}),
 		];
 		window.sessionStorage.setItem('cart', JSON.stringify(current(state).items));
 		getFullPriceAndCount(current(state).items, state);
