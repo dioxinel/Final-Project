@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { AuthTitle } from './AuthTitle';
 import { RegisterForm } from './RegisterForm';
@@ -11,7 +11,7 @@ import s from './Auth.module.scss';
 import api from '../../../../../api';
 import { useFormFields } from '../../../../../useFormFields';
 import { useAsyncRequest } from '../../../../../useAsyncRequest';
-import { setViewer } from '../../../../../store/actions';
+import { postAuthAction, setViewer } from '../../../../../store/actions';
 import { AuthModalContext } from '../../../../../App';
 
 export function Register() {
@@ -26,6 +26,7 @@ export function Register() {
 	});
 	const history = useHistory();
 	const dispatch = useDispatch();
+	const store = useSelector((store) => store.viewer);
 
 	const handleSubmit = async (evt) => {
 		evt.preventDefault();
@@ -39,6 +40,13 @@ export function Register() {
 		setIsOpen(false);
 		reset();
 		history.push('/');
+
+		if (store.postAuthAction) {
+			dispatch(postAuthAction(store.postAuthAction));
+			if (store.postAuthAction.action === 'buyNow') {
+				history.push('/account/cart');
+			}
+		}
 	};
 
 	return (

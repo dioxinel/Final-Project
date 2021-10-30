@@ -1,5 +1,5 @@
 export const initialStore = {
-	viewer: { isLoggedIn: false, viewer: {} },
+	viewer: { isLoggedIn: false, viewer: {}, postAuthAction: '' },
 	loading: { isLoading: false, error: '' },
 	products: {
 		products: [],

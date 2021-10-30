@@ -1,5 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { removeViewer, setViewer } from '../actions';
+import { removeViewer, setPostAuthAction, setViewer } from '../actions';
 import { initialStore } from '../initialStore';
 import api from '../../api';
 
@@ -17,5 +17,9 @@ export const viewerReducer = createReducer(initialStore, {
 	[removeViewer]: (state, action) => {
 		state.isLoggedIn = false;
 		state.viewer = {};
+	},
+
+	[setPostAuthAction]: (state, action) => {
+		state.postAuthAction = action.payload;
 	},
 });

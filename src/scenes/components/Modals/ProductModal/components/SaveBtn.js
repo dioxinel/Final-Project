@@ -11,6 +11,7 @@ import api from '../../../../../api';
 import {
 	addProductToFavorites,
 	removeProductFromFavorites,
+	setPostAuthAction,
 } from '../../../../../store/actions';
 import { UnLoggedModalContext } from '../../../Product/ProductList';
 
@@ -32,6 +33,12 @@ export function SaveBtn({ product }) {
 		}
 		setClickedProductId('');
 		setIsOpen(productId);
+		dispatch(
+			setPostAuthAction({
+				action: 'addToFavorite',
+				props: { id: product.id },
+			}),
+		);
 	};
 
 	return (

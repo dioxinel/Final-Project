@@ -6,7 +6,7 @@ import { Button2 } from '../../../Buttons/Button2';
 import s from '../ProductModal.module.scss';
 
 import { UnLoggedModalContext } from '../../../Product/ProductList';
-import { addItemToCart } from '../../../../../store/actions';
+import { addItemToCart, setPostAuthAction } from '../../../../../store/actions';
 import { NotificationsContext } from '../../../../../App';
 
 export function AddToCartBtn({ product }) {
@@ -17,8 +17,9 @@ export function AddToCartBtn({ product }) {
 
 	const handleAddToCart = async (productId) => {
 		if (!store.isLoggedIn) {
-			setClickedProductId('');
-			setIsOpen(productId);
+			setClickedProductId(''); // close single-product popup
+			setIsOpen(productId); // open unLogged popup
+			dispatch(setPostAuthAction({ action: 'addToCart', props: product }));
 			return;
 		}
 		setNotifications([

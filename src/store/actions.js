@@ -18,6 +18,7 @@ export const setSort = createAction('sort/set');
 
 export const setViewer = createAction('viewer/set');
 export const removeViewer = createAction('viewer/remove');
+export const setPostAuthAction = createAction('viewerPostAuthAction/set');
 
 export const startLoading = createAction('loading/start');
 export const endLoading = createAction('loading/end');
@@ -76,4 +77,21 @@ export const bootstrap = (payload) => async (dispatch) => {
 		const res = await api.getViewer();
 		dispatch(setViewer(res.data));
 	} catch (err) {}
+};
+
+export const postAuthAction = (payload) => async (dispatch) => {
+	if (payload.action === 'addToCart') {
+		dispatch(addItemToCart(payload.props));
+	} else if (payload.action === 'buyNow') {
+		dispatch(addItemToCart(payload.props.product));
+		dispatch(
+			setCartItemCount({
+				id: payload.props.product.id,
+				count: payload.props.count,
+			}),
+		);
+	} else {
+		dispatch(addProductToFavorites(payload.props.id));
+		await api.addToFavorites(payload.props.id);
+	}
 };

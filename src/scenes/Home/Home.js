@@ -24,6 +24,7 @@ export function Home() {
 				}),
 			);
 		} else {
+			if (store.products.length) return;
 			dispatch(
 				asyncRequest({
 					action: setProducts,
@@ -32,7 +33,7 @@ export function Home() {
 				}),
 			);
 		}
-	}, [dispatch, store.activeCategory, store.sort]);
+	}, [dispatch, store.activeCategory, store.sort, store.products]);
 
 	return (
 		<div className={s.home}>

@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import Modal from 'react-modal';
+import { useDispatch } from 'react-redux';
 
 import { Login } from './Auth/Login';
 import { Register } from './Auth/Register';
@@ -8,11 +9,14 @@ import { CloseModalIcon } from '../../Icons/CloseModalIcon';
 import s from './AuthModal.module.scss';
 
 import { AuthModalContext } from '../../../../App';
+import { setPostAuthAction } from '../../../../store/actions';
 
 export function AuthModal() {
 	const { isOpen, setIsOpen, modalCondition } = useContext(AuthModalContext);
+	const dispatch = useDispatch();
 
 	const handleClose = () => {
+		dispatch(setPostAuthAction(''));
 		setIsOpen(false);
 	};
 

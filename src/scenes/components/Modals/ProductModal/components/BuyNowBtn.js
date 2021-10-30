@@ -7,7 +7,11 @@ import { Button1 } from '../../../Buttons/Button1';
 import s from '../ProductModal.module.scss';
 
 import { UnLoggedModalContext } from '../../../Product/ProductList';
-import { addItemToCart, setCartItemCount } from '../../../../../store/actions';
+import {
+	addItemToCart,
+	setCartItemCount,
+	setPostAuthAction,
+} from '../../../../../store/actions';
 import { BuyNowContext } from './ProductModalContent';
 import { getItemById } from '../../../../../utils';
 
@@ -24,6 +28,12 @@ export function BuyNowBtn({ product }) {
 		if (!store.isLoggedIn) {
 			setClickedProductId('');
 			setIsOpen(productId);
+			dispatch(
+				setPostAuthAction({
+					action: 'buyNow',
+					props: { product: product, count: num },
+				}),
+			);
 			return;
 		}
 
