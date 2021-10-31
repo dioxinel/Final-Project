@@ -41,8 +41,6 @@ export function Login() {
 		}
 
 		dispatch(setViewer(res));
-		dispatch(clearProductsStore());
-
 		setIsOpen(false);
 		reset();
 		history.push('/');
@@ -53,6 +51,8 @@ export function Login() {
 				history.push('/account/cart');
 			}
 		}
+
+		dispatch(clearProductsStore());
 	};
 
 	return (

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
 	addProductToFavorites,
 	removeProductFromFavorites,
+	setPostAuthAction,
 } from '../../../store/actions';
 import { ProductModal } from '../Modals/ProductModal/ProductModal';
 import { ProductListItem } from './ProductListItem';
@@ -37,6 +38,12 @@ export function ProductList({ items }) {
 			await api.addToFavorites(productId);
 			return;
 		}
+		dispatch(
+			setPostAuthAction({
+				action: 'addToFavorite',
+				props: { id: productId },
+			}),
+		);
 		setIsOpen(true);
 	};
 
