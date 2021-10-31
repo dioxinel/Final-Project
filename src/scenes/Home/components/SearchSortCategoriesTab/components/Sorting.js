@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { SortDropDown } from './SortDropDown';
@@ -10,25 +10,21 @@ import s from '../SearchSortCategoriesTab.module.scss';
 export function Sorting() {
 	const [open, setOpen] = useState(false);
 
+	useEffect(() => {
+		return () => {
+			setOpen(false);
+		};
+	}, []);
+
 	const store = useSelector((store) => store.products);
 
-	function outerClickListener(e) {
-		const node = e.target.closest('#dropDownSorting');
-		if (!node) {
-			closeMenu();
-		}
-	}
-
 	function closeMenu() {
-		document.removeEventListener('click', outerClickListener);
 		setOpen(false);
 	}
 
-	function openMenu(evt) {
-		document.addEventListener('click', outerClickListener);
+	function openMenu() {
 		if (open) return closeMenu();
 		setOpen(true);
-		evt.stopPropagation();
 	}
 
 	return (

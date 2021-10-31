@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import { ResetCategoryIcon } from './ResetCategoryIcon';
-import { DropDownList } from '../../../../components/DropDownList/DropDownList';
+import { CategoriesContent } from './CategoriesContent';
+
 import Icon from '../../../../components/Icon';
 
 import s from '../SearchSortCategoriesTab.module.scss';
 import api from '../../../../../api';
-import { setActiveCategory } from '../../../../../store/actions';
+
 import { useAsyncRequest } from '../../../../../useAsyncRequest';
 
 export function Categories() {
@@ -16,7 +17,6 @@ export function Categories() {
 	const [open, setOpen] = useState(false);
 
 	const activeCategory = useSelector((store) => store.products.activeCategory);
-	const dispatch = useDispatch();
 
 	useEffect(() => {
 		if (categories.length) return;
@@ -29,34 +29,21 @@ export function Categories() {
 			setCategories(res);
 		}
 		fetch();
-	}, [asyncRequest, categories]);
+	}, [asyncRequest, categories.length]);
 
-	function outerClickListener(e) {
-		const node = e.target.closest('#dropDownList');
-
-		if (!node) {
-			closeMenu();
-		}
-	}
+	useEffect(() => {
+		return () => {
+			setCategories([]);
+		};
+	}, []);
 
 	function closeMenu() {
-		document.removeEventListener('click', outerClickListener);
 		setOpen(false);
 	}
 
-	function openMenu(evt) {
-		document.addEventListener('click', outerClickListener);
+	function openMenu() {
 		if (open) return closeMenu();
 		setOpen(true);
-		evt.stopPropagation();
-	}
-
-	function handleClickOnDropDownItem(evt) {
-		const category = evt.target.closest('div[item-id]');
-		if (!category) return;
-		const categoryId = category.getAttribute('item-id');
-		dispatch(setActiveCategory({ id: categoryId, name: evt.target.innerHTML }));
-		closeMenu();
 	}
 
 	return (
@@ -78,14 +65,7 @@ export function Categories() {
 					</>
 				)}
 			</div>
-			{open && (
-				<DropDownList
-					items={categories}
-					className={s.dropDownList}
-					itemClassName={s.category}
-					handleClickOnDropDownItem={handleClickOnDropDownItem}
-				/>
-			)}
+			{open && <CategoriesContent closeMenu={closeMenu} categories={categories} />}
 		</div>
 	);
 }

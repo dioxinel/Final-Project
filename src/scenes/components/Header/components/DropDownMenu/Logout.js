@@ -21,7 +21,6 @@ export function Logout({ closeMenu }) {
 		dispatch(clearProductsStore());
 		dispatch(removeCartItems());
 		history.push('/');
-		closeMenu();
 	};
 
 	return (

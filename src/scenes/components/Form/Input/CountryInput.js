@@ -33,6 +33,12 @@ export const CountryInput = ({
 		};
 	}, [setSelected, store.viewer.country, outerClickEvent, countries]);
 
+	useEffect(() => {
+		return () => {
+			setCountries([]);
+		};
+	}, []);
+
 	function outerClickListener(e) {
 		const node = e.target.closest('#dropDownCountry');
 

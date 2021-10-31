@@ -1,8 +1,15 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export const useAsyncRequest = () => {
 	const [error, setError] = useState('');
 	const [isLoading, setIsLoading] = useState(false);
+
+	useEffect(() => {
+		return () => {
+			setIsLoading(false);
+			setError('');
+		};
+	}, []);
 
 	const asyncRequest = async (request, params) => {
 		try {

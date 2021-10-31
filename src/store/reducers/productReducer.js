@@ -19,6 +19,7 @@ import { getItemById } from '../../utils';
 
 export const productsReducer = createReducer(initialStore, {
 	[setProducts]: (state, action) => {
+		state.productsPage = { isMoreProducts: true, fetchFrom: 0 };
 		if (action.payload.length < 20 && action.payload.length !== 0) {
 			state.productsPage.isMoreProducts = false;
 		}
