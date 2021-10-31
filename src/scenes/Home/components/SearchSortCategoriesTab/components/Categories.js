@@ -24,6 +24,8 @@ export function Categories() {
 			const res = await asyncRequest(api.getCategories);
 
 			if (typeof res === 'string') {
+				if (categories.length) return;
+				setCategories([{ id: 0, name: 'error' }]);
 				return;
 			}
 			setCategories(res);

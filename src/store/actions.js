@@ -76,7 +76,10 @@ export const bootstrap = (payload) => async (dispatch) => {
 
 		const res = await api.getViewer();
 		dispatch(setViewer(res.data));
-	} catch (err) {}
+	} catch (err) {
+		console.log(err);
+		window.localStorage.setItem('___token', '');
+	}
 };
 
 export const postAuthAction = (payload) => async (dispatch) => {
