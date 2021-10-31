@@ -47,15 +47,6 @@ export function Home() {
 		}
 	}, [dispatch, store.products.length, store.sort]);
 
-	if (!store.products.length) {
-		return (
-			<div className={s.home}>
-				<SearchSortCategoriesTab />
-				<NotFound />
-			</div>
-		);
-	}
-
 	return (
 		<div className={s.home}>
 			<SearchSortCategoriesTab />
