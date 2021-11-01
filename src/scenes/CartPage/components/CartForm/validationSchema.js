@@ -9,10 +9,6 @@ export const validationSchema = yup.object().shape({
 		.string()
 		.typeError('Must be a string')
 		.required('This field is required'),
-	country: yup
-		.string()
-		.typeError('Must be a string')
-		.required('This field is required'),
 	city: yup
 		.string()
 		.typeError('Must be a string')
