@@ -9,7 +9,6 @@ import s from './Home.module.scss';
 
 import api from '../../api';
 import { asyncRequest, setProducts } from '../../store/actions';
-import { NotFound } from './components/NotFound';
 
 export function Home() {
 	const dispatch = useDispatch();
