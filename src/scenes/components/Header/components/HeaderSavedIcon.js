@@ -8,11 +8,14 @@ import s from '../Header.module.scss';
 export function HeaderSavedIcon() {
 	const history = useHistory();
 
-	const handleClick = () => {
+	const handleClick = (evt) => {
+		evt.preventDefault();
 		history.push('/account/favorites');
 	};
 
 	return (
-		<Icon name={'header-heart'} className={s.savedIcon} onClick={handleClick} />
+		<a href={'/account/favorites'} onClick={handleClick}>
+			<Icon name={'header-heart'} className={s.savedIcon} />
+		</a>
 	);
 }

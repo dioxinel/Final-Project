@@ -8,14 +8,14 @@ export function DropDownList({
 	id = 'dropDownList',
 }) {
 	return (
-		<div id={id} className={className} onClick={handleClickOnDropDownItem}>
+		<ul id={id} className={className} onClick={handleClickOnDropDownItem}>
 			{items.map((item) => {
 				return (
-					<div key={item.id} className={itemClassName} item-id={item.id}>
+					<li key={item.id} className={itemClassName} item-id={item.id}>
 						{item.name}
-					</div>
+					</li>
 				);
 			})}
-		</div>
+		</ul>
 	);
 }

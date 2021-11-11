@@ -28,7 +28,7 @@ export function OrdersList() {
 	}, []);
 
 	const handleClickOnOrder = (evt) => {
-		const product = evt.target.closest('div[order-id]');
+		const product = evt.target.closest('p[order-id]');
 		if (!product) return;
 		const productId = product.getAttribute('order-id');
 		setActiveOrder(getItemById(orders, productId));
@@ -44,7 +44,7 @@ export function OrdersList() {
 
 	return (
 		<>
-			<div className={s.ordersList} onClick={handleClickOnOrder}>
+			<ul className={s.ordersList} onClick={handleClickOnOrder}>
 				{isLoading ? (
 					<ClipLoader color='#FD7114' loading={isLoading} size={60} />
 				) : (
@@ -52,7 +52,7 @@ export function OrdersList() {
 						return <OrderItem key={item.id} item={item} />;
 					})
 				)}
-			</div>
+			</ul>
 
 			{activeOrder ? (
 				<OrderDetailsModal order={activeOrder} setActiveOrder={setActiveOrder} />

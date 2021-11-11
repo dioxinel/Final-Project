@@ -9,11 +9,11 @@ import s from './Product.module.scss';
 
 export function ProductListItem({ item }) {
 	return (
-		<div className={s.productListItem} product-id={item.id}>
+		<li className={s.productListItem} product-id={item.id}>
 			<ProductPicture item={item} className={s.productPicture} />
 			<SaveProductBtn isSaved={item.favorite} />
 			<ProductTitle title={item.title} className={s.productTitle} />
 			<ProductPrice price={item.price} className={s.productPrice} />
-		</div>
+		</li>
 	);
 }

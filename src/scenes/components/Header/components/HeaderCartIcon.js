@@ -9,13 +9,14 @@ import s from '../Header.module.scss';
 export function HeaderCartIcon() {
 	const store = useSelector((store) => store.cart);
 	const history = useHistory();
-	const handleClick = () => {
+	const handleClick = (evt) => {
+		evt.preventDefault();
 		history.push('/account/cart');
 	};
 	return (
-		<div className={s.cartContainer} onClick={handleClick}>
+		<a href={'/account/cart'} className={s.cartContainer} onClick={handleClick}>
 			<Icon name={'header-cart'} className={s.cartIcon} />
 			{store.totalCount ? <p>{store.totalCount}</p> : ''}
-		</div>
+		</a>
 	);
 }

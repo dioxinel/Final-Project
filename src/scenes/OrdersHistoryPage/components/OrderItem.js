@@ -7,9 +7,9 @@ import s from '../OrdersHistoryPage.module.scss';
 
 export function OrderItem({ item }) {
 	return (
-		<div className={s.orderItem}>
+		<li className={s.orderItem}>
 			<LeftPartOfItem item={item} />
 			<RightPartOfItem item={item} />
-		</div>
+		</li>
 	);
 }

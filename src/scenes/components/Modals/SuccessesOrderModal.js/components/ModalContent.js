@@ -17,10 +17,10 @@ export function ModalContent({ handleClose }) {
 
 	return (
 		<div className={s.modalContent}>
-			<div className={s.title}>{'Thank you for your purchase'}</div>
-			<div className={s.notification}>
+			<h2 className={s.title}>{'Thank you for your purchase'}</h2>
+			<p className={s.notification}>
 				{'We will send you a notification when your order arrives to you'}
-			</div>
+			</p>
 			<Button1 text={'Continue shopping'} handleClick={handleClose} />
 			{store.isLoggedIn ? (
 				<Button2

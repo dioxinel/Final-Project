@@ -6,12 +6,12 @@ export function TotalPrice({ price, numOfItem }) {
 	return (
 		<div className={s.totalPrice}>
 			<div className={s.totalPriceContainer}>
-				<div className={s.title}>Items:</div>
-				<div className={s.totalPriceValue}>{numOfItem}</div>
+				<h3 className={s.title}>Items:</h3>
+				<p className={s.totalPriceValue}>{numOfItem}</p>
 			</div>
 			<div className={s.totalPriceContainer}>
-				<div className={s.title}>Total:</div>
-				<div className={s.totalPriceValue}>$ {price * numOfItem}</div>
+				<h3 className={s.title}>Total:</h3>
+				<p className={s.totalPriceValue}>$ {price * numOfItem}</p>
 			</div>
 		</div>
 	);

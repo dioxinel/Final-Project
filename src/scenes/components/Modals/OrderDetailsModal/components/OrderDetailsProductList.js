@@ -6,10 +6,10 @@ import s from '../OrderDetailsModal.module.scss';
 
 export function OrderDetailsProductList({ order }) {
 	return (
-		<div className={s.orderDetailsProductList}>
+		<ul className={s.orderDetailsProductList}>
 			{order.items.map((item) => {
 				return <ProductItem key={item.product.id} item={item} />;
 			})}
-		</div>
+		</ul>
 	);
 }

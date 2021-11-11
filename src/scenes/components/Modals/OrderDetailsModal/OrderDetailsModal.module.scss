@@ -37,6 +37,10 @@
 	position: absolute;
 	top: 49px;
 	left: 173px;
+
+	p {
+		margin: 0;
+	}
 }
 
 .orderTitle {
@@ -125,13 +129,23 @@
 	display: flex;
 	flex-direction: column;
 
-	div {
+	p {
 		font-weight: bold;
+		display: block;
 		font-size: 18px;
 		line-height: 26px;
 		letter-spacing: 0.5px;
 		color: #373738;
-		margin-top: 7px;
+		margin: 7px 0 0 0;
+	}
+
+	h3 {
+		margin: 0;
+		font-weight: normal;
+		font-size: 15px;
+		line-height: 22px;
+
+		color: #373738;
 	}
 }
 

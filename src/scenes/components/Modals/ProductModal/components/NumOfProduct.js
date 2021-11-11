@@ -17,7 +17,7 @@ export function NumOfProduct({ num, setNum, className }) {
 			<button onClick={handleDecrement} className={s.changeNumBtn}>
 				-
 			</button>
-			<div className={s.numOfItems}>{num}</div>
+			<p className={s.numOfItems}>{num}</p>
 			<button onClick={handleIncrement} className={s.changeNumBtn}>
 				+
 			</button>

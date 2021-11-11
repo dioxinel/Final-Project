@@ -6,8 +6,8 @@ export function RightPartOfItem({ item }) {
 	return (
 		<div className={s.rightPartOfItem}>
 			<div className={s.container}>
-				<div className={s.priceTitle}>Price</div>
-				<div className={s.orderDate}>{`$ ${item.totalPrice}`}</div>
+				<h3 className={s.priceTitle}>Price</h3>
+				<p className={s.orderDate}>{`$ ${item.totalPrice}`}</p>
 			</div>
 		</div>
 	);

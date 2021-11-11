@@ -16,7 +16,7 @@ export function LoginPassword({ fields, changeFieldValue, error }) {
 	};
 
 	return (
-		<div>
+		<label>
 			<div
 				className={`${error ? s.error : ''} ${s.input} ${
 					s.passwordFieldContainer
@@ -37,6 +37,6 @@ export function LoginPassword({ fields, changeFieldValue, error }) {
 			) : (
 				''
 			)}
-		</div>
+		</label>
 	);
 }

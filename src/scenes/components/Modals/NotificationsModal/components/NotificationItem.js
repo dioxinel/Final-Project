@@ -39,19 +39,19 @@ export function NotificationItem({ notification }) {
 	};
 
 	return (
-		<div
+		<li
 			className={`${s.notificationItem} ${
 				notification.type === 'alert' ? s.alert : s.error
 			}
       ${toggle ? s.fade : ''}`}
 		>
-			<div className={s.notificationText}>{notification.text}</div>
+			<p className={s.notificationText}>{notification.text}</p>
 			<CloseModalIcon
 				handleClose={handleClose}
 				width={'20'}
 				height={'20'}
 				className={s.closeNotification}
 			/>
-		</div>
+		</li>
 	);
 }

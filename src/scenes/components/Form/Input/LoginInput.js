@@ -8,7 +8,7 @@ export function LoginInput({ changeFieldValue, value, name, error, ...props }) {
 	};
 
 	return (
-		<div>
+		<label>
 			<input
 				onChange={handleChange}
 				value={value}
@@ -21,6 +21,6 @@ export function LoginInput({ changeFieldValue, value, name, error, ...props }) {
 			) : (
 				''
 			)}
-		</div>
+		</label>
 	);
 }

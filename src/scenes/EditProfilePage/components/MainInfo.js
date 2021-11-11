@@ -64,7 +64,7 @@ export function MainInfo() {
 
 	return (
 		<div className={s.editProfile}>
-			<div className={s.editProfileTitle}>{'Main information'}</div>
+			<h2 className={s.editProfileTitle}>{'Main information'}</h2>
 			<div className={s.editProfileForm}>
 				<Formik {...formikProps}>
 					{({ isValid, handleSubmit }) => (

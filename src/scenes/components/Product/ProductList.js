@@ -48,12 +48,12 @@ export function ProductList({ items }) {
 	};
 
 	const handleClickOnProduct = (evt) => {
-		const product = evt.target.closest('div[product-id]');
+		const product = evt.target.closest('li[product-id]');
 		if (!product) return;
 		const productId = product.getAttribute('product-id');
 
 		const svg = evt.target.closest('svg');
-		if (svg || evt.target.tagName === 'P') {
+		if (svg || evt.target.tagName === 'BUTTON') {
 			handleSaveProduct(productId);
 			return;
 		}
@@ -63,11 +63,11 @@ export function ProductList({ items }) {
 
 	return (
 		<UnLoggedModalContextProvider value={{ setIsOpen, setClickedProductId }}>
-			<div className={s.productList} onClick={handleClickOnProduct}>
+			<ul className={s.productList} onClick={handleClickOnProduct}>
 				{items.map((item) => {
 					return <ProductListItem key={item.id} item={item} />;
 				})}
-			</div>
+			</ul>
 			<ProductModal
 				clickedProductId={clickedProductId}
 				setClickedProductId={setClickedProductId}

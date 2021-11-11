@@ -11,8 +11,8 @@ export function RegisterBtn() {
 	};
 
 	return (
-		<div className={s.registerBtn} onClick={handleClick}>
+		<button className={s.registerBtn} onClick={handleClick}>
 			register
-		</div>
+		</button>
 	);
 }

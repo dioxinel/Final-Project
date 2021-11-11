@@ -11,7 +11,7 @@ export function UserInfo() {
 	return (
 		<div className={s.userInfo}>
 			<UserAvatar user={store.viewer} className={s.userAvatar} />
-			<div className={s.userFullName}>{store.viewer.fullName}</div>
+			<h2 className={s.userFullName}>{store.viewer.fullName}</h2>
 		</div>
 	);
 }

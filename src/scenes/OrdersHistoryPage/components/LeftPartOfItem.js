@@ -8,16 +8,16 @@ export function LeftPartOfItem({ item }) {
 	return (
 		<div className={s.leftPartOfItem}>
 			<div className={s.container}>
-				<div className={s.title}>Order ID:</div>
-				<div className={s.orderId} order-id={item.id}>
+				<h3 className={s.title}>Order ID:</h3>
+				<p className={s.orderId} order-id={item.id}>
 					{item.id}
-				</div>
+				</p>
 			</div>
 			<div className={s.container}>
-				<div className={s.title}>Date: </div>
-				<div
+				<h3 className={s.title}>Date: </h3>
+				<p
 					className={s.orderDate}
-				>{`${date.getDate()}.${date.getMonth()}.${date.getFullYear()}`}</div>
+				>{`${date.getDate()}.${date.getMonth()}.${date.getFullYear()}`}</p>
 			</div>
 		</div>
 	);

@@ -8,8 +8,8 @@ export function ViewerInfo() {
 
 	return (
 		<div className={s.viewerInfo}>
-			<div className={s.viewerName}>{store.viewer.fullName}</div>
-			<div className={s.viewerEmail}>{store.viewer.email}</div>
+			<h4 className={s.viewerName}>{store.viewer.fullName}</h4>
+			<h4 className={s.viewerEmail}>{store.viewer.email}</h4>
 		</div>
 	);
 }

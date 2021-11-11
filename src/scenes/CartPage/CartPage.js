@@ -29,7 +29,7 @@ export function CartPage() {
 			<div className={s.cartPageContainer}>
 				<div className={s.cartPage}>
 					<div>
-						<div className={s.myCart}>My cart</div>
+						<h2 className={s.myCart}>My cart</h2>
 						<CartList />
 					</div>
 					<CartForm setIsOpen={setOpen} />

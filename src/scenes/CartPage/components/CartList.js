@@ -15,7 +15,7 @@ export function CartList() {
 					return <CartListItem key={item.id} item={item} />;
 				})
 			) : (
-				<div className={s.noItems}>{'There are no items in a cart'}</div>
+				<h3 className={s.noItems}>{'There are no items in a cart'}</h3>
 			)}
 		</div>
 	);

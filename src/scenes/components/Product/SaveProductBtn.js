@@ -6,11 +6,11 @@ import s from './Product.module.scss';
 
 export function SaveProductBtn({ isSaved }) {
 	return (
-		<p className={s.saveContainer}>
+		<button className={s.saveContainer}>
 			<Icon
 				name={isSaved ? 'remove-from-favorites' : 'add-to-favorites'}
 				className={s.save}
 			/>
-		</p>
+		</button>
 	);
 }

@@ -44,7 +44,7 @@ export function PasswordField({
 	};
 
 	return (
-		<div>
+		<label>
 			<div
 				className={`${err ? s.error : ''} ${s.input} ${s.passwordFieldContainer} `}
 			>
@@ -59,6 +59,6 @@ export function PasswordField({
 				<ShowPassIcon showPass={showPass} handleClick={handleClick} />
 			</div>
 			{err ? <div className={s.errorMessage}>{err}</div> : <PasswordLabel />}
-		</div>
+		</label>
 	);
 }

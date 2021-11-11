@@ -90,19 +90,19 @@ export const CountryInput = ({
 				<p className={s.label}>{'Country'}</p>
 			</div>
 			{open && (
-				<div
+				<ul
 					id={'dropDownCountry'}
 					className={s.dropDown}
 					onClick={handleClickOnDropDownItem}
 				>
 					{countries.map((item) => {
 						return (
-							<div key={item} className={s.country} country={item}>
+							<li key={item} className={s.country} country={item}>
 								{item}
-							</div>
+							</li>
 						);
 					})}
-				</div>
+				</ul>
 			)}
 		</div>
 	);

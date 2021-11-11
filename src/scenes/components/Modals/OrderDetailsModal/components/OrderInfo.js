@@ -15,22 +15,22 @@ export function OrderInfo({ order }) {
 		<div className={s.orderInfo}>
 			<div className={s.infoPart}>
 				<div className={s.infoContainer}>
-					<div className={s.nameOfValue}>{'Date:'}</div>
-					<div className={s.value}>{date}</div>
+					<h3 className={s.nameOfValue}>{'Date:'}</h3>
+					<p className={s.value}>{date}</p>
 				</div>
 				<div className={s.infoContainer}>
-					<div className={s.nameOfValue}>{'Address:'}</div>
-					<div className={s.value}>{address}</div>
+					<h3 className={s.nameOfValue}>{'Address:'}</h3>
+					<p className={s.value}>{address}</p>
 				</div>
 			</div>
 			<div className={s.infoPart}>
 				<div className={s.infoContainer}>
-					<div className={s.nameOfValueRight}>{'Items:'}</div>
-					<div className={s.value}>{count}</div>
+					<h3 className={s.nameOfValueRight}>{'Items:'}</h3>
+					<p className={s.value}>{count}</p>
 				</div>
 				<div className={s.infoContainer}>
-					<div className={s.nameOfValueRight}>{'Total:'}</div>
-					<div className={s.value}>{`$ ${order.totalPrice}`}</div>
+					<h3 className={s.nameOfValueRight}>{'Total:'}</h3>
+					<p className={s.value}>{`$ ${order.totalPrice}`}</p>
 				</div>
 			</div>
 		</div>

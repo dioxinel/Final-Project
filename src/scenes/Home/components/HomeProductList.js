@@ -13,9 +13,7 @@ export function HomeProductList() {
 	const loading = useSelector((store) => store.loading);
 
 	if (store.activeCategory && !store.products.length && !loading.isLoading) {
-		return (
-			<div className={s.noItemsInCategory}>No items in this category yet</div>
-		);
+		return <p className={s.noItemsInCategory}>No items in this category yet</p>;
 	}
 
 	return (

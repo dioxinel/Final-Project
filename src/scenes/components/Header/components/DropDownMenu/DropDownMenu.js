@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Icon from '../../../Icon';
 import { DropDownContent } from './DropDownContent';
@@ -7,6 +7,12 @@ import s from './DropDownMenu.module.scss';
 
 export function DropDownMenu() {
 	const [open, setOpen] = useState(false);
+
+	useEffect(() => {
+		return () => {
+			setOpen(false);
+		};
+	}, []);
 
 	function closeMenu() {
 		setOpen(false);

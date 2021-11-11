@@ -45,7 +45,7 @@ export function ChangePassword() {
 
 	return (
 		<div className={`${s.editProfile} ${s.changePassword}`}>
-			<div className={s.editProfileTitle}>{'Change password'}</div>
+			<h2 className={s.editProfileTitle}>{'Change password'}</h2>
 			<div className={s.editProfileForm}>
 				<Formik {...formikProps}>
 					{({ isValid, handleSubmit, dirty }) => (

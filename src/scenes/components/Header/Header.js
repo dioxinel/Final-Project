@@ -7,9 +7,9 @@ import s from './Header.module.scss';
 
 export function Header() {
 	return (
-		<div className={s.header}>
+		<header className={s.header}>
 			<Logo />
 			<AuthHeader />
-		</div>
+		</header>
 	);
 }

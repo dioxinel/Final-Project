@@ -12,8 +12,8 @@ export function ProductOrder({ item }) {
 	return (
 		<div className={s.productOrder}>
 			<div className={s.priceContainer}>
-				<div className={s.priceTitle}>Price</div>
-				<div className={s.price}>${item.price}</div>
+				<h3 className={s.priceTitle}>Price</h3>
+				<p className={s.price}>${item.price}</p>
 			</div>
 			<NumOfProduct num={num} setNum={setNum} />
 			<TotalPrice price={item.price} numOfItem={num} />

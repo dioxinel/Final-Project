@@ -12,8 +12,8 @@ export function LoginBtn() {
 	};
 
 	return (
-		<div onClick={handleClick} className={s.loginBtn}>
+		<button onClick={handleClick} className={s.loginBtn}>
 			login
-		</div>
+		</button>
 	);
 }

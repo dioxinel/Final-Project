@@ -25,7 +25,7 @@ export function CategoriesContent({ closeMenu, categories }) {
 	}, [closeMenu]);
 
 	function handleClickOnDropDownItem(evt) {
-		const category = evt.target.closest('div[item-id]');
+		const category = evt.target.closest('li[item-id]');
 		if (!category) return;
 		const categoryId = category.getAttribute('item-id');
 		dispatch(setActiveCategory({ id: categoryId, name: evt.target.innerHTML }));

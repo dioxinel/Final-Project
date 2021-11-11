@@ -15,17 +15,20 @@ export function Logout({ closeMenu }) {
 	const history = useHistory();
 
 	const dispatch = useDispatch();
-	const handleLogout = () => {
-		api.logout();
+	const handleLogout = (evt) => {
+		evt.preventDefault();
+		closeMenu();
 		dispatch(removeViewer());
 		dispatch(clearProductsStore());
 		dispatch(removeCartItems());
+		api.logout();
+
 		history.push('/');
 	};
 
 	return (
-		<div className={s.logout} onClick={handleLogout}>
+		<a href={'/'} className={s.logout} onClick={handleLogout}>
 			Logout
-		</div>
+		</a>
 	);
 }

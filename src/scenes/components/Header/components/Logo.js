@@ -11,10 +11,15 @@ export function Logo() {
 	const history = useHistory();
 	const dispatch = useDispatch();
 
-	const handleClick = () => {
+	const handleClick = (evt) => {
+		evt.preventDefault();
 		dispatch(clearProductsStore());
 		history.push('/');
 	};
 
-	return <Icon name={'logo'} onClick={handleClick} className={s.logo} />;
+	return (
+		<a href={'/'} onClick={handleClick}>
+			<Icon name={'logo'} className={s.logo} />
+		</a>
+	);
 }
