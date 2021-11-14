@@ -26,6 +26,9 @@
 	width: 199;
 	height: 147px;
 	overflow: hidden;
+	display: grid;
+	justify-self: center;
+
 	&:hover {
 		opacity: 0.7;
 	}

@@ -55,6 +55,15 @@
 		height: 296px;
 		border-radius: 3px;
 		overflow: hidden;
+		display: grid;
+
+		span {
+			align-self: center;
+			justify-self: center;
+			img {
+				height: 296px;
+			}
+		}
 	}
 }
 
