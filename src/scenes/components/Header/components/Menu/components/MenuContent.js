@@ -9,7 +9,7 @@ import { HeaderSavedIcon } from '../../HeaderSavedIcon';
 
 import s from '../Menu.module.scss';
 
-export function MenuContent({ isOpen }) {
+export function MenuContent() {
 	const store = useSelector((store) => store.viewer);
 
 	if (!store.isLoggedIn) {
@@ -17,22 +17,16 @@ export function MenuContent({ isOpen }) {
 	}
 
 	return (
-		<>
-			{isOpen ? (
-				<div className={`${s.menuContent}`} id={'menuContent'}>
-					<div className={s.menuContentContainer}>
-						<UserAvatar user={store.viewer} className={s.avatar} />
-						<HeaderCartIcon color={'#110f21'} />
-						<HeaderSavedIcon color={'#110f21'} />
-					</div>
+		<div className={`${s.menuContent}`} id={'menuContent'}>
+			<div className={s.menuContentContainer}>
+				<UserAvatar user={store.viewer} className={s.avatar} />
+				<HeaderCartIcon color={'#110f21'} />
+				<HeaderSavedIcon color={'#110f21'} />
+			</div>
 
-					<ViewerInfo />
-					<SettingsLink className={s.settingsLink} />
-					<Logout />
-				</div>
-			) : (
-				''
-			)}
-		</>
+			<ViewerInfo />
+			<SettingsLink className={s.settingsLink} />
+			<Logout />
+		</div>
 	);
 }
