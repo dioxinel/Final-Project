@@ -5,7 +5,7 @@ import Icon from '../../Icon';
 
 import s from '../Header.module.scss';
 
-export function HeaderSavedIcon() {
+export function HeaderSavedIcon({ color }) {
 	const history = useHistory();
 
 	const handleClick = (evt) => {
@@ -15,7 +15,7 @@ export function HeaderSavedIcon() {
 
 	return (
 		<a href={'/account/favorites'} onClick={handleClick}>
-			<Icon name={'header-heart'} className={s.savedIcon} />
+			<Icon name={'header-heart'} className={s.savedIcon} color={color} />
 		</a>
 	);
 }

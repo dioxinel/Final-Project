@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+
 import { Logout } from './Logout';
 import { ViewerInfo } from './ViewerInfo';
+import { SettingsLink } from './SettingsLink';
 
 import s from './DropDownMenu.module.scss';
 
@@ -29,9 +30,7 @@ export function DropDownContent({ closeMenu }) {
 		<div id='dropDownMenu'>
 			<div className={s.dropDownMenu}>
 				<ViewerInfo />
-				<Link to={'/account/settings'} className={s.linkToSettings}>
-					{'Settings'}
-				</Link>
+				<SettingsLink to={'/account/settings'} className={s.linkToSettings} />
 				<Logout closeMenu={closeMenu} />
 			</div>
 		</div>

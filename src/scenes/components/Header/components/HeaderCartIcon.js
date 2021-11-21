@@ -6,7 +6,7 @@ import Icon from '../../Icon';
 
 import s from '../Header.module.scss';
 
-export function HeaderCartIcon() {
+export function HeaderCartIcon({ color }) {
 	const store = useSelector((store) => store.cart);
 	const history = useHistory();
 	const handleClick = (evt) => {
@@ -15,7 +15,7 @@ export function HeaderCartIcon() {
 	};
 	return (
 		<a href={'/account/cart'} className={s.cartContainer} onClick={handleClick}>
-			<Icon name={'header-cart'} className={s.cartIcon} />
+			<Icon name={'header-cart'} className={s.cartIcon} color={color} />
 			{store.totalCount ? <p>{store.totalCount}</p> : ''}
 		</a>
 	);
