@@ -1,9 +1,11 @@
 .productList {
 	display: grid;
-	max-width: 900px;
-	min-width: 300px;
+	min-width: 400px;
+	max-width: 860px;
+	width: 100%;
+
 	grid-template-columns: repeat(auto-fill, 209px);
-	grid-template-rows: repeat(auto-fill, 212px);
+	justify-content: center;
 	grid-gap: 10px 8px;
 }
 

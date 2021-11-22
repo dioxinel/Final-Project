@@ -1,15 +1,20 @@
 .productModal {
-	display: block;
 	position: fixed;
-	width: 1003px;
-	height: 697px;
+	max-width: 1003px;
+	max-height: 697px;
+	width: 90%;
+	height: 90%;
+	overflow-y: hidden;
 	background-color: #fff;
 	left: 50%;
 	right: 50%;
-	top: 450px;
+	top: 50%;
 	z-index: 3;
 	position: relative;
 	transform: translate(-50%, -50%);
+
+	display: grid;
+	grid-template-rows: 100px 1fr;
 }
 
 .modalOverlay {
@@ -22,12 +27,12 @@
 }
 
 .productModalContent {
-	display: flex;
-	justify-content: space-between;
-	width: 810px;
-	position: absolute;
-	top: 141px;
-	left: 87px;
+	padding: 100px 80px;
+	box-sizing: border-box;
+	grid-gap: 70px 35px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 320px 100px;
 }
 
 .textInfo {
@@ -42,17 +47,24 @@
 }
 
 .pictureContainer {
+	display: grid;
+	align-items: center;
 	padding: 13px 10px;
-	width: 401px;
-	height: 296px;
+	min-width: 300px;
+	max-width: 401px;
+	max-height: 296px;
+	width: auto;
+	height: auto;
 	background: #ffffff;
 	border: 1px solid #e4e4e4;
 	box-shadow: 0px 4px 14px rgba(121, 121, 121, 0.0527344);
 	border-radius: 4px;
 
 	.picture {
-		width: 401px;
-		height: 296px;
+		max-width: 401px;
+		width: auto;
+		height: auto;
+		max-height: 296px;
 		border-radius: 3px;
 		overflow: hidden;
 		display: grid;
@@ -61,7 +73,8 @@
 			align-self: center;
 			justify-self: center;
 			img {
-				height: 296px;
+				height: auto;
+				max-height: 296px;
 			}
 		}
 	}
@@ -157,10 +170,11 @@
 }
 
 .productBtns {
-	position: absolute;
-	top: 534px;
-	left: 86px;
-
+	display: grid;
+	grid-gap: 35px;
+	grid-column: 1 / 3;
+	grid-template-columns: 1fr 1.2fr 1fr;
+	grid-template-rows: 1fr;
 	.buyNow {
 		text-transform: uppercase;
 	}
@@ -176,6 +190,38 @@
 
 	.saveBtn {
 		text-transform: uppercase;
-		margin: 0 87px 0 35px;
+	}
+}
+
+@media (max-height: 600px) {
+	.productModal {
+		overflow-y: scroll;
+	}
+}
+
+@media (max-width: 1000px) {
+	.productModal {
+		overflow-y: scroll;
+	}
+
+	.productModalContent {
+		padding: 50px 0;
+
+		grid-gap: 35px;
+		justify-items: center;
+		grid-template-columns: 1fr;
+		grid-template-rows: 320px 320px 200px;
+	}
+
+	.productBtns {
+		grid-column: 1 / 2;
+		grid-template-columns: 1fr;
+		grid-template-rows: repeat(3, 36px);
+		grid-gap: 10px;
+	}
+
+	.cross {
+		top: 10px;
+		right: 10px;
 	}
 }

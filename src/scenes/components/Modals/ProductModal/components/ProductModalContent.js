@@ -19,8 +19,8 @@ export function ProductModalContent({ item }) {
 					<ProductPicture item={item} className={s.picture} />
 				</div>
 				<TextInfo item={item} />
+				<ProductBtns product={item} />
 			</div>
-			<ProductBtns product={item} />
 		</BuyNowContextProvider>
 	);
 }
