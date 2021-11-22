@@ -1,19 +1,23 @@
 .searchSortCategoriesTab {
 	position: relative;
-	width: 860px;
-	height: 61px;
+	max-width: 860px;
+	min-height: 61px;
 	background: #ffffff;
 	box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
 	border-radius: 4px;
-
 	margin: 20px 0 17.5px 0;
+	box-sizing: border-box;
+	padding: 12px 27px;
+
+	display: grid;
+	grid-template-columns: 1fr 1fr 0.6fr;
+	grid-template-rows: 1fr;
+	grid-gap: 10px 22px;
+	align-items: center;
+	justify-content: center;
 }
 
 .searchProduct {
-	position: absolute;
-	top: 12px;
-	left: 27px;
-	width: 290px;
 	height: 37px;
 	background: #f9fafb;
 	border: 1px solid #dedee0;
@@ -29,9 +33,9 @@
 }
 
 .searchInput {
-	display: block;
-	width: 220px;
 	background-color: #f9fafb;
+	min-width: 150px;
+	width: 90%;
 	font-size: 12px;
 	overflow: hidden;
 	line-height: 26px;
@@ -40,20 +44,19 @@
 }
 
 .categories {
-	position: absolute;
-	top: 12px;
-	left: 339px;
-
-	display: flex;
-	align-items: center;
-
-	width: 290px;
 	height: 37px;
+	position: relative;
 	background: #f9fafb;
-
 	border: 1px solid #dedee0;
 	box-sizing: border-box;
 	border-radius: 5px;
+	padding: 0 12px;
+
+	display: grid;
+	grid-template-columns: 17px minmax(120px, 216px) 13px;
+	grid-template-rows: 1fr;
+	align-items: center;
+	grid-column-gap: 10px;
 
 	div {
 		font-weight: 500;
@@ -61,17 +64,14 @@
 		line-height: 26px;
 
 		color: #373738;
-		width: 250px;
+		min-width: 100px;
+		max-width: 250px;
 		overflow: hidden;
 	}
 
 	svg {
 		cursor: pointer;
 	}
-}
-
-.categoriesIcon {
-	margin: 0 10px 0 12px;
 }
 
 .clearCategoryIcon {
@@ -82,17 +82,13 @@
 	background: #ffffff;
 }
 
-.categoriesContainer {
-	position: relative;
-}
-
 .dropDownList {
 	position: absolute;
-	top: 45px;
-	left: 339px;
+	top: 35px;
+	left: 0;
 	padding: 9.5px 0 19.5px 0;
 
-	width: 290px;
+	width: 100%;
 	background: #ffffff;
 	border-top: 2px solid #dedee0;
 	box-sizing: border-box;
@@ -112,25 +108,20 @@
 	}
 }
 
-.sortingContainer {
-	position: relative;
-}
-
 .sorting {
-	position: absolute;
-	top: 12px;
-	right: 27px;
-
-	display: flex;
-	align-items: center;
-
-	width: 182px;
 	height: 37px;
+	position: relative;
 	background: #f9fafb;
-
 	border: 1px solid #dedee0;
 	box-sizing: border-box;
+	padding: 0 12px;
 	border-radius: 5px;
+
+	display: grid;
+	grid-template-columns: 14px minmax(60px, 111px) 13px;
+	grid-template-rows: 1fr;
+	align-items: center;
+	grid-column-gap: 10px;
 
 	div {
 		font-weight: 500;
@@ -138,7 +129,6 @@
 		line-height: 26px;
 
 		color: #373738;
-		width: 140px;
 		overflow: hidden;
 		text-transform: capitalize;
 	}
@@ -150,11 +140,10 @@
 
 .dropDownSorting {
 	position: absolute;
-	top: 45px;
-	right: 27px;
+	top: 35px;
+	left: 0;
 	padding: 9.5px 0 19.5px 0;
-
-	width: 182px;
+	width: 100%;
 	background: #fff;
 	border-top: 2px solid #dedee0;
 	box-sizing: border-box;
@@ -172,5 +161,29 @@
 		&:hover {
 			background-color: #f0f0f0;
 		}
+	}
+}
+
+@media (max-width: 700px) {
+	.searchSortCategoriesTab {
+		margin-top: -4px;
+		grid-template-columns: 1fr;
+		grid-template-rows: repeat(3, 1fr);
+	}
+
+	.searchProduct {
+		width: auto;
+	}
+
+	.categories {
+		grid-template-columns: 17px 1fr 13px;
+	}
+
+	.sorting {
+		grid-template-columns: 14px 1fr 13px;
+	}
+
+	.searched {
+		grid-template-rows: 1fr;
 	}
 }

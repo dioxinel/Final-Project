@@ -49,24 +49,19 @@ export function Categories() {
 	}
 
 	return (
-		<div className={s.categoriesContainer}>
-			<div
-				className={`${s.categories} ${open ? s.active : ''}`}
-				onClick={openMenu}
-			>
-				<Icon name='categories-icon' className={s.categoriesIcon} />
-				{activeCategory ? (
-					<>
-						<div>{activeCategory.name}</div>
-						<ResetCategoryIcon />
-					</>
-				) : (
-					<>
-						<div>{'Choose category'}</div>
-						<Icon name='arrow' fill={'#727272'} className={s.clearCategoryIcon} />
-					</>
-				)}
-			</div>
+		<div className={`${s.categories} ${open ? s.active : ''}`} onClick={openMenu}>
+			<Icon name='categories-icon' className={s.categoriesIcon} />
+			{activeCategory ? (
+				<>
+					<div>{activeCategory.name}</div>
+					<ResetCategoryIcon />
+				</>
+			) : (
+				<>
+					<div>{'Choose category'}</div>
+					<Icon name='arrow' fill={'#727272'} className={s.clearCategoryIcon} />
+				</>
+			)}
 			{open && <CategoriesContent closeMenu={closeMenu} categories={categories} />}
 		</div>
 	);

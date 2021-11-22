@@ -1,8 +1,8 @@
 .home {
 	width: 100%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+	display: grid;
+	grid-template-columns: minmax(320px, 860px);
+	justify-content: center;
 }
 
 .productListContainer {

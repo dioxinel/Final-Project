@@ -11,7 +11,11 @@ export function SearchSortCategoriesTab() {
 	const store = useSelector((store) => store.products);
 
 	return (
-		<div className={s.searchSortCategoriesTab}>
+		<div
+			className={`${s.searchSortCategoriesTab} ${
+				store.searchProduct.length && s.searched
+			}`}
+		>
 			<SearchProduct />
 			{!store.searchProduct.length ? (
 				<>
