@@ -1,6 +1,6 @@
 .cartForm {
 	width: 300px;
-	height: 800px;
+	height: 600px;
 	margin-top: 100px;
 
 	p {
@@ -119,4 +119,16 @@
 .countryInput {
 	width: 220px;
 	height: 40px;
+}
+
+@media (max-width: 1000px) {
+	.cartForm {
+		width: 100%;
+		display: grid;
+		justify-items: center;
+		grid-template-rows: 450px 36px;
+	}
+	.continueShopping {
+		margin-left: 10px;
+	}
 }
