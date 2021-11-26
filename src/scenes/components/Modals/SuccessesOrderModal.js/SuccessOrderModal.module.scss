@@ -1,19 +1,21 @@
 .successOrderModal {
 	display: block;
 	position: fixed;
-	width: 480px;
+	max-width: 480px;
+	width: 95%;
 	background-color: #fff;
-	min-height: 350px;
-	height: 404;
+	height: 404px;
 	left: 50%;
 	right: 50%;
-	top: 300px;
+	top: 40%;
 	z-index: 7;
 	position: relative;
 	transform: translate(-50%, -50%);
 
 	box-shadow: 0px 2px 42px rgba(0, 0, 0, 0.111233);
 	border-radius: 7px;
+	padding-top: 70px;
+	box-sizing: border-box;
 }
 
 .modalOverlay {
@@ -34,13 +36,10 @@
 }
 
 .modalContent {
-	position: absolute;
-	display: flex;
-	flex-direction: column;
+	display: grid;
+	grid-template-columns: 1fr;
+	justify-items: center;
 	align-items: center;
-	top: 69px;
-	left: 67px;
-	margin-bottom: 118px;
 }
 
 .title {
@@ -54,7 +53,8 @@
 }
 
 .notification {
-	width: 347px;
+	max-width: 347px;
+	width: 90%;
 	font-size: 15px;
 	line-height: 22px;
 	text-align: center;

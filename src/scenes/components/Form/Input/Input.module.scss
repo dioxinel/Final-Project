@@ -1,5 +1,6 @@
 .input {
-	width: 362px;
+	width: 100%;
+	max-width: 362px;
 	height: 40px;
 	font-size: 16px;
 	padding-left: 12px;
@@ -41,7 +42,8 @@
 }
 
 .passwordField {
-	width: 280px;
+	width: 100%;
+	max-width: 280px;
 	height: 38px;
 	font-size: 16px;
 	color: #707070;
