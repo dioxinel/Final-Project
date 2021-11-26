@@ -1,7 +1,8 @@
 .ordersList {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr;
+	justify-items: center;
 	margin-top: 50px;
 }
 
@@ -12,11 +13,13 @@
 }
 
 .orderItem {
-	width: 486px;
+	width: 100%;
+	max-width: 486px;
 	height: 89px;
 	background: #ffffff;
 	margin-bottom: 20px;
-	display: flex;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
 	justify-content: space-between;
 
 	border: 1px solid #eceef0;
@@ -64,6 +67,8 @@
 }
 
 .rightPartOfItem {
+	display: grid;
+	justify-content: end;
 	margin: 17.5px 20px 0 0;
 }
 .priceTitle {

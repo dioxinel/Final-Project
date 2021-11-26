@@ -1,16 +1,22 @@
 .editProfile {
 	width: 100%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+	display: grid;
+	grid-template-columns: 1fr;
+	justify-items: center;
 	margin-top: 55px;
+}
+
+.editProfileForm {
+	width: 100%;
+	max-width: 377px;
 }
 
 .editProfileTitle {
 	font-size: 18px;
 	line-height: 24px;
 	letter-spacing: 0.15px;
-	width: 489px;
+	max-width: 489px;
+	width: 100%;
 	margin-bottom: 30px;
 	color: #000000;
 }
@@ -21,7 +27,8 @@
 	background: #ffffff;
 	border: 1px solid #e0e0e0;
 	box-sizing: border-box;
-	width: 377px;
+	max-width: 377px;
+	width: 100%;
 	height: 40px;
 	padding-left: 13px;
 }
@@ -46,7 +53,8 @@
 .submitBtn {
 	background: #fd7114;
 	border-radius: 5px;
-	width: 377px;
+	max-width: 377px;
+	width: 100%;
 	height: 36px;
 
 	font-size: 14px;
@@ -65,7 +73,8 @@
 }
 
 .countryInput {
-	width: 376px;
+	max-width: 376px;
+	width: 100%;
 	height: 40px;
 
 	svg {
