@@ -17,7 +17,12 @@ export function Logout({ closeMenu }) {
 	const dispatch = useDispatch();
 	const handleLogout = (evt) => {
 		evt.preventDefault();
-		closeMenu();
+		try {
+			closeMenu();
+		} catch {
+			const event = new Event('onClose');
+			document.getElementById('menu').dispatchEvent(event);
+		}
 		dispatch(removeViewer());
 		api.logout();
 		dispatch(clearProductsStore());
