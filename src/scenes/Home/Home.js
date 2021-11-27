@@ -34,18 +34,6 @@ export function Home() {
 		}
 	}, [dispatch, store.sort, store.activeCategory]);
 
-	useEffect(() => {
-		if (!store.products.length) {
-			dispatch(
-				asyncRequest({
-					action: setProducts,
-					request: api.getProducts,
-					params: { sort: store.sort },
-				}),
-			);
-		}
-	}, [dispatch, store.products.length, store.sort]);
-
 	return (
 		<div className={s.home}>
 			<SearchSortCategoriesTab />

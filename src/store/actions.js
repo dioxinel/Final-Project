@@ -7,7 +7,7 @@ export const addProductToFavorites = createAction('products/addToFavorites');
 export const removeProductFromFavorites = createAction(
 	'products/removeFromFavorites',
 );
-export const clearProductsStore = createAction('products/clearStore');
+export const removeFromProductsStore = createAction('products/removeFromStore');
 export const setSearchProduct = createAction('searchProduct/set');
 export const clearSearchProductPage = createAction('searchProductPage/clear');
 export const setKeywords = createAction('keywords/set');
@@ -97,4 +97,15 @@ export const postAuthAction = (payload) => async (dispatch) => {
 		dispatch(addProductToFavorites(payload.props.id));
 		await api.addToFavorites(payload.props.id);
 	}
+};
+
+export const clearProductsStore = (payload) => async (dispatch) => {
+	dispatch(removeFromProductsStore);
+	dispatch(
+		asyncRequest({
+			action: setProducts,
+			request: api.getProducts,
+			params: { sort: '' },
+		}),
+	);
 };

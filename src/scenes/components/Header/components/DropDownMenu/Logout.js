@@ -19,9 +19,9 @@ export function Logout({ closeMenu }) {
 		evt.preventDefault();
 		closeMenu();
 		dispatch(removeViewer());
+		api.logout();
 		dispatch(clearProductsStore());
 		dispatch(removeCartItems());
-		api.logout();
 
 		history.push('/');
 	};

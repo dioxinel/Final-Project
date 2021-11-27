@@ -21,10 +21,10 @@ export function Categories() {
 	useEffect(() => {
 		if (categories.length) return;
 		async function fetch() {
+			setCategories('fetching');
 			const res = await asyncRequest(api.getCategories);
 
 			if (typeof res === 'string') {
-				if (categories.length) return;
 				setCategories([{ id: 0, name: 'error' }]);
 				return;
 			}

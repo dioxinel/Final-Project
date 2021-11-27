@@ -4,7 +4,7 @@ import {
 	addProducts,
 	addProductToFavorites,
 	setSearchProduct,
-	clearProductsStore,
+	removeFromProductsStore,
 	removeProductFromFavorites,
 	setKeywords,
 	addSearchProduct,
@@ -78,7 +78,7 @@ export const productsReducer = createReducer(initialStore, {
 		}
 	},
 
-	[clearProductsStore]: (state, action) => {
+	[removeFromProductsStore]: (state, action) => {
 		state.favorites = [];
 		state.productsPage.products = [];
 		state.products = [];
