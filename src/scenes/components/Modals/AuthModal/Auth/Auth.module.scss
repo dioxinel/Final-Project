@@ -29,10 +29,16 @@
 	text-align: center;
 }
 
-.registerForm {
+.authForm {
 	display: grid;
 	grid-template-columns: 1fr;
 	justify-items: center;
+	width: 100%;
+	max-width: 362px;
+
+	label {
+		width: 100%;
+	}
 }
 
 .inputContainer {

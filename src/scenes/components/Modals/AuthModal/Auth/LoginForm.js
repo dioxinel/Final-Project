@@ -14,18 +14,15 @@ export function LoginForm({
 	error,
 }) {
 	return (
-		<form onSubmit={(evt) => handleSubmit(evt)} className={s.registerForm}>
-			<div className={s.inputContainer}>
-				<LoginInput
-					type='email'
-					name='email'
-					value={fields.email}
-					className={s.input}
-					changeFieldValue={changeFieldValue}
-					placeholder={'Email'}
-					error={error}
-				/>
-			</div>
+		<form onSubmit={(evt) => handleSubmit(evt)} className={s.authForm}>
+			<LoginInput
+				type='email'
+				name='email'
+				value={fields.email}
+				changeFieldValue={changeFieldValue}
+				placeholder={'Email'}
+				error={error}
+			/>
 			<LoginPassword
 				fields={fields}
 				changeFieldValue={changeFieldValue}

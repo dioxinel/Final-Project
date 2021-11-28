@@ -1,9 +1,9 @@
 .input {
 	width: 100%;
-	max-width: 362px;
 	height: 40px;
 	font-size: 16px;
 	padding-left: 12px;
+	box-sizing: border-box;
 	color: #707070;
 	border: 1px solid #e0e0e0;
 	border-radius: 4px;
@@ -23,6 +23,10 @@
 	color: #f44336;
 	font-size: 12px;
 	letter-spacing: 0.4 px;
+}
+
+.loginInput {
+	margin-bottom: 20px;
 }
 
 .input::-ms-reveal,

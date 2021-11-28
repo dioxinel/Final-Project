@@ -14,7 +14,7 @@ export function LoginInput({ changeFieldValue, value, name, error, ...props }) {
 				value={value}
 				name={name}
 				{...props}
-				className={`${error ? s.error : ''} ${s.input}`}
+				className={`${error ? s.error : ''} ${s.loginInput} ${s.input}`}
 			/>
 			{error ? (
 				<div className={s.errorMessage}>{'Email or password incorrect'}</div>

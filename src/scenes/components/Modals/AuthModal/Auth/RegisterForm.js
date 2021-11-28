@@ -14,7 +14,7 @@ export function RegisterForm({
 	error,
 }) {
 	return (
-		<form onSubmit={(evt) => handleSubmit(evt)} className={s.registerForm}>
+		<form onSubmit={(evt) => handleSubmit(evt)} className={s.authForm}>
 			<div className={s.inputContainer}>
 				<Input
 					type='text'
