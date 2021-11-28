@@ -14,7 +14,7 @@ import { UnLoggedUserSaveProductModal } from '../Modals/UnLoggedUserSaveProductM
 import s from './Product.module.scss';
 
 import api from '../../../api';
-import { getItemById } from '../../../utils';
+import { getItemById } from '../../../utils/utils';
 
 export const UnLoggedModalContext = React.createContext(false);
 const UnLoggedModalContextProvider = UnLoggedModalContext.Provider;

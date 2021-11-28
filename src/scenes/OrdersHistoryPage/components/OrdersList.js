@@ -6,7 +6,7 @@ import { OrderItem } from './OrderItem';
 import s from '../OrdersHistoryPage.module.scss';
 import api from '../../../api';
 import { OrderDetailsModal } from '../../components/Modals/OrderDetailsModal/OrderDetailsModal';
-import { getItemById } from '../../../utils';
+import { getItemById } from '../../../utils/utils';
 
 export function OrdersList() {
 	const [activeOrder, setActiveOrder] = useState(false);

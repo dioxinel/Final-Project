@@ -4,7 +4,7 @@ import React, { useContext } from 'react';
 import { ChangePasswordForm } from './ChangePasswordForm';
 
 import s from '../EditProfilePage.module.scss';
-import { useAsyncRequest } from '../../../useAsyncRequest';
+import { useAsyncRequest } from '../../../utils/useAsyncRequest';
 import api from '../../../api';
 import { validationSchemaChangePassword } from './validation';
 import { NotificationsContext } from '../../../App';

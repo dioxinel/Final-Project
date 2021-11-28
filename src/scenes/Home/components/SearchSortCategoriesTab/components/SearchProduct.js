@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import Icon from '../../../../components/Icon';
 
 import s from '../SearchSortCategoriesTab.module.scss';
-import { useDebounce } from '../../../../../utils';
+import { useDebounce } from '../../../../../utils/utils';
 import { searchProduct, setSearchProduct } from '../../../../../store/actions';
 
 export function SearchProduct() {

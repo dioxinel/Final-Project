@@ -14,8 +14,8 @@ import {
 	postAuthAction,
 	setViewer,
 } from '../../../../../store/actions';
-import { useFormFields } from '../../../../../useFormFields';
-import { useAsyncRequest } from '../../../../../useAsyncRequest';
+import { useFormFields } from '../../../../../utils/useFormFields';
+import { useAsyncRequest } from '../../../../../utils/useAsyncRequest';
 import { AuthModalContext } from '../../../../../App';
 
 export function Login() {

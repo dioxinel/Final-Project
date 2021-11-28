@@ -6,7 +6,7 @@ import { MainInfoForm } from './MainInfoForm';
 
 import s from '../EditProfilePage.module.scss';
 import { validationSchemaMainInfo } from './validation';
-import { useAsyncRequest } from '../../../useAsyncRequest';
+import { useAsyncRequest } from '../../../utils/useAsyncRequest';
 import { setViewer } from '../../../store/actions';
 import { NotificationsContext } from '../../../App';
 import api from '../../../api';

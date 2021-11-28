@@ -13,7 +13,7 @@ import s from './CartForm.module.scss';
 import { validationSchema } from './validationSchema';
 import api from '../../../../api';
 import { removeCartItems } from '../../../../store/actions';
-import { useAsyncRequest } from '../../../../useAsyncRequest';
+import { useAsyncRequest } from '../../../../utils/useAsyncRequest';
 
 export const CartForm = ({ setIsOpen }) => {
 	const store = useSelector((store) => store.viewer);

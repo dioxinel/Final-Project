@@ -13,7 +13,7 @@ import {
 	setPostAuthAction,
 } from '../../../../../store/actions';
 import { BuyNowContext } from './ProductModalContent';
-import { getItemById } from '../../../../../utils';
+import { getItemById } from '../../../../../utils/utils';
 
 export function BuyNowBtn({ product }) {
 	const history = useHistory();

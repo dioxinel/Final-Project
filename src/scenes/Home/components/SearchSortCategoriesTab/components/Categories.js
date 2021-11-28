@@ -9,7 +9,7 @@ import Icon from '../../../../components/Icon';
 import s from '../SearchSortCategoriesTab.module.scss';
 import api from '../../../../../api';
 
-import { useAsyncRequest } from '../../../../../useAsyncRequest';
+import { useAsyncRequest } from '../../../../../utils/useAsyncRequest';
 
 export function Categories() {
 	const { asyncRequest } = useAsyncRequest();

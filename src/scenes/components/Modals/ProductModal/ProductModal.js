@@ -6,7 +6,7 @@ import { useLocation } from 'react-router';
 import { CloseModalIcon } from '../../Icons/CloseModalIcon';
 
 import s from './ProductModal.module.scss';
-import { getItemById } from '../../../../utils';
+import { getItemById } from '../../../../utils/utils';
 import { ProductModalContent } from './components/ProductModalContent';
 
 export function ProductModal({ clickedProductId, setClickedProductId }) {

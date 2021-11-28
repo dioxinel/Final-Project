@@ -6,7 +6,7 @@ import {
 	setCartItemCount,
 	setCartItems,
 } from '../actions';
-import { getFullPriceAndCount, getItemById } from '../../utils';
+import { getFullPriceAndCount, getItemById } from '../../utils/utils';
 import { initialStore } from '../initialStore';
 
 export const cartReducer = createReducer(initialStore, {

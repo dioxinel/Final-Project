@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import s from '../Home.module.scss';
 import api from '../../../api';
 import { addProducts, addSearchProduct } from '../../../store/actions';
-import { useAsyncRequest } from '../../../useAsyncRequest';
+import { useAsyncRequest } from '../../../utils/useAsyncRequest';
 
 export function LoadMoreBtn() {
 	const store = useSelector((store) => store.products);

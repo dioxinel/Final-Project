@@ -9,8 +9,8 @@ import { ChangeModalCondition } from './ChangeModalCondition';
 import s from './Auth.module.scss';
 
 import api from '../../../../../api';
-import { useFormFields } from '../../../../../useFormFields';
-import { useAsyncRequest } from '../../../../../useAsyncRequest';
+import { useFormFields } from '../../../../../utils/useFormFields';
+import { useAsyncRequest } from '../../../../../utils/useAsyncRequest';
 import { postAuthAction, setViewer } from '../../../../../store/actions';
 import { AuthModalContext } from '../../../../../App';
 

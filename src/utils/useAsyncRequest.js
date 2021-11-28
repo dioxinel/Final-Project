@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 
-import { NotificationsContext } from './App';
+import { NotificationsContext } from '../App';
 
 export const useAsyncRequest = () => {
 	const [error, setError] = useState('');

@@ -15,7 +15,7 @@ import {
 } from '../actions';
 import { initialStore } from '../initialStore';
 
-import { getItemById } from '../../utils';
+import { getItemById } from '../../utils/utils';
 
 export const productsReducer = createReducer(initialStore, {
 	[setProducts]: (state, action) => {
