@@ -5,6 +5,7 @@ import Icon from '../../Icon';
 
 import s from './Input.module.scss';
 import api from '../../../../api';
+import { useDropDown } from '../../../../utils/useDropDown';
 
 export const CountryInput = ({
 	disabled,
@@ -12,11 +13,10 @@ export const CountryInput = ({
 	setSelected,
 	className,
 }) => {
+	const { isOpen, openMenu, closeMenu } = useDropDown('#dropDownCountry');
 	const [countries, setCountries] = useState([]);
-	const [open, setOpen] = useState(false);
-	const store = useSelector((store) => store.viewer);
 
-	let outerClickEvent;
+	const store = useSelector((store) => store.viewer);
 
 	useEffect(() => {
 		setSelected(store.viewer.country);
@@ -26,12 +26,7 @@ export const CountryInput = ({
 			setCountries(res.data);
 		}
 		fetch();
-
-		return () => {
-			document.removeEventListener('click', outerClickEvent);
-			setOpen(false);
-		};
-	}, [setSelected, store.viewer.country, outerClickEvent, countries]);
+	}, [setSelected, store.viewer.country, countries]);
 
 	useEffect(() => {
 		return () => {
@@ -39,29 +34,8 @@ export const CountryInput = ({
 		};
 	}, []);
 
-	function outerClickListener(e) {
-		const node = e.target.closest('#dropDownCountry');
-
-		if (!node) {
-			e.stopPropagation();
-			closeMenu();
-		}
-	}
-
-	function closeMenu() {
-		document.removeEventListener('click', outerClickListener);
-		setOpen(false);
-	}
-
-	function openMenu(evt) {
-		outerClickEvent = document.addEventListener('click', outerClickListener);
-		if (open) return closeMenu();
-		setOpen(true);
-		evt.stopPropagation();
-	}
-
 	function handleClickOnDropDownItem(evt) {
-		const country = evt.target.closest('div[country]');
+		const country = evt.target.closest('li[country]');
 		if (!country) return;
 		const countryName = country.getAttribute('country');
 		setSelected(countryName);
@@ -89,7 +63,7 @@ export const CountryInput = ({
 				<Icon name={'arrow'} className={s.arrow} fill={'#707070'} />
 				<p className={s.label}>{'Country'}</p>
 			</div>
-			{open && (
+			{isOpen && (
 				<ul
 					id={'dropDownCountry'}
 					className={s.dropDown}

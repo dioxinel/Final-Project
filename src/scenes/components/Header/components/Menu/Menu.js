@@ -42,7 +42,7 @@ export function Menu() {
 	};
 
 	return (
-		<div className={s.menu}>
+		<nav className={s.menu}>
 			<Transition in={isOpen} timeout={duration} nodeRef={nodeRef}>
 				{(state) => (
 					<div
@@ -57,6 +57,6 @@ export function Menu() {
 					</div>
 				)}
 			</Transition>
-		</div>
+		</nav>
 	);
 }

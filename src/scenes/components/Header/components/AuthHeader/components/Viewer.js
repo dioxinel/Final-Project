@@ -11,8 +11,10 @@ import s from '../AuthHeader.module.scss';
 export function Viewer({ viewer }) {
 	return (
 		<div className={s.viewer}>
-			<HeaderSavedIcon />
-			<HeaderCartIcon />
+			<nav>
+				<HeaderSavedIcon />
+				<HeaderCartIcon />
+			</nav>
 			<ViewerGreeting fullName={viewer.fullName} />
 			<UserAvatar user={viewer} className={s.avatar} />
 			<DropDownMenu />

@@ -10,11 +10,12 @@ import s from '../SearchSortCategoriesTab.module.scss';
 import api from '../../../../../api';
 
 import { useAsyncRequest } from '../../../../../utils/useAsyncRequest';
+import { useDropDown } from '../../../../../utils/useDropDown';
 
 export function Categories() {
 	const { asyncRequest } = useAsyncRequest();
 	const [categories, setCategories] = useState([]);
-	const [open, setOpen] = useState(false);
+	const { isOpen, openMenu, closeMenu } = useDropDown('#dropDownList');
 
 	const activeCategory = useSelector((store) => store.products.activeCategory);
 
@@ -39,17 +40,11 @@ export function Categories() {
 		};
 	}, []);
 
-	function closeMenu() {
-		setOpen(false);
-	}
-
-	function openMenu() {
-		if (open) return closeMenu();
-		setOpen(true);
-	}
-
 	return (
-		<div className={`${s.categories} ${open ? s.active : ''}`} onClick={openMenu}>
+		<div
+			className={`${s.categories} ${isOpen ? s.active : ''}`}
+			onClick={openMenu}
+		>
 			<Icon name='categories-icon' className={s.categoriesIcon} />
 			{activeCategory ? (
 				<>
@@ -62,7 +57,9 @@ export function Categories() {
 					<Icon name='arrow' fill={'#727272'} className={s.clearCategoryIcon} />
 				</>
 			)}
-			{open && <CategoriesContent closeMenu={closeMenu} categories={categories} />}
+			{isOpen && (
+				<CategoriesContent closeMenu={closeMenu} categories={categories} />
+			)}
 		</div>
 	);
 }

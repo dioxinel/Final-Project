@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { useDropDown } from '../../../../../utils/useDropDown';
 
 import Icon from '../../../Icon';
 import { DropDownContent } from './DropDownContent';
@@ -6,22 +7,7 @@ import { DropDownContent } from './DropDownContent';
 import s from './DropDownMenu.module.scss';
 
 export function DropDownMenu() {
-	const [open, setOpen] = useState(false);
-
-	useEffect(() => {
-		return () => {
-			setOpen(false);
-		};
-	}, []);
-
-	function closeMenu() {
-		setOpen(false);
-	}
-
-	function openMenu() {
-		if (open) return closeMenu();
-		setOpen(true);
-	}
+	const { isOpen, openMenu, closeMenu } = useDropDown('#dropDownMenu');
 
 	return (
 		<div id='dropDownMenu'>
@@ -31,7 +17,7 @@ export function DropDownMenu() {
 				className={s.dropDownTick}
 				fill={'white'}
 			/>
-			{open && <DropDownContent closeMenu={closeMenu} />}
+			{isOpen && <DropDownContent closeMenu={closeMenu} />}
 		</div>
 	);
 }
