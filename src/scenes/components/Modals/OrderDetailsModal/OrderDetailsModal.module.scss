@@ -14,6 +14,12 @@
 	transform: translate(-50%, -50%);
 	padding-top: 50px;
 	box-sizing: border-box;
+
+	&::-webkit-scrollbar,
+	-moz-scrollbar {
+		width: 0;
+	}
+	overflow-y: scroll;
 }
 
 .modalOverlay {
@@ -57,7 +63,8 @@
 	height: 549px;
 	overflow: scroll;
 
-	&::-webkit-scrollbar {
+	&::-webkit-scrollbar,
+	-moz-scrollbar {
 		width: 0;
 	}
 }
@@ -222,5 +229,16 @@
 	}
 	.productPicture {
 		margin-top: 5px;
+	}
+}
+
+@media (max-height: 800px) {
+	.orderDetailsModal {
+		max-height: auto;
+	}
+
+	.orderDetailsProductList {
+		min-height: 549px;
+		height: auto;
 	}
 }
