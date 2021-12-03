@@ -25,10 +25,6 @@
 	letter-spacing: 0.4 px;
 }
 
-.loginInput {
-	margin-bottom: 20px;
-}
-
 .input::-ms-reveal,
 .input::-ms-clear {
 	display: none;
@@ -48,7 +44,7 @@
 .passwordField {
 	width: 100%;
 	max-width: 280px;
-	height: 38px;
+	height: 36px;
 	font-size: 16px;
 	color: #707070;
 	border: 0;

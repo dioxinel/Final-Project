@@ -19,6 +19,12 @@
 
 .modalLogin {
 	height: 365px;
+
+	form {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-gap: 20px;
+	}
 }
 
 .modalOverlay {
