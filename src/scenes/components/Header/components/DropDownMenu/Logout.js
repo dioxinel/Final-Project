@@ -17,10 +17,11 @@ export function Logout({ closeMenu }) {
 	const dispatch = useDispatch();
 	const handleLogout = (evt) => {
 		evt.preventDefault();
+		const event = new Event('onClose');
 		try {
 			closeMenu();
+			document.getElementById('menu').dispatchEvent(event);
 		} catch {
-			const event = new Event('onClose');
 			document.getElementById('menu').dispatchEvent(event);
 		}
 		dispatch(removeViewer());
