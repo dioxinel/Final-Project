@@ -14,17 +14,26 @@ import {
 	setPostAuthAction,
 } from '../../../../../store/actions';
 import { UnLoggedModalContext } from '../../../Product/ProductList';
+import { useLocation } from 'react-router';
 
-export function SaveBtn({ product }) {
+export function SaveBtn({ product, handleClose }) {
 	const { setIsOpen, setClickedProductId } = useContext(UnLoggedModalContext);
 	const store = useSelector((store) => store.viewer);
 	const dispatch = useDispatch();
+	const location = useLocation();
 
 	const handleSaveProduct = async (productId) => {
 		if (store.isLoggedIn) {
 			if (product.favorite) {
+				// if viewer in favorites page close product popup
+				if (location.pathname === '/account/favorites') {
+					handleClose();
+				}
+
+				// remove product from favorites store
 				dispatch(removeProductFromFavorites(productId));
 				await api.removeFromFavorites(productId);
+
 				return;
 			}
 			dispatch(addProductToFavorites(productId));

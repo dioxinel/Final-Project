@@ -6,11 +6,11 @@ import { AddToCartBtn } from './AddToCartBtn';
 
 import s from '../ProductModal.module.scss';
 
-export function ProductBtns({ product }) {
+export function ProductBtns({ product, handleClose }) {
 	return (
 		<div className={s.productBtns}>
 			<AddToCartBtn product={product} />
-			<SaveBtn product={product} />
+			<SaveBtn product={product} handleClose={handleClose} />
 			<BuyNowBtn product={product} />
 		</div>
 	);

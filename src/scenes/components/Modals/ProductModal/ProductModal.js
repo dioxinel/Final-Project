@@ -44,7 +44,11 @@ export function ProductModal({ clickedProductId, setClickedProductId }) {
 				height={'25'}
 				className={s.cross}
 			/>
-			{product ? <ProductModalContent item={product} /> : ''}
+			{product ? (
+				<ProductModalContent item={product} handleClose={handleClose} />
+			) : (
+				''
+			)}
 		</Modal>
 	);
 }
