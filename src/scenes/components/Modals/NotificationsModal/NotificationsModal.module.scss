@@ -54,6 +54,8 @@
 .closeNotification {
 	cursor: pointer;
 	margin-right: 25px;
+	min-width: 20px;
+	min-height: 20px;
 }
 
 @media (max-width: 800px) {
