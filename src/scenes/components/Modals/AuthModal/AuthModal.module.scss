@@ -42,3 +42,10 @@
 	right: 21px;
 	cursor: pointer;
 }
+
+@media (max-height: 500px) {
+	.modal {
+		overflow-y: scroll;
+		max-height: 90vh;
+	}
+}
