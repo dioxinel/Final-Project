@@ -15,7 +15,7 @@ import { useDropDown } from '../../../../../utils/useDropDown';
 export function Categories() {
 	const { asyncRequest } = useAsyncRequest();
 	const [categories, setCategories] = useState([]);
-	const { isOpen, openMenu, closeMenu } = useDropDown('#dropDownList');
+	const { isOpen, openMenu, closeMenu } = useDropDown('#dropDownCategories');
 
 	const activeCategory = useSelector((store) => store.products.activeCategory);
 
@@ -44,6 +44,7 @@ export function Categories() {
 		<div
 			className={`${s.categories} ${isOpen ? s.active : ''}`}
 			onClick={openMenu}
+			id={'dropDownCategories'}
 		>
 			<Icon name='categories-icon' className={s.categoriesIcon} />
 			{activeCategory ? (

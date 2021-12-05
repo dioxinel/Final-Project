@@ -14,7 +14,11 @@ export function Sorting() {
 	const store = useSelector((store) => store.products);
 
 	return (
-		<div className={`${s.sorting} ${isOpen ? s.active : ''}`} onClick={openMenu}>
+		<div
+			className={`${s.sorting} ${isOpen ? s.active : ''}`}
+			onClick={openMenu}
+			id={'dropDownSorting'}
+		>
 			<Icon name='sort-icon' className={s.categoriesIcon} />
 			{store.sort ? (
 				<>

@@ -57,18 +57,14 @@ export const CountryInput = ({
 	}
 
 	return (
-		<div className={s.countryInputContainer}>
+		<div className={s.countryInputContainer} id={'dropDownCountry'}>
 			<div className={`${s.countryInput} ${className}`} onClick={openMenu}>
 				<div>{selected || 'Select country'}</div>
 				<Icon name={'arrow'} className={s.arrow} fill={'#707070'} />
 				<p className={s.label}>{'Country'}</p>
 			</div>
 			{isOpen && (
-				<ul
-					id={'dropDownCountry'}
-					className={s.dropDown}
-					onClick={handleClickOnDropDownItem}
-				>
+				<ul className={s.dropDown} onClick={handleClickOnDropDownItem}>
 					{countries.map((item) => {
 						return (
 							<li key={item} className={s.country} country={item}>

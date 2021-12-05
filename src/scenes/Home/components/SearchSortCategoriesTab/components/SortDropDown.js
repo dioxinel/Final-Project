@@ -47,11 +47,7 @@ export function SortDropDown({ closeMenu }) {
 	}
 
 	return (
-		<div
-			onClick={handleClickOnDropDownItem}
-			id={'dropDownSorting'}
-			className={s.dropDownSorting}
-		>
+		<div onClick={handleClickOnDropDownItem} className={s.dropDownSorting}>
 			<p>Popular</p>
 			<p>New</p>
 		</div>
