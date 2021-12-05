@@ -6,7 +6,7 @@ export const useDropDown = (id) => {
 	let outerClickEvent;
 	useEffect(() => {
 		return () => {
-			window.removeEventListener('click', outerClickEvent);
+			window.removeEventListener('click', outerClickEvent, true);
 			setOpen(false);
 		};
 	}, [outerClickEvent]);
@@ -25,14 +25,14 @@ export const useDropDown = (id) => {
 	}
 
 	function closeMenu() {
-		window.removeEventListener('click', outerClickListener);
+		window.removeEventListener('click', outerClickListener, true);
 		setOpen(false);
 	}
 
 	function openMenu(e) {
 		if (isOpen) return closeMenu();
 		e.stopPropagation();
-		outerClickEvent = window.addEventListener('click', outerClickListener);
+		outerClickEvent = window.addEventListener('click', outerClickListener, true);
 		setOpen(true);
 	}
 
