@@ -1,3 +1,5 @@
+@import 'Colors.module.scss';
+
 .orderDetailsModal {
 	display: block;
 	position: fixed;
@@ -5,7 +7,7 @@
 	max-height: 844px;
 	width: 100%;
 	height: 100%;
-	background-color: #fff;
+	background-color: $white;
 	left: 50%;
 	right: 50%;
 	top: 50%;
@@ -80,7 +82,7 @@
 	width: 559px;
 	min-height: 160px;
 
-	background: #ffffff;
+	background: $white;
 	margin-bottom: 23px;
 
 	border: 1px solid #eceef0;
@@ -113,7 +115,7 @@
 		font-size: 15px;
 		line-height: 22px;
 
-		color: #707070;
+		color: $dark;
 		margin-right: 20px;
 	}
 
@@ -122,7 +124,7 @@
 		font-size: 15px;
 		line-height: 22px;
 
-		color: #373738;
+		color: $dark_text;
 	}
 }
 
@@ -142,7 +144,7 @@
 	overflow: hidden;
 	font-size: 15px;
 	line-height: 22px;
-	color: #373738;
+	color: $dark_text;
 	display: flex;
 	flex-direction: column;
 	grid-area: 'price';
@@ -153,7 +155,7 @@
 		font-size: 18px;
 		line-height: 26px;
 		letter-spacing: 0.5px;
-		color: #373738;
+		color: $dark_text;
 		margin: 7px 0 0 0;
 	}
 
@@ -163,7 +165,7 @@
 		font-size: 15px;
 		line-height: 22px;
 
-		color: #373738;
+		color: $dark_text;
 	}
 }
 
@@ -188,14 +190,14 @@
 	font-size: 15px;
 	line-height: 22px;
 	width: 79px;
-	color: #707070;
+	color: $dark;
 }
 
 .nameOfValueRight {
 	font-size: 15px;
 	line-height: 22px;
 	width: 62px;
-	color: #707070;
+	color: $dark;
 }
 
 .value {
@@ -203,7 +205,7 @@
 	font-size: 15px;
 	line-height: 22px;
 
-	color: #373738;
+	color: $dark_text;
 }
 
 @media (max-width: 700px) {

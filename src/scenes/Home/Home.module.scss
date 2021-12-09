@@ -1,3 +1,5 @@
+@import 'Colors.module.scss';
+
 .home {
 	width: 100%;
 	display: grid;
@@ -17,8 +19,8 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: #148dfd;
-	color: #fff;
+	background-color: $blue_btn;
+	color: $white;
 	font-size: 14px;
 	font-weight: 500;
 	letter-spacing: 0.4px;
@@ -52,7 +54,7 @@
 		width: 347px;
 		margin-top: 10px;
 
-		color: #373738;
+		color: $dark_text;
 	}
 }
 

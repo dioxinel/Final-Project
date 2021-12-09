@@ -1,8 +1,10 @@
+@import 'Colors.module.scss';
+
 .searchSortCategoriesTab {
 	position: relative;
 	max-width: 860px;
 	min-height: 61px;
-	background: #ffffff;
+	background: $white;
 	box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
 	border-radius: 4px;
 	margin: 20px 0 17.5px 0;
@@ -39,7 +41,7 @@
 	font-size: 12px;
 	overflow: hidden;
 	line-height: 26px;
-	color: #707070;
+	color: $dark;
 	outline: none;
 }
 
@@ -63,7 +65,7 @@
 		font-size: 14px;
 		line-height: 26px;
 
-		color: #373738;
+		color: $dark_text;
 		min-width: 100px;
 		max-width: 250px;
 		overflow: hidden;
@@ -79,7 +81,7 @@
 }
 
 .active {
-	background: #ffffff;
+	background: $white;
 }
 
 .dropDownList {
@@ -89,7 +91,7 @@
 	padding: 9.5px 0 19.5px 0;
 
 	width: 100%;
-	background: #ffffff;
+	background: $white;
 	border-top: 2px solid #dedee0;
 	box-sizing: border-box;
 	border-radius: 0 0 5px 5px;
@@ -100,11 +102,11 @@
 	padding: 2.5px 20px 2.5px 37px;
 	font-size: 14px;
 	line-height: 26px;
-	color: #373738;
+	color: $dark_text;
 	cursor: pointer;
 
 	&:hover {
-		background-color: #f0f0f0;
+		background-color: $gray;
 	}
 }
 
@@ -128,7 +130,7 @@
 		font-size: 14px;
 		line-height: 26px;
 
-		color: #373738;
+		color: $dark_text;
 		overflow: hidden;
 		text-transform: capitalize;
 	}
@@ -144,7 +146,7 @@
 	left: 0;
 	padding: 9.5px 0 19.5px 0;
 	width: 100%;
-	background: #fff;
+	background: $white;
 	border-top: 2px solid #dedee0;
 	box-sizing: border-box;
 	border-radius: 0 0 5px 5px;
@@ -155,11 +157,11 @@
 		margin: 0;
 		font-size: 14px;
 		line-height: 26px;
-		color: #373738;
+		color: $dark_text;
 		cursor: pointer;
 
 		&:hover {
-			background-color: #f0f0f0;
+			background-color: $gray;
 		}
 	}
 }

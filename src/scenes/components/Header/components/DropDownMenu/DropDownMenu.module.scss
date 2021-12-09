@@ -1,6 +1,8 @@
+@import 'Colors.module.scss';
+
 .dropDownMenu {
 	position: absolute;
-	background: #ffffff;
+	background: $white;
 	width: 234px;
 	height: 160px;
 	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
@@ -27,7 +29,7 @@
 
 	.viewerEmail {
 		margin-left: 16px;
-		color: #707070;
+		color: $dark;
 		font-weight: 300;
 	}
 }
@@ -35,7 +37,7 @@
 .linkToSettings {
 	display: block;
 	font-size: 14px;
-	color: #373738;
+	color: $dark_text;
 	text-decoration: none;
 	line-height: 26px;
 	margin: 11px 0 20px 16px;
@@ -47,7 +49,7 @@
 
 .logout {
 	font-size: 14px;
-	color: #f44336;
+	color: $error;
 	cursor: pointer;
 	margin-left: 16px;
 	line-height: 26px;

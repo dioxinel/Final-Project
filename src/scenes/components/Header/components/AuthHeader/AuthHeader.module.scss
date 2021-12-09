@@ -1,3 +1,5 @@
+@import 'Colors.module.scss';
+
 .viewer {
 	justify-self: end;
 	display: flex;
@@ -9,7 +11,7 @@
 }
 
 .viewerGreeting {
-	color: #fff;
+	color: $white;
 	font-size: 12px;
 	margin-right: 15px;
 }
@@ -18,10 +20,10 @@
 	display: inline-block;
 
 	background-color: #dedee0;
-	border: 2px solid #fd7114;
+	border: 2px solid $orange_main;
 	border-radius: 50%;
 
-	color: #110f21;
+	color: $dark_blue;
 	line-height: 38px;
 	height: 38px;
 	min-width: 40px;
@@ -41,7 +43,7 @@
 .registerBtn {
 	margin-left: 10px;
 	font-size: 12px;
-	color: #fff;
+	color: $white;
 	letter-spacing: 0.4px;
 	text-transform: uppercase;
 	cursor: pointer;
@@ -49,7 +51,7 @@
 
 .loginBtn {
 	font-size: 12px;
-	color: #fff;
+	color: $white;
 	letter-spacing: 0.4px;
 	text-transform: uppercase;
 	cursor: pointer;
@@ -57,7 +59,7 @@
 
 .line {
 	margin: 0 15px;
-	background-color: #fd7114;
+	background-color: $orange_main;
 	height: 13px;
 	width: 2px;
 }

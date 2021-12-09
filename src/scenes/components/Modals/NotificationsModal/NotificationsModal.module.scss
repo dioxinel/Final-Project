@@ -1,3 +1,5 @@
+@import 'Colors.module.scss';
+
 .modal {
 	max-width: 584px;
 	width: 100%;
@@ -37,17 +39,17 @@
 }
 
 .alert {
-	background: #afdbbe;
+	background: $success_message;
 }
 
 .error {
-	background: #df9ca1;
+	background: $error_message;
 }
 
 .notificationText {
 	font-size: 18px;
 	margin-left: 20px;
-	color: #373738;
+	color: $dark_text;
 	max-width: 500px;
 }
 

@@ -1,3 +1,5 @@
+@import 'Colors.module.scss';
+
 .cartPageContainer {
 	width: 100%;
 	display: flex;
@@ -9,7 +11,7 @@
 	min-width: 320px;
 	max-width: 984px;
 	min-height: calc(100vh - 152px);
-	background-color: #fff;
+	background-color: $white;
 	align-self: center;
 	box-sizing: border-box;
 	display: grid;
@@ -43,7 +45,7 @@
 
 	width: 559px;
 	min-height: 160px;
-	background: #ffffff;
+	background: $white;
 	margin-bottom: 23px;
 
 	border: 1px solid #eceef0;
@@ -95,7 +97,7 @@
 		overflow: hidden;
 		font-size: 15px;
 		line-height: 22px;
-		color: #373738;
+		color: $dark_text;
 		display: flex;
 		flex-direction: column;
 		grid-area: 'price';
@@ -106,7 +108,7 @@
 			font-size: 18px;
 			line-height: 26px;
 			letter-spacing: 0.5px;
-			color: #373738;
+			color: $dark_text;
 			margin: 7px 0 0 0;
 		}
 
@@ -116,7 +118,7 @@
 			font-size: 15px;
 			line-height: 22px;
 
-			color: #373738;
+			color: $dark_text;
 		}
 	}
 }

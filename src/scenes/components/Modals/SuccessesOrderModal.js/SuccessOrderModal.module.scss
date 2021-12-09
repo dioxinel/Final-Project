@@ -1,9 +1,11 @@
+@import 'Colors.module.scss';
+
 .successOrderModal {
 	display: block;
 	position: fixed;
 	max-width: 480px;
 	width: 95%;
-	background-color: #fff;
+	background-color: $white;
 	height: 404px;
 	left: 50%;
 	right: 50%;
@@ -58,7 +60,7 @@
 	font-size: 15px;
 	line-height: 22px;
 	text-align: center;
-	color: #373738;
+	color: $dark_text;
 	margin-bottom: 38px;
 }
 

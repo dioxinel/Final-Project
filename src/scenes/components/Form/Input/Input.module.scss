@@ -1,26 +1,28 @@
+@import 'Colors.module.scss';
+
 .input {
 	width: 100%;
 	height: 40px;
 	font-size: 16px;
 	padding-left: 12px;
 	box-sizing: border-box;
-	color: #707070;
+	color: $dark;
 	border: 1px solid #e0e0e0;
 	border-radius: 4px;
 }
 
 .error {
-	border: 1px solid #f44336 !important;
+	border: 1px solid $error !important;
 	outline: none;
 }
 
 .errorLabel {
-	color: #f44336 !important;
+	color: $error !important;
 }
 
 .errorMessage {
 	margin-top: 3px;
-	color: #f44336;
+	color: $error;
 	font-size: 12px;
 	letter-spacing: 0.4 px;
 }
@@ -46,7 +48,7 @@
 	max-width: 280px;
 	height: 36px;
 	font-size: 16px;
-	color: #707070;
+	color: $dark;
 	border: 0;
 	outline: none;
 }
@@ -54,7 +56,7 @@
 .passwordLabel {
 	font-size: 12px;
 	line-height: 20px;
-	color: #707070;
+	color: $dark;
 	width: 280px;
 	align-self: flex-start;
 }
@@ -68,7 +70,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	background: #ffffff;
+	background: $white;
 	border: 1.08px solid #e4e4e4;
 	box-sizing: border-box;
 	box-shadow: 0px 5px 15px rgba(121, 121, 121, 0.0527344);
@@ -89,7 +91,7 @@
 	top: 38px;
 	padding: 1px 20px 20px 20px;
 	opacity: 1;
-	background: #ffffff;
+	background: $white;
 	height: 340px;
 	overflow-y: scroll;
 	overflow-x: hidden;
@@ -111,7 +113,7 @@
 	line-height: 23px;
 	letter-spacing: 0.4px;
 	margin: 2px 0;
-	color: #373738;
+	color: $dark_text;
 	cursor: pointer;
 }
 
@@ -128,9 +130,9 @@
 .label {
 	display: inline-block;
 	font-size: 12px;
-	background-color: #fff;
+	background-color: $white;
 	letter-spacing: 0.15px;
-	color: #707070;
+	color: $dark;
 	padding: 0 4px;
 	position: absolute;
 	left: 13px;

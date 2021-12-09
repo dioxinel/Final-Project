@@ -1,10 +1,12 @@
+@import 'Colors.module.scss';
+
 .saveProductModal {
 	display: block;
 	position: fixed;
 	max-width: 425px;
 	width: 95%;
 	height: 397px;
-	background-color: #fff;
+	background-color: $white;
 	left: 50%;
 	right: 50%;
 	top: 40%;
@@ -44,7 +46,7 @@
 	font-size: 25px;
 	line-height: 35px;
 	letter-spacing: 0.4px;
-	color: #373738;
+	color: $dark_text;
 	margin-bottom: 32px;
 }
 

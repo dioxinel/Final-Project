@@ -1,3 +1,5 @@
+@import 'Colors.module.scss';
+
 .header {
 	width: 100%;
 	min-height: 76px;
@@ -10,7 +12,7 @@
 	justify-content: space-between;
 	align-items: center;
 	box-sizing: border-box;
-	background-color: #110f21;
+	background-color: $dark_blue;
 }
 
 .savedIcon {
@@ -33,8 +35,8 @@
 		left: 11px;
 		width: 13px;
 		height: 13px;
-		background: #fd7114;
-		border: 1px solid #110f21;
+		background: $orange_main;
+		border: 1px solid $dark_blue;
 		border-radius: 50%;
 		cursor: pointer;
 
@@ -43,7 +45,7 @@
 		line-height: 13px;
 		letter-spacing: 0.4px;
 		text-align: center;
-		color: #110f21;
+		color: $dark_blue;
 	}
 }
 

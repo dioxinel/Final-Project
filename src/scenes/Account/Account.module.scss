@@ -1,3 +1,5 @@
+@import 'Colors.module.scss';
+
 .accountPageContainer {
 	width: auto;
 	display: grid;
@@ -8,7 +10,7 @@
 	width: 90vw;
 	max-width: 904px;
 	min-height: calc(100vh - 70px);
-	background-color: #fff;
+	background-color: $white;
 	align-self: center;
 	padding: 49px 0 20px 0;
 	box-sizing: border-box;
@@ -32,7 +34,7 @@
 		background-color: #dedee0;
 		border-radius: 50%;
 
-		color: #110f21;
+		color: $dark_blue;
 		line-height: 88px;
 		height: 88px;
 		width: 88px;
@@ -65,21 +67,21 @@
 		font-size: 15px;
 		line-height: 74px;
 		cursor: pointer;
-		color: #373738;
+		color: $dark_text;
 	}
 
 	.accountBtnActivated {
 		position: relative;
 		width: 163px;
 		height: 74px;
-		background-color: #fd7114;
+		background-color: $orange_main;
 		border: 1.3px solid #dedee0;
 
 		text-align: center;
 		font-size: 15px;
 		line-height: 74px;
 		cursor: default;
-		color: #fff;
+		color: $white;
 
 		&::after {
 			content: '';
@@ -87,7 +89,7 @@
 			left: 75px;
 			bottom: -20px;
 			border: 10px solid transparent;
-			border-top: 10px solid #fd7114;
+			border-top: 10px solid $orange_main;
 		}
 	}
 }

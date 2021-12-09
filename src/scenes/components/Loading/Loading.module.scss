@@ -1,3 +1,5 @@
+@import 'Colors.module.scss';
+
 .modal {
 	display: flex;
 	align-items: center;
@@ -25,5 +27,5 @@
 }
 
 .loading {
-	color: #fff;
+	color: $white;
 }

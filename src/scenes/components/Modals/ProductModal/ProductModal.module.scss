@@ -1,3 +1,5 @@
+@import 'Colors.module.scss';
+
 .productModal {
 	position: fixed;
 	max-width: 1003px;
@@ -5,7 +7,7 @@
 	width: 90%;
 	height: 90%;
 	overflow-y: hidden;
-	background-color: #fff;
+	background-color: $white;
 	left: 50%;
 	right: 50%;
 	top: 50%;
@@ -55,7 +57,7 @@
 	max-height: 296px;
 	width: auto;
 	height: auto;
-	background: #ffffff;
+	background: $white;
 	border: 1px solid #e4e4e4;
 	box-shadow: 0px 4px 14px rgba(121, 121, 121, 0.0527344);
 	border-radius: 4px;
@@ -87,12 +89,12 @@
 	max-height: 50px;
 	overflow: hidden;
 	font-weight: bold;
-	color: #373738;
+	color: $dark_text;
 }
 
 .description {
 	font-size: 15px;
-	color: #707070;
+	color: $dark;
 	max-width: 350px;
 	max-height: 88px;
 	overflow: hidden;
@@ -113,7 +115,7 @@
 			font-weight: 500;
 			font-size: 14px;
 			line-height: 26px;
-			color: #373738;
+			color: $dark_text;
 		}
 
 		.price {
@@ -121,7 +123,7 @@
 			font-size: 18px;
 			line-height: 26px;
 			letter-spacing: 0.5px;
-			color: #373738;
+			color: $dark_text;
 		}
 	}
 }
@@ -131,7 +133,7 @@
 	margin: 24px 0 48px 0;
 	.changeNumBtn {
 		font-size: 20px;
-		color: #707070;
+		color: $dark;
 		font-weight: 300;
 		line-height: 26px;
 		width: 26px;
@@ -156,13 +158,13 @@
 	.title {
 		font-size: 15px;
 		font-weight: normal;
-		color: #707070;
+		color: $dark;
 		width: 42px;
 		margin-right: 32px;
 	}
 
 	.totalPriceValue {
-		color: #373738;
+		color: $dark_text;
 		font-size: 18px;
 		font-weight: bold;
 		line-height: 26px;

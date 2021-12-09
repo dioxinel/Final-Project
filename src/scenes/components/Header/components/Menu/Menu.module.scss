@@ -1,3 +1,5 @@
+@import 'Colors.module.scss';
+
 .menuIcon {
 	display: none;
 	cursor: pointer;
@@ -30,10 +32,10 @@
 	display: inline-block;
 
 	background-color: #dedee0;
-	border: 2px solid #fd7114;
+	border: 2px solid $orange_main;
 	border-radius: 50%;
 
-	color: #110f21;
+	color: $dark_blue;
 	line-height: 38px;
 	height: 38px;
 	width: 40px;
@@ -51,7 +53,7 @@
 .settingsLink {
 	display: block;
 	font-size: 14px;
-	color: #373738;
+	color: $dark_text;
 	text-decoration: none;
 	line-height: 26px;
 	margin: 11px 0 20px 16px;

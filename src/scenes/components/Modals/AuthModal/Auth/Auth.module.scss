@@ -1,8 +1,10 @@
+@import 'Colors.module.scss';
+
 .register {
 	display: grid;
 	grid-template-columns: 1fr;
 	justify-items: center;
-	background-color: #ffffff;
+	background-color: $white;
 	box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
 	border-radius: 4px;
 	border-color: rgb(255, 255, 255);
@@ -12,7 +14,7 @@
 	display: grid;
 	grid-template-columns: 1fr;
 	justify-items: center;
-	background-color: #ffffff;
+	background-color: $white;
 	box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
 	border-radius: 4px;
 	border-color: rgb(255, 255, 255);
@@ -60,8 +62,8 @@
 	height: 36px;
 	font-weight: 500;
 	font-size: 14px;
-	color: #fff;
-	background-color: #fd7114;
+	color: $white;
+	background-color: $orange_main;
 	box-shadow: 0;
 	margin-top: 40px;
 	margin-bottom: 40px;
@@ -77,17 +79,17 @@
 	margin-top: 15px;
 	border-radius: 4px;
 
-	background-color: #fff;
+	background-color: $white;
 	box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
 
 	p {
-		color: #373738;
+		color: $dark_text;
 		font-size: 14px;
 	}
 
 	button {
 		font-size: 14px;
-		color: #fd7114;
+		color: $orange_main;
 		margin-left: 5px;
 		cursor: pointer;
 	}
@@ -98,11 +100,11 @@
 }
 
 .emailLabel {
-	background-color: #ffffff;
+	background-color: $white;
 	font-size: 12px;
 	display: block;
 	width: 47px;
-	color: #707070;
+	color: $dark;
 	display: block;
 	z-index: 2;
 	margin-left: 13px;

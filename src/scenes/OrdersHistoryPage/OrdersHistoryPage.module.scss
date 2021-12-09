@@ -1,3 +1,5 @@
+@import 'Colors.module.scss';
+
 .ordersList {
 	width: 100%;
 	display: grid;
@@ -16,7 +18,7 @@
 	width: 100%;
 	max-width: 486px;
 	height: 89px;
-	background: #ffffff;
+	background: $white;
 	margin-bottom: 20px;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
@@ -42,7 +44,7 @@
 		height: 22px;
 		font-size: 15px;
 		line-height: 22px;
-		color: #707070;
+		color: $dark;
 		margin-right: 15px;
 	}
 }
@@ -55,7 +57,7 @@
 
 	text-decoration-line: underline;
 
-	color: #148dfd;
+	color: $blue_btn;
 }
 
 .orderDate {
@@ -63,7 +65,7 @@
 	font-size: 15px;
 	line-height: 22px;
 
-	color: #373738;
+	color: $dark_text;
 }
 
 .rightPartOfItem {
@@ -76,5 +78,5 @@
 	height: 22px;
 	font-size: 15px;
 	line-height: 22px;
-	color: #707070;
+	color: $dark;
 }
