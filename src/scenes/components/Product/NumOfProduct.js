@@ -1,11 +1,10 @@
 import React from 'react';
 
-import s from '../ProductModal.module.scss';
+import s from './Product.module.scss';
 
 export function NumOfProduct({ num, setNum, className }) {
 	const handleDecrement = () => {
-		if (num <= 1) return;
-		setNum(num - 1);
+		setNum(Math.max(1, num - 1));
 	};
 
 	const handleIncrement = () => {
