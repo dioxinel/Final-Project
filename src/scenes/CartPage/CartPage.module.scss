@@ -35,92 +35,19 @@
 	position: relative;
 }
 
-.cartListItem {
-	display: grid;
-	justify-items: center;
-	align-items: center;
-	grid-template-columns: 141px 1fr 120px;
-	grid-template-rows: 1fr;
-	grid-template-areas: 'picture middle price';
+.trashCan {
+	margin: 0 20px;
+	cursor: pointer;
+}
 
-	width: 559px;
-	min-height: 160px;
-	background: $white;
-	margin-bottom: 23px;
-
-	border: 1px solid #eceef0;
-	box-shadow: 0px 4px 14px rgba(121, 121, 121, 0.0527344);
-	border-radius: 4px;
-
-	.cartProductPicture {
-		width: 125px;
-		height: 123px;
-		border-radius: 3px;
-		overflow: hidden;
-		grid-area: 'picture';
-	}
-
-	.middlePart {
-		width: 298px;
-		height: 103px;
-		display: flex;
-		flex-direction: column;
-		border-right: 1px solid #eceef0;
-		grid-area: 'middle';
-
-		.trashCan {
-			margin: 0 20px;
-			cursor: pointer;
-		}
-		.numOfProduct {
-			margin: 0;
-		}
-		& > div {
-			display: flex;
-			margin-top: 10px;
-		}
-	}
-
-	.productTitle {
-		font-size: 14px;
-		line-height: 26px;
-		color: #101010;
-		width: 250px;
-		height: 52px;
-		overflow: hidden;
-		margin-left: 20px;
-	}
-
-	.itemPrice {
-		margin-left: 26px;
-		width: 80px;
-		overflow: hidden;
-		font-size: 15px;
-		line-height: 22px;
-		color: $dark_text;
-		display: flex;
-		flex-direction: column;
-		grid-area: 'price';
-
-		p {
-			font-weight: bold;
-			display: block;
-			font-size: 18px;
-			line-height: 26px;
-			letter-spacing: 0.5px;
-			color: $dark_text;
-			margin: 7px 0 0 0;
-		}
-
-		h3 {
-			margin: 0;
-			font-weight: normal;
-			font-size: 15px;
-			line-height: 22px;
-
-			color: $dark_text;
-		}
-	}
+.productTitle {
+	font-size: 14px;
+	line-height: 26px;
+	color: #101010;
+	width: 250px;
+	height: 52px;
+	overflow: hidden;
+	margin-left: 20px;
 }
 
 .noItems {

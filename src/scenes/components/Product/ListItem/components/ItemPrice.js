@@ -1,6 +1,6 @@
 import React from 'react';
 
-import s from '../CartPage.module.scss';
+import s from '../ListItem.module.scss';
 
 export function ItemPrice({ price, className = s.itemPrice }) {
 	return (

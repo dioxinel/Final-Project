@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 
-import { NumOfProduct } from './NumOfProduct';
+import { NumOfProduct } from '../../../../components/Product/NumOfProduct';
 import { TotalPrice } from './TotalPrice';
 
 import s from '../ProductModal.module.scss';

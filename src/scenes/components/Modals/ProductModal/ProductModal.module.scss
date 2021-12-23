@@ -128,27 +128,6 @@
 	}
 }
 
-.numOfProduct {
-	display: flex;
-	margin: 24px 0 48px 0;
-	.changeNumBtn {
-		font-size: 20px;
-		color: $dark;
-		font-weight: 300;
-		line-height: 26px;
-		width: 26px;
-		height: 26px;
-		border-radius: 50%;
-		background-color: #e0e0e0;
-	}
-
-	.numOfItems {
-		margin: 0px 10px;
-		color: #000;
-		font-size: 15px;
-	}
-}
-
 .totalPrice {
 	.totalPriceContainer {
 		display: flex;
