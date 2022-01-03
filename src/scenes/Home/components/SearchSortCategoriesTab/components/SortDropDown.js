@@ -1,18 +1,11 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { setProductsFilterParams } from '../../../../../store/actions';
 
 import s from '../SearchSortCategoriesTab.module.scss';
 
-import api from '../../../../../api';
-import {
-	asyncRequest,
-	setProducts,
-	setSort,
-} from '../../../../../store/actions';
-
 export function SortDropDown({ closeMenu }) {
 	const dispatch = useDispatch();
-	const store = useSelector((store) => store.products);
 
 	function handleClickOnDropDownItem(evt) {
 		const sort = evt.target.closest('p');
@@ -24,25 +17,7 @@ export function SortDropDown({ closeMenu }) {
 		} else {
 			sorting = 'latest';
 		}
-
-		dispatch(setSort(sorting));
-		if (store.activeCategory) {
-			dispatch(
-				asyncRequest({
-					action: setProducts,
-					request: api.getProductsByCategory,
-					params: { id: store.activeCategory.id, sort: sorting },
-				}),
-			);
-		} else {
-			dispatch(
-				asyncRequest({
-					action: setProducts,
-					request: api.getProducts,
-					params: { sort: sorting },
-				}),
-			);
-		}
+		dispatch(setProductsFilterParams({ sort: sorting, fetchFrom: 0 }));
 		closeMenu();
 	}
 

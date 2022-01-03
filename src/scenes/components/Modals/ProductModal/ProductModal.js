@@ -19,8 +19,6 @@ export function ProductModal({ clickedProductId, setClickedProductId }) {
 		let productList;
 		if (location.pathname === '/account/favorites') {
 			productList = store.favorites;
-		} else if (store.searchProduct.length) {
-			productList = store.searchProduct;
 		} else {
 			productList = store.products;
 		}

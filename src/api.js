@@ -60,7 +60,7 @@ class Api {
 		return axios.get(`/api/api/categories`);
 	}
 
-	getProductsByCategory({ id, fetchFrom = 0, sort }) {
+	getProductsByCategory({ category, fetchFrom = 0, sort }) {
 		let sorting = '';
 
 		if (sort) {
@@ -68,7 +68,7 @@ class Api {
 		}
 
 		return axios.get(
-			`/api/api/categories/${id}/products?offset=${fetchFrom}${sorting}`,
+			`/api/api/categories/${category.id}/products?offset=${fetchFrom}${sorting}`,
 		);
 	}
 

@@ -11,14 +11,18 @@ import { useDropDown } from '../../../../../utils/useDropDown';
 export function Sorting() {
 	const { isOpen, openMenu, closeMenu } = useDropDown('#dropDownSorting');
 
-	const store = useSelector((store) => store.products);
+	const filterParams = useSelector(
+		(store) => store.products.productsFilterParams,
+	);
+
+	const sort = filterParams.sort;
 
 	return (
 		<div className={`${s.sorting} ${isOpen ? s.active : ''}`} onClick={openMenu}>
 			<Icon name='sort-icon' className={s.categoriesIcon} />
-			{store.sort ? (
+			{sort ? (
 				<>
-					<div>{store.sort === 'popular' ? 'popular' : 'new'}</div>
+					<div>{sort === 'popular' ? 'popular' : 'new'}</div>
 					<RemoveSorting />
 				</>
 			) : (

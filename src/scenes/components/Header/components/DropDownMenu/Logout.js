@@ -5,9 +5,9 @@ import { useHistory } from 'react-router';
 import s from './DropDownMenu.module.scss';
 
 import {
-	clearProductsStore,
 	removeCartItems,
 	removeViewer,
+	setProductsFilterParams,
 } from '../../../../../store/actions';
 import api from '../../../../../api';
 
@@ -25,7 +25,16 @@ export function Logout({ closeMenu }) {
 		}
 		dispatch(removeViewer());
 		api.logout();
-		dispatch(clearProductsStore());
+		dispatch(
+			setProductsFilterParams({
+				category: '',
+				sort: '',
+				fetchFrom: 0,
+				keywords: '',
+				isMoreProducts: true,
+				isFetching: true,
+			}),
+		);
 		dispatch(removeCartItems());
 
 		history.push('/');

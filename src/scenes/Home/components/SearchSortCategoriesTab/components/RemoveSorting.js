@@ -1,40 +1,18 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { setProductsFilterParams } from '../../../../../store/actions';
 
 import Icon from '../../../../components/Icon';
 
 import s from '../SearchSortCategoriesTab.module.scss';
-import api from '../../../../../api';
-import {
-	asyncRequest,
-	setProducts,
-	setSort,
-} from '../../../../../store/actions';
 
 export function RemoveSorting() {
 	const dispatch = useDispatch();
 
-	const store = useSelector((store) => store.products);
-
 	const handleRemoveSorting = (evt) => {
-		dispatch(setSort(''));
-		if (store.activeCategory) {
-			dispatch(
-				asyncRequest({
-					action: setProducts,
-					request: api.getProductsByCategory,
-					params: { id: store.activeCategory.id, sort: '' },
-				}),
-			);
-		} else {
-			dispatch(
-				asyncRequest({
-					action: setProducts,
-					request: api.getProducts,
-					params: { sort: '' },
-				}),
-			);
-		}
+		dispatch(
+			setProductsFilterParams({ sort: '', fetchFrom: 0, isFetching: true }),
+		);
 		evt.stopPropagation();
 	};
 

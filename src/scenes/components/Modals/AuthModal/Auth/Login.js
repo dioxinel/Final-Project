@@ -10,8 +10,8 @@ import s from './Auth.module.scss';
 
 import api from '../../../../../api.js';
 import {
-	clearProductsStore,
 	postAuthAction,
+	setProductsFilterParams,
 	setViewer,
 } from '../../../../../store/actions';
 import { useFormFields } from '../../../../../utils/useFormFields';
@@ -41,7 +41,15 @@ export function Login() {
 		}
 
 		dispatch(setViewer(res));
-		dispatch(clearProductsStore());
+		dispatch(
+			setProductsFilterParams({
+				category: '',
+				sort: '',
+				fetchFrom: 0,
+				keywords: '',
+				isMoreProducts: true,
+			}),
+		);
 
 		setIsOpen(false);
 		reset();
