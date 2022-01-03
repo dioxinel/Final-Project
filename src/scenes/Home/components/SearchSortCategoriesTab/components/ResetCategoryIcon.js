@@ -1,16 +1,16 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { setProductsFilterParams } from '../../../../../store/actions';
 
 import Icon from '../../../../components/Icon';
 
 import s from '../SearchSortCategoriesTab.module.scss';
-import { setActiveCategory } from '../../../../../store/actions';
 
 export function ResetCategoryIcon() {
 	const dispatch = useDispatch();
 
 	const handleClick = (evt) => {
-		dispatch(setActiveCategory(''));
+		dispatch(setProductsFilterParams({ category: '', fetchFrom: 0 }));
 		evt.stopPropagation();
 	};
 

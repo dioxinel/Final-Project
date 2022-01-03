@@ -1,43 +1,71 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import ClipLoader from 'react-spinners/ClipLoader';
 
 import { SearchSortCategoriesTab } from './components/SearchSortCategoriesTab/SearchSortCategoriesTab';
-import { SearchProductList } from './components/SearchProductList';
 import { HomeProductList } from './components/HomeProductList';
 
 import s from './Home.module.scss';
 
 import api from '../../api';
-import { asyncRequest, setProducts } from '../../store/actions';
+import {
+	addProducts,
+	asyncRequestProducts,
+	setProducts,
+	setProductsFilterParams,
+} from '../../store/actions';
 
 export function Home() {
 	const dispatch = useDispatch();
-	const store = useSelector((store) => store.products);
+	const { category, sort, fetchFrom, isMoreProducts, keywords, isFetching } =
+		useSelector((store) => store.products.productsFilterParams);
 
 	useEffect(() => {
-		if (store.activeCategory) {
+		dispatch(setProductsFilterParams({ isFetching: true, isMoreProducts: true }));
+	}, [category, sort, keywords, dispatch]);
+
+	useEffect(() => {
+		function handleScroll(e) {
+			if (
+				e.target.documentElement.scrollHeight -
+					(e.target.documentElement.scrollTop + window.innerHeight) <
+					100 &&
+				isMoreProducts &&
+				!isFetching
+			) {
+				dispatch(setProductsFilterParams({ isFetching: true }));
+			}
+		}
+		document.addEventListener('scroll', handleScroll);
+		return () => {
+			document.removeEventListener('scroll', handleScroll);
+		};
+	}, [isMoreProducts, isFetching, dispatch]);
+
+	useEffect(() => {
+		if (isFetching) {
 			dispatch(
-				asyncRequest({
-					action: setProducts,
-					request: api.getProductsByCategory,
-					params: { id: store.activeCategory.id, sort: store.sort },
-				}),
-			);
-		} else {
-			dispatch(
-				asyncRequest({
-					action: setProducts,
-					request: api.getProducts,
-					params: { sort: store.sort },
+				asyncRequestProducts({
+					action: fetchFrom ? addProducts : setProducts,
+					request: keywords
+						? api.searchProduct
+						: category
+						? api.getProductsByCategory
+						: api.getProducts,
+					params: { category, sort, fetchFrom, keywords },
+					loading: !fetchFrom,
 				}),
 			);
 		}
-	}, [dispatch, store.sort, store.activeCategory]);
+	}, [dispatch, category, sort, fetchFrom, isFetching, keywords]);
 
 	return (
 		<div className={s.home}>
 			<SearchSortCategoriesTab />
-			{store.searchProduct.length ? <SearchProductList /> : <HomeProductList />}
+			<HomeProductList />
+			<div className={s.loader}>
+				<ClipLoader color='#fd7114' loading={isFetching} size={45} />
+			</div>
 		</div>
 	);
 }

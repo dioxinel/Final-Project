@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
 
 import { ResetCategoryIcon } from './ResetCategoryIcon';
 import { CategoriesContent } from './CategoriesContent';
@@ -11,13 +10,18 @@ import api from '../../../../../api';
 
 import { useAsyncRequest } from '../../../../../utils/useAsyncRequest';
 import { useDropDown } from '../../../../../utils/useDropDown';
+import { useSelector } from 'react-redux';
 
 export function Categories() {
 	const { asyncRequest } = useAsyncRequest();
 	const [categories, setCategories] = useState([]);
 	const { isOpen, openMenu, closeMenu } = useDropDown('#dropDownList');
 
-	const activeCategory = useSelector((store) => store.products.activeCategory);
+	const filterParams = useSelector(
+		(store) => store.products.productsFilterParams,
+	);
+
+	const activeCategory = filterParams.category;
 
 	useEffect(() => {
 		if (categories.length) return;

@@ -8,13 +8,8 @@ export const removeProductFromFavorites = createAction(
 	'products/removeFromFavorites',
 );
 export const removeFromProductsStore = createAction('products/removeFromStore');
-export const setSearchProduct = createAction('searchProduct/set');
-export const clearSearchProductPage = createAction('searchProductPage/clear');
-export const setKeywords = createAction('keywords/set');
-export const addSearchProduct = createAction('searchProduct/add');
-export const setActiveCategory = createAction('activeCategory/set');
 export const setProducts = createAction('products/set');
-export const setSort = createAction('sort/set');
+export const setProductsFilterParams = createAction('filterParams/set');
 
 export const setViewer = createAction('viewer/set');
 export const removeViewer = createAction('viewer/remove');
@@ -33,7 +28,9 @@ export const removeCartItems = createAction('cartItems/remove');
 export const asyncRequest = (payload) => async (dispatch) => {
 	try {
 		dispatch(errorLoading(''));
+
 		dispatch(startLoading());
+
 		const res = await payload.request(payload.params);
 		dispatch(payload.action(res.data));
 	} catch (err) {
@@ -44,24 +41,25 @@ export const asyncRequest = (payload) => async (dispatch) => {
 	}
 };
 
-export const searchProduct = (payload) => async (dispatch) => {
+export const asyncRequestProducts = (payload) => async (dispatch) => {
 	try {
 		dispatch(errorLoading(''));
-		dispatch(startLoading());
-		dispatch(clearSearchProductPage());
-		const res = await api.searchProduct({ keywords: payload });
-
-		if (res.data.length === 0) {
-			dispatch(setSearchProduct(['not found']));
-			return;
+		if (payload.loading) {
+			dispatch(startLoading());
 		}
-		dispatch(setSearchProduct(res.data));
-		dispatch(setKeywords(payload));
+		const res = await payload.request(payload.params);
+		dispatch(payload.action(res.data));
 	} catch (err) {
 		console.log(err);
 		dispatch(errorLoading(err.message));
 	} finally {
 		dispatch(endLoading());
+		dispatch(
+			setProductsFilterParams({
+				fetchFrom: payload.params.fetchFrom + 20,
+				isFetching: false,
+			}),
+		);
 	}
 };
 
@@ -97,15 +95,4 @@ export const postAuthAction = (payload) => async (dispatch) => {
 		dispatch(addProductToFavorites(payload.props.id));
 		await api.addToFavorites(payload.props.id);
 	}
-};
-
-export const clearProductsStore = (payload) => async (dispatch) => {
-	dispatch(removeFromProductsStore);
-	dispatch(
-		asyncRequest({
-			action: setProducts,
-			request: api.getProducts,
-			params: { sort: '' },
-		}),
-	);
 };

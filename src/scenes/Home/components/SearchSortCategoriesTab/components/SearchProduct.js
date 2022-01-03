@@ -5,7 +5,7 @@ import Icon from '../../../../components/Icon';
 
 import s from '../SearchSortCategoriesTab.module.scss';
 import { useDebounce } from '../../../../../utils/utils';
-import { searchProduct, setSearchProduct } from '../../../../../store/actions';
+import { setProductsFilterParams } from '../../../../../store/actions';
 
 export function SearchProduct() {
 	const [keyword, setKeyword] = useState('');
@@ -16,9 +16,14 @@ export function SearchProduct() {
 
 	useEffect(() => {
 		if (debouncedSearchTerm.length > 3 && debouncedSearchTerm.length < 50) {
-			dispatch(searchProduct(debouncedSearchTerm.toLowerCase()));
+			dispatch(
+				setProductsFilterParams({
+					keywords: debouncedSearchTerm.toLowerCase(),
+					fetchFrom: 0,
+				}),
+			);
 		} else {
-			dispatch(setSearchProduct([]));
+			dispatch(setProductsFilterParams({ keywords: '', fetchFrom: 0 }));
 		}
 	}, [debouncedSearchTerm, dispatch]);
 

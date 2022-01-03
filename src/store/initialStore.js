@@ -3,12 +3,14 @@ export const initialStore = {
 	loading: { isLoading: false, error: '' },
 	products: {
 		products: [],
-		productsPage: { isMoreProducts: true, fetchFrom: 0 },
+		productsFilterParams: {
+			category: '',
+			sort: '',
+			fetchFrom: 0,
+			isMoreProducts: true,
+			keywords: '',
+		},
 		favorites: [],
-		searchProduct: [],
-		searchProductPage: { isMoreProducts: true, fetchFrom: 0, keywords: '' },
-		activeCategory: '',
-		sort: '',
 	},
 	cart: { items: [], totalCount: 0, totalPrice: 0 },
 };

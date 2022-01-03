@@ -8,16 +8,14 @@ import { Sorting } from './components/Sorting';
 import s from './SearchSortCategoriesTab.module.scss';
 
 export function SearchSortCategoriesTab() {
-	const store = useSelector((store) => store.products);
+	const { keywords } = useSelector(
+		(store) => store.products.productsFilterParams,
+	);
 
 	return (
-		<div
-			className={`${s.searchSortCategoriesTab} ${
-				store.searchProduct.length && s.searched
-			}`}
-		>
+		<div className={`${s.searchSortCategoriesTab} ${keywords && s.searched}`}>
 			<SearchProduct />
-			{!store.searchProduct.length ? (
+			{!keywords ? (
 				<>
 					<Categories />
 					<Sorting />
